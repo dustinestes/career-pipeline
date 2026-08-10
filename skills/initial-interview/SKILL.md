@@ -11,7 +11,7 @@ disable-model-invocation: true
 
 ## Instructions
 
-**Input:** Company + role title, or path to `3 - Applications/<Company>/<Job Title>/`. Optional: invite email (`.eml`).
+**Input:** Company + role title, or path to `submissions/<Company>/<Job Title>/`. Optional: invite email (`.eml`).
 
 ### Step 1: Locate application
 

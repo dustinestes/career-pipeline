@@ -6,7 +6,7 @@ alwaysApply: false
 
 # Cover Letter Standards
 
-Canonical template: `1 - Design/cover-letter.html`
+Canonical template: `design/cover-letter.html`
 
 ## Non-negotiable design
 

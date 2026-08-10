@@ -70,7 +70,7 @@ before researching each one in depth.
 
 **Input:** "Check Vercel again" (three months after the file in Example 1 was created)
 
-**Agent:** Sees `2 - Leads/Vercel.md` already exists, treats this as a
+**Agent:** Sees `leads/Vercel.md` already exists, treats this as a
 refresh per `.cursor/rules/lead-format.mdc`. Re-verifies Overview, Products/
 Services, Market Sentiment, and Fit Notes rather than assuming they still
 hold; replaces Recent News with the new trailing 6 months; prepends a new
