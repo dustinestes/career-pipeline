@@ -38,7 +38,7 @@ cp -R template my-job-search
 cd my-job-search
 ```
 
-Personalization config (YAML profile) and design templates are being added next. See open issues on this repository.
+Personalization config: copy [`.career-pipeline.yml.example`](.career-pipeline.yml.example) to `.career-pipeline.yml` in your workspace (or start from [`template/`](template/), which already includes a Jordan Hale example). Field guide: [docs/config.md](docs/config.md). Design templates are tracked in open issues.
 
 ### Discoverability
 
@@ -64,7 +64,9 @@ See [docs/consuming-from-private-workspace.md](docs/consuming-from-private-works
 
 | Doc | Audience |
 |-----|----------|
+| [docs/config.md](docs/config.md) | `.career-pipeline.yml` field guide (schema + naming) |
 | [docs/develop.md](docs/develop.md) | Maintainer setup (including Clockify time tracking) |
+| [template/docs/customization.md](template/docs/customization.md) | YAML setup checklist for a job-search workspace |
 | [template/docs/tooling.md](template/docs/tooling.md) | PDF export in a job-search workspace |
 | [docs/consuming-from-private-workspace.md](docs/consuming-from-private-workspace.md) | Using this plugin from a private search repo |
 | [docs/tooling.md](docs/tooling.md) | Pointer to workspace tooling |

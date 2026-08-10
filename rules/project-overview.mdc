@@ -1,5 +1,5 @@
 ---
-description: Workspace purpose, folder map, and pointer to candidate profile
+description: Workspace purpose, folder map, and pointer to career-pipeline YAML config
 alwaysApply: true
 ---
 
@@ -16,7 +16,6 @@ This workspace runs a structured job search: resume design, exports, and applica
 | `leads/` | Company research profiles produced by `source-leads` |
 | `submissions/` | Per-company, per-role application tracking |
 | `submissions/.archive/` | Closed applications |
-| `4 - Reference/` | Candidate profile and shared reference docs |
 
 ## Submissions path
 
@@ -28,7 +27,7 @@ Company research: `leads/<Company>.md`
 
 ## Personal context
 
-Read `4 - Reference/candidate-profile.md` for salary floor, location preferences, target roles, background facts, and file naming patterns. Do not hardcode candidate-specific details in rules or skills.
+Read workspace-root `.career-pipeline.yml` for salary floor, location preferences, target roles, background facts, and naming patterns. Do not hardcode candidate-specific details in rules or skills. Field guide: plugin `docs/config.md` (or `docs/customization.md` in this workspace).
 
 ## Workflows
 

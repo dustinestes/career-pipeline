@@ -35,5 +35,5 @@ Advanced: add `career-pipeline` as a submodule and point docs at `career-pipelin
 Before any public template push from a personal search repo:
 
 - Remove or anonymize `submissions/`
-- Replace `candidate-profile.md` with the example
+- Replace `.career-pipeline.yml` with the public Jordan Hale example (or strip personal fields)
 - Strip PDFs, `.eml`, and CI secrets

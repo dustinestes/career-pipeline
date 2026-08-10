@@ -33,7 +33,7 @@ Header → addressee block → role chip → salutation → body (3–5 paragrap
 
 ## Tone
 
-- Open with a specific story or insight from `candidate-profile.md`, not a generic introduction
+- Open with a specific story or insight from `.career-pipeline.yml` `background.stories`, not a generic introduction
 - Acknowledge gaps briefly; do not minimize or dwell
 - Close with the canonical invitation: “I'd welcome the opportunity to further illustrate how I can add value to the team at &lt;Company&gt;.” (confidence + offer to prove it). Website link is optional; omit when the user asks.
 - Must read as a human wrote it:

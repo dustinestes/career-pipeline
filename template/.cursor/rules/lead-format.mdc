@@ -49,7 +49,7 @@ any red flags (layoffs, leadership churn, negative press)>
 ## Fit Notes
 
 <Why this company matches the target risk/growth profile in
-4 - Reference/candidate-profile.md — momentum signals, culture signals>
+.career-pipeline.yml (preferences.company_stage_risk / search) — momentum signals, culture signals>
 
 ## Open Roles History
 
@@ -73,8 +73,9 @@ sustained growth — call out which), and any notable shift in hiring volume,
 location policy, or seniority level between runs.>
 ```
 
-Read `4 - Reference/candidate-profile.md` for search parameters (salary floor,
-location requirement, target roles, risk/stage preference) when evaluating fit
+Read workspace-root `.career-pipeline.yml` for search parameters
+(`compensation.salary_floor`, `preferences` location/work mode,
+`search.target_roles`, `preferences.company_stage_risk`) when evaluating fit
 and searching for open roles.
 
 ## Refreshing an existing lead file

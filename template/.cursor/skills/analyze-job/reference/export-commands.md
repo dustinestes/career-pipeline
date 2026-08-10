@@ -3,4 +3,5 @@
 Canonical tooling reference: [docs/tooling.md](docs/tooling.md)
 
 When running `analyze-job`, read export and install commands from that file.
-Read `<Prefix>` and `<ResumeFile>` from `4 - Reference/candidate-profile.md`.
+Resolve artifact basenames from workspace-root `.career-pipeline.yml` `naming.*`
+(tokens and filename-safe cleanup: plugin `docs/config.md`).

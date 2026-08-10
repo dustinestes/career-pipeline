@@ -5,10 +5,11 @@ Forkable job-search workspace used with the **career-pipeline** plugin (skills +
 ## Quick start
 
 1. Install or symlink the parent **career-pipeline** plugin (see parent README)
-2. Add design sources under `design/` when templates are available (see open issues)
-3. In Cursor, invoke `/analyze-job` with a posting URL (or ask in natural language)
+2. Edit [`.career-pipeline.yml`](.career-pipeline.yml) (ships as a Jordan Hale example; replace with your details)
+3. Add design sources under `design/` when templates are available (see open issues)
+4. In Cursor, invoke `/analyze-job` with a posting URL (or ask in natural language)
 
-Personalization currently still referenced as a candidate profile in skills; a YAML config (`.career-pipeline.yml`) is the planned replacement.
+Setup checklist: [docs/customization.md](docs/customization.md).
 
 ## Lifecycle
 
@@ -22,6 +23,7 @@ Personalization currently still referenced as a candidate profile in skills; a Y
 
 ## Docs
 
+- [docs/customization.md](docs/customization.md) — YAML profile setup
 - [docs/tooling.md](docs/tooling.md) — Chrome headless PDF + `pdfunite`
 
 See the parent [career-pipeline README](../README.md) for plugin install options.

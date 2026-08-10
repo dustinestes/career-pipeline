@@ -1,0 +1,125 @@
+# yaml-language-server: $schema=./schemas/career-pipeline.schema.json
+# Example workspace config (Jordan Hale). Copy to `.career-pipeline.yml` in a job-search workspace.
+# Field guide: docs/config.md
+
+version: 1
+
+candidate:
+  first_name: Jordan
+  last_name: Hale
+  location:
+    city: Austin
+    region: TX
+    country: US
+
+compensation:
+  salary_floor: 65000
+  currency: USD
+  equity_counts_toward_floor: false
+  notes: >-
+    Evaluate base salary against the floor. Equity or RSU upside is interesting
+    but does not satisfy the floor on its own.
+
+preferences:
+  work_mode: hybrid
+  location_notes: >-
+    Prefer Austin metro or Texas hybrid with clear onsite expectations.
+    Treat "remote" claims carefully: confirm whether the role is US-remote,
+    Texas-only, or Austin-office with occasional WFH.
+  company_stage_risk: >-
+    Prefer established logistics, distribution, and retail-ops employers
+    (stable process, clear shift structure). Avoid early-stage equity-heavy
+    startups where base pay is below the floor.
+
+search:
+  target_roles:
+    - Warehouse Operations Supervisor
+    - Logistics Coordinator
+    - Distribution Center Lead
+    - Inventory Control Specialist
+  also_consider:
+    - Operations Coordinator
+    - Fulfillment Supervisor
+    - Supply Chain Coordinator
+  flag:
+    - Pure desk analyst roles with no floor or people leadership
+    - Commission-only sales
+    - Unpaid training periods
+  search_terms:
+    - warehouse supervisor Austin
+    - logistics coordinator Texas
+    - distribution lead hybrid
+
+background:
+  summary: >-
+    Operations-minded lead who moved from retail floor leadership into
+    warehouse and distribution coordination. Strong on shift communication,
+    inventory accuracy, and coaching associates under volume pressure.
+  experience:
+    - employer: Summitlane Distribution
+      title: Logistics Coordinator
+      start: "2023-03"
+      end: present
+      highlights:
+        - Coordinated inbound appointments and dock flow for a regional DC
+        - Cut mis-ship investigations by tightening pick-audit handoffs
+        - Partnered with carriers on recurring late-delivery patterns
+    - employer: Northpine Logistics
+      title: Warehouse Team Lead
+      start: "2020-06"
+      end: "2023-02"
+      highlights:
+        - Led a 12-person pick/pack team through peak season volume
+        - Introduced a simple stand-up checklist that reduced missed SLAs
+        - Trained new hires on RF scanner workflows and safety basics
+    - employer: Bright Harbor Retail
+      title: Shift Supervisor
+      start: "2016-08"
+      end: "2020-05"
+      highlights:
+        - Ran opening/closing shifts and floor coverage for a busy store
+        - Owned cash office handoff and shrink awareness on the floor
+        - Coached associates on customer recovery after stockouts
+  education:
+    - school: Cedar Ridge Community College
+      credential: Certificate
+      field: Logistics and Supply Chain Fundamentals
+      year: 2021
+    - school: Cedar Ridge Community College
+      credential: Coursework
+      field: Business Administration
+      year: 2018
+  certifications:
+    - OSHA 10-Hour General Industry
+    - Forklift operator certification (sit-down)
+  skills:
+    - Warehouse management systems (WMS) basics
+    - Inventory cycle counts
+    - Shift planning and labor allocation
+    - Carrier appointment scheduling
+    - Team coaching and feedback
+    - Spreadsheet tracking (Google Sheets / Excel)
+  interests:
+    - Youth soccer coaching
+    - Trail running around Austin
+    - Community college mentoring nights
+  stories:
+    - >-
+      Peak season at Northpine: rebuilt the morning stand-up so pickers knew
+      the top five SKUs before the first cart rolled, which cut early-shift
+      idle time.
+    - >-
+      Bright Harbor: recovered a holiday stockout by coordinating an emergency
+      transfer and resetting the endcap before doors opened.
+  recurring_gaps:
+    - No formal four-year degree
+    - Limited exposure to large-enterprise SAP/Oracle stacks
+    - Has not managed multi-site networks as a director-level owner
+
+naming:
+  resume_version: "v1"
+  resume: "{firstName}{lastName}_Resume_{version}"
+  cover_letter: "{firstName}_{companyName}_CoverLetter"
+  assessment: "assessment"
+  job_posting_export: "{source}_{companyName}_{shortRole}"
+  combined_pdf: "{firstName}_{companyName}_{shortRole}"

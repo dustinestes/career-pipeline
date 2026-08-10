@@ -4,7 +4,7 @@ Job search workspace powered by **career-pipeline** skills and rules.
 
 ## Personal context
 
-Planned: workspace-root `.career-pipeline.yml` (salary floor, target roles, file naming). Skills still mention a legacy profile path until that lands.
+Read workspace-root [`.career-pipeline.yml`](.career-pipeline.yml) for salary floor, target roles, background, and naming patterns. Setup: [docs/customization.md](docs/customization.md).
 
 ## Workflows (invoke explicitly)
 
@@ -23,4 +23,5 @@ Planned: workspace-root `.career-pipeline.yml` (salary floor, target roles, file
 ## Human docs
 
 - [README.md](README.md)
+- [docs/customization.md](docs/customization.md)
 - [docs/tooling.md](docs/tooling.md)
