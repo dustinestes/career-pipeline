@@ -39,7 +39,7 @@ google-chrome --headless=new --window-size=816,900 \
 
 ```bash
 google-chrome --headless=new --window-size=816,900 \
-  --print-to-pdf="design/Exports/<resume-filename>.pdf" \
+  --print-to-pdf="design/exports/<resume-filename>.pdf" \
   --print-to-pdf-no-header --no-margins \
   "file://$PWD/design/resume.html?continuous"
 ```

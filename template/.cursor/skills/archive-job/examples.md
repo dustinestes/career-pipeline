@@ -19,7 +19,7 @@ submissions/Files.com/Infrastructure Engineer/
 
 **After:**
 ```
-submissions/# - Archive/Files.com/Infrastructure Engineer/
+submissions/.archive/Files.com/Infrastructure Engineer/
   notes.md
   assessment.md
   ...

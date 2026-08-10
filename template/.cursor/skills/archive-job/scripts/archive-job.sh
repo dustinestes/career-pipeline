@@ -9,7 +9,7 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/../../../../" && pwd)"
 SUBMISSIONS="$REPO_ROOT/submissions"
-ARCHIVE="$SUBMISSIONS/# - Archive"
+ARCHIVE="$SUBMISSIONS/.archive"
 
 COMPANY="${1:?Usage: archive-job.sh <company> <job title> [reason]}"
 JOB_TITLE="${2:?Usage: archive-job.sh <company> <job title> [reason]}"
