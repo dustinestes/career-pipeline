@@ -18,7 +18,7 @@ Personalization currently still referenced as a candidate profile in skills; a Y
 | New posting | `analyze-job` | Assessment + cover letter + PDFs under `submissions/` |
 | Interview invite | `initial-interview` | Phase skeleton + prep |
 | Later rounds | `next-interview` | Round prep |
-| Closed | `archive-job` | Moved under `# - Archive/` |
+| Closed | `archive-job` | Moved under `.archive/` |
 
 ## Docs
 

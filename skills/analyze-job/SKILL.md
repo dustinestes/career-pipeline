@@ -32,7 +32,7 @@ Task Progress:
 - [ ] assessment.md
 - [ ] cover-letter-<company>.html (from design/cover-letter.html)
 - [ ] cover-letter-<company>.pdf
-- [ ] Latest resume PDF from design/Exports/ (preserve filename)
+- [ ] Latest resume PDF from design/exports/ (preserve filename)
 - [ ] Combined PDF: <Prefix>_<Company>_<ShortRole>.pdf
 - [ ] Job posting PDF(s)
 ```

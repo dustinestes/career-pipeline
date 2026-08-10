@@ -26,7 +26,7 @@ Run from repo root:
 ```
 
 Or perform equivalent steps manually:
-1. Move folder to `submissions/# - Archive/<Company>/<Job Title>/`
+1. Move folder to `submissions/.archive/<Company>/<Job Title>/`
 2. Use `git mv` when files are tracked
 3. If `submissions/<Company>/` has no remaining role subfolders, remove the empty company directory
 4. If reason provided, write `notes.md` in the archived folder
