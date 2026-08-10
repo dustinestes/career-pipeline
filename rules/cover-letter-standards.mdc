@@ -1,0 +1,44 @@
+---
+description: Cover letter design system, CSS branding, structure, and anti-AI tone rules
+globs: "**/cover-letter*.html"
+alwaysApply: false
+---
+
+# Cover Letter Standards
+
+Canonical template: `1 - Design/cover-letter.html`
+
+## Non-negotiable design
+
+- Gold theme only — `#c8a96e`; no company accent colors or logos
+- Fonts — Syne (display) + DM Mono (mono)
+- Dark header, light body
+- No images — logo slot removed via JS when `--company-logo-url` is empty
+
+## CSS branding block
+
+```css
+:root {
+  --company-name:        "Company";
+  --company-team:        "Team Name";
+  --hiring-manager:      "Hiring Manager";
+  --role-title:          "Role Title";
+  --company-logo-url:    "";
+}
+```
+
+## Structure
+
+Header → addressee block → role chip → salutation → body (3–5 paragraphs, one pull quote) → signature. The `?continuous` script must be present for single-page PDF export.
+
+## Tone
+
+- Open with a specific story or insight from `candidate-profile.md`, not a generic introduction
+- Acknowledge gaps briefly; do not minimize or dwell
+- Close with the canonical invitation: “I'd welcome the opportunity to further illustrate how I can add value to the team at &lt;Company&gt;.” (confidence + offer to prove it). Website link is optional; omit when the user asks.
+- Must read as a human wrote it:
+  - **No em dashes** (`—`). Use a period, comma, colon, or rewrite the sentence.
+  - Favor plain, spoken rhythm over polished AI cadence
+  - Avoid stock transitions and filler (“What draws me…”, empty “welcome the opportunity to discuss…”, “through-line”, “leverage”, mirrored three-beat lists). The approved closing above is the exception.
+  - Do not rewrite the job description back at them; show how *you* have done the work
+  - Vary sentence length; avoid symmetric paragraph patterns

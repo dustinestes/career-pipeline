@@ -1,0 +1,35 @@
+---
+description: Workspace purpose, folder map, and pointer to candidate profile
+alwaysApply: true
+---
+
+# Career Pipeline Overview
+
+This workspace runs a structured job search: resume design, exports, and application tracking with AI-assisted workflows from the **career-pipeline** plugin.
+
+## Folder map
+
+| Folder | Purpose |
+|--------|---------|
+| `1 - Design/` | Editable source files (resume, cover letter template) |
+| `1 - Design/Exports/` | Finished PDFs ready to submit |
+| `2 - Leads/` | Company research profiles produced by `source-leads` |
+| `3 - Applications/` | Per-company, per-role application tracking |
+| `3 - Applications/# - Archive/` | Closed applications |
+| `4 - Reference/` | Candidate profile and shared reference docs |
+
+## Application path
+
+Live: `3 - Applications/<Company>/<Job Title>/`
+
+## Leads path
+
+Company research: `2 - Leads/<Company>.md`
+
+## Personal context
+
+Read `4 - Reference/candidate-profile.md` for salary floor, location preferences, target roles, background facts, and file naming patterns. Do not hardcode candidate-specific details in rules or skills.
+
+## Workflows
+
+Invoke skills explicitly: `source-leads`, `analyze-job`, `initial-interview`, `next-interview`, `archive-job`. Human workflow guide: root `README.md`.

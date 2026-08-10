@@ -1,0 +1,74 @@
+---
+description: Portable GitHub workflow — issue, branch, commit, label, PR
+alwaysApply: true
+---
+
+# Git Workflow
+
+Repo: [`dustinestes/career-pipeline`](https://github.com/dustinestes/career-pipeline).
+
+MUST: GitHub issue → branch → PR → human merges. Never commit to the default branch unless the user explicitly asks.
+
+Before commit, push, or PR: ask **"Anything to add before I commit?"** and wait.
+Do not commit, push, or create/close/comment on issues/PRs unless explicitly asked.
+
+## Branch, commit, label
+
+- Branch: `{type}/{issue}-{short-slug}`
+- Commit: `{type}: {present-tense summary} (#{issue})`
+- Issue: exactly **one** type label matching the commit prefix
+
+```
+✅ feat/12-yaml-config
+   feat: add career-pipeline yaml schema (#12)
+   label: feat
+
+❌ branch: my-fixes / fix-stuff
+❌ commit without (#N) or without an issue
+❌ primary label: bug / enhancement (use fix / feat)
+```
+
+### GitHub type labels
+
+Primary labels (must match commit/branch prefix):
+
+`feat` | `fix` | `docs` | `chore` | `refactor` | `sec` | `breaking`
+
+Do **not** use GitHub defaults `bug` or `enhancement` as the primary type label — use `fix` / `feat`. Triage labels (`help wanted`, `dependencies`, `question`, …) may accompany the type label.
+
+Before creating or labeling an issue, ensure these seven labels exist on this repo (`gh label list`). If any are missing, create them:
+
+```bash
+gh label create feat --color 1D76DB --description "New feature or capability"
+gh label create fix --color D73A4A --description "Bug fix"
+gh label create docs --color 0075CA --description "Documentation"
+gh label create chore --color 0E8A16 --description "Maintenance and repo organization"
+gh label create refactor --color FBCA04 --description "Code or structure refactor"
+gh label create sec --color B60205 --description "Security"
+gh label create breaking --color E99695 --description "Breaking change"
+```
+
+## Local checks
+
+Before push or opening a PR, run any repo checks that exist and fix failures locally. Do not rely on “CI will catch it.”
+
+When CI is added, keep it green before merge.
+
+## Docs in the same change
+
+If the change affects skills, plugin `rules/`, schema, manifests, scripts, or install paths, update the relevant `docs/` (and `template/docs/` when workspace-facing) in the **same** change. Details: `.cursor/rules/docs-first.mdc`.
+
+## PRs
+
+PR body must include a GitHub closing keyword for the issue (e.g. `Closes #12`) so merge auto-closes it.
+
+```
+✅ One concern; PR body explains why
+✅ `Closes #N` (or Fixes / Resolves) linking the issue
+✅ Local checks green before push/PR
+
+❌ Kitchen-sink PR
+❌ PR with no closing keyword (leaves the issue open after merge)
+```
+
+Bootstrap exception: initial `main` seed commits may omit an issue number when the user explicitly requests the bootstrap push.

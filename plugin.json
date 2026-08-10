@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "career-pipeline",
+  "description": "Agent skills for a structured job search: leads, qualification, applications, and interview rounds",
+  "version": "0.1.0",
+  "author": {
+    "name": "Dustin Estes"
+  }
+}

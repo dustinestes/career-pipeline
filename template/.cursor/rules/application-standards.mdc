@@ -1,0 +1,36 @@
+---
+description: Salary, remote, resume, and commit standards — reads criteria from candidate profile
+alwaysApply: true
+---
+
+# Application Standards
+
+## Candidate criteria
+
+Read `4 - Reference/candidate-profile.md` before assessing any role:
+
+- Salary floor (base only; equity does not count)
+- Remote/location requirements
+- Target roles and career-direction flags
+
+Flag violations; the user may still choose to proceed. Do not unilaterally skip roles.
+
+## Resume versioning
+
+- Copy the latest PDF from `1 - Design/Exports/`
+- Preserve the original filename exactly (read current filename from candidate profile)
+- Never rename the resume when copying into application folders
+
+## Combined PDF naming
+
+Use `<ResumePrefix>_<Company>_<ShortRole>.pdf` — read prefix from candidate profile.
+
+## Commits
+
+- All application files belong in the repo; no gitignore exclusions for application artifacts
+- Commit message format: `Add <Company> application — <Job Title>`
+- Only commit when the user explicitly requests it
+
+## Equity
+
+Link to `4 - Reference/equity-compensation-negotiation.md` for standing position; do not restate full reasoning in per-application docs.

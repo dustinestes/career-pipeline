@@ -1,0 +1,31 @@
+---
+description: Documentation updates are first-class with code and packaging changes
+alwaysApply: true
+---
+
+# Docs first
+
+Treat documentation as part of the deliverable, not a follow-up.
+
+## When docs must change in the same PR
+
+Update the matching guide when you change any of:
+
+- Plugin `skills/` or `rules/` (behavior, paths, prerequisites)
+- `.career-pipeline.yml` schema or example
+- `.cursor-plugin/plugin.json` / `plugin.json` / install instructions
+- Scripts under skills or repo `scripts/`
+- Template folder layout that skills assume
+
+## Where docs live
+
+| Path | Audience |
+|------|----------|
+| Root `docs/` | Plugin installers and maintainers of this repo |
+| `template/docs/` | People using a job-search workspace copied from `template/` |
+
+Do not duplicate long guides in both places. Prefer a canonical page plus a short pointer.
+
+## Voice
+
+Prefer plain, conversational wording. Avoid em dashes and stock AI filler in docs and README copy.
