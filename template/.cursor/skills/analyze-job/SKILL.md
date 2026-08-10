@@ -25,14 +25,14 @@ disable-model-invocation: true
 
 ### Phase 2: Build (only after proceed)
 
-Create `3 - Applications/<Company>/<Job Title>/` and produce files in order:
+Create `submissions/<Company>/<Job Title>/` and produce files in order:
 
 ```
 Task Progress:
 - [ ] assessment.md
-- [ ] cover-letter-<company>.html (from 1 - Design/cover-letter.html)
+- [ ] cover-letter-<company>.html (from design/cover-letter.html)
 - [ ] cover-letter-<company>.pdf
-- [ ] Latest resume PDF from 1 - Design/Exports/ (preserve filename)
+- [ ] Latest resume PDF from design/Exports/ (preserve filename)
 - [ ] Combined PDF: <Prefix>_<Company>_<ShortRole>.pdf
 - [ ] Job posting PDF(s)
 ```

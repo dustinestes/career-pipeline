@@ -34,6 +34,6 @@ Advanced: add `career-pipeline` as a submodule and point docs at `career-pipelin
 
 Before any public template push from a personal search repo:
 
-- Remove or anonymize `3 - Applications/`
+- Remove or anonymize `submissions/`
 - Replace `candidate-profile.md` with the example
 - Strip PDFs, `.eml`, and CI secrets

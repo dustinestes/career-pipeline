@@ -32,7 +32,7 @@
 ## Files produced (after proceed)
 
 ```
-3 - Applications/ExampleCorp/Senior Platform Engineer/
+submissions/ExampleCorp/Senior Platform Engineer/
 ├── assessment.md
 ├── cover-letter-examplecorp.html
 ├── cover-letter-examplecorp.pdf

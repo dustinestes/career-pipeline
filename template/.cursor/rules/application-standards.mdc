@@ -17,7 +17,7 @@ Flag violations; the user may still choose to proceed. Do not unilaterally skip 
 
 ## Resume versioning
 
-- Copy the latest PDF from `1 - Design/Exports/`
+- Copy the latest PDF from `design/Exports/`
 - Preserve the original filename exactly (read current filename from candidate profile)
 - Never rename the resume when copying into application folders
 

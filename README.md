@@ -8,7 +8,7 @@ This repo is an installable **plugin** (multi-skill pack). The [`template/`](tem
 |-------|----------------|
 | Skills | `source-leads`, `analyze-job`, `initial-interview`, `next-interview`, `archive-job` |
 | Rules | Assessment, cover letter, interview prep, lead, and application standards |
-| Template | Numbered folders (`1 - Design` → `3 - Applications`) for a personal job-search workspace |
+| Template | Alpha-sorted folders (`design`, `leads`, `submissions`) for a personal job-search workspace |
 
 Compatible with **Cursor**, **Claude Code** (skills), and any host that loads [Agent Skills](https://agentskills.io) / [Agent Plugins](https://agent-plugins.org).
 
@@ -48,7 +48,7 @@ List on [cursor.directory](https://cursor.directory) after the package is ready 
 
 | Stage | You do | Skill | Agent produces |
 |-------|--------|-------|----------------|
-| Discovery | Describe target profile | `source-leads` | `2 - Leads/<Company>.md` |
+| Discovery | Describe target profile | `source-leads` | `leads/<Company>.md` |
 | Posting | Paste URL | `analyze-job` | Fit assessment → artifacts on proceed |
 | Interview | Share invite | `initial-interview` | Phase skeleton + prep |
 | Later rounds | Audience/format notes | `next-interview` | Round prep |

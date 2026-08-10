@@ -3,7 +3,7 @@ name: source-leads
 description: >-
   Researches companies matching the candidate's target profile (or a
   user-supplied seed company/criteria) and writes a research profile to
-  2 - Leads/<Company>.md. Use when the user wants to discover companies to
+  leads/<Company>.md. Use when the user wants to discover companies to
   target rather than assess a specific job listing.
 disable-model-invocation: true
 ---
@@ -24,7 +24,7 @@ disable-model-invocation: true
 
 ### Phase 2: Research (per company)
 
-For each company, first check whether `2 - Leads/<Company>.md` already
+For each company, first check whether `leads/<Company>.md` already
 exists. **If it exists, this is a refresh** — follow the "Refreshing an
 existing lead file" procedure in `.cursor/rules/lead-format.mdc` rather than
 writing a fresh file from scratch. Do not skip re-verifying a section just
@@ -44,7 +44,7 @@ For a new company (no existing file):
    roles in the candidate profile. Include title, link, location, and posted
    date where available. If nothing matches, say so explicitly rather than
    omitting the section.
-7. Write `2 - Leads/<Company>.md` per `.cursor/rules/lead-format.mdc`, with
+7. Write `leads/<Company>.md` per `.cursor/rules/lead-format.mdc`, with
    this run's findings as the first (only) entry in Open Roles History.
 
 ### Phase 3: Present

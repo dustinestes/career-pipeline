@@ -21,7 +21,7 @@ disable-model-invocation: true
 | 3rd | `4 - 3rd Interview/` |
 | 4th | `5 - 4th Interview/` |
 
-Resolve `3 - Applications/<Company>/<Job Title>/`. If phase skeleton missing, run `initial-interview` promotion steps first.
+Resolve `submissions/<Company>/<Job Title>/`. If phase skeleton missing, run `initial-interview` promotion steps first.
 
 ### Step 2: Gather context
 

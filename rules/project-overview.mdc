@@ -11,20 +11,20 @@ This workspace runs a structured job search: resume design, exports, and applica
 
 | Folder | Purpose |
 |--------|---------|
-| `1 - Design/` | Editable source files (resume, cover letter template) |
-| `1 - Design/Exports/` | Finished PDFs ready to submit |
-| `2 - Leads/` | Company research profiles produced by `source-leads` |
-| `3 - Applications/` | Per-company, per-role application tracking |
-| `3 - Applications/# - Archive/` | Closed applications |
+| `design/` | Editable source files (resume, cover letter template) |
+| `design/Exports/` | Finished PDFs ready to submit |
+| `leads/` | Company research profiles produced by `source-leads` |
+| `submissions/` | Per-company, per-role application tracking |
+| `submissions/# - Archive/` | Closed applications |
 | `4 - Reference/` | Candidate profile and shared reference docs |
 
-## Application path
+## Submissions path
 
-Live: `3 - Applications/<Company>/<Job Title>/`
+Live: `submissions/<Company>/<Job Title>/`
 
 ## Leads path
 
-Company research: `2 - Leads/<Company>.md`
+Company research: `leads/<Company>.md`
 
 ## Personal context
 

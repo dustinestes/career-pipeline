@@ -8,14 +8,14 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/../../../../" && pwd)"
-APPLICATIONS="$REPO_ROOT/3 - Applications"
-ARCHIVE="$APPLICATIONS/# - Archive"
+SUBMISSIONS="$REPO_ROOT/submissions"
+ARCHIVE="$SUBMISSIONS/# - Archive"
 
 COMPANY="${1:?Usage: archive-job.sh <company> <job title> [reason]}"
 JOB_TITLE="${2:?Usage: archive-job.sh <company> <job title> [reason]}"
 REASON="${3:-}"
 
-SRC="$APPLICATIONS/$COMPANY/$JOB_TITLE"
+SRC="$SUBMISSIONS/$COMPANY/$JOB_TITLE"
 DEST="$ARCHIVE/$COMPANY/$JOB_TITLE"
 
 if [[ ! -d "$SRC" ]]; then
@@ -36,8 +36,8 @@ else
   mv "$SRC" "$DEST"
 fi
 
-# Remove empty company folder under Applications if no roles remain
-COMPANY_DIR="$APPLICATIONS/$COMPANY"
+# Remove empty company folder under submissions if no roles remain
+COMPANY_DIR="$SUBMISSIONS/$COMPANY"
 if [[ -d "$COMPANY_DIR" ]]; then
   shopt -s nullglob
   remaining=("$COMPANY_DIR"/*)

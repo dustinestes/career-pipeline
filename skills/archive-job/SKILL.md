@@ -11,11 +11,11 @@ disable-model-invocation: true
 
 ## Instructions
 
-**Input:** Company + role title, or path to `3 - Applications/<Company>/<Job Title>/`. Optional: archive reason.
+**Input:** Company + role title, or path to `submissions/<Company>/<Job Title>/`. Optional: archive reason.
 
 ### Step 1: Confirm source
 
-Verify `3 - Applications/<Company>/<Job Title>/` exists. Confirm with user before moving.
+Verify `submissions/<Company>/<Job Title>/` exists. Confirm with user before moving.
 
 ### Step 2: Archive
 
@@ -26,9 +26,9 @@ Run from repo root:
 ```
 
 Or perform equivalent steps manually:
-1. Move folder to `3 - Applications/# - Archive/<Company>/<Job Title>/`
+1. Move folder to `submissions/# - Archive/<Company>/<Job Title>/`
 2. Use `git mv` when files are tracked
-3. If `3 - Applications/<Company>/` has no remaining role subfolders, remove the empty company directory
+3. If `submissions/<Company>/` has no remaining role subfolders, remove the empty company directory
 4. If reason provided, write `notes.md` in the archived folder
 
 ### Step 3: Do not normalize legacy data

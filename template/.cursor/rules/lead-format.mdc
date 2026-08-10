@@ -1,12 +1,12 @@
 ---
-description: Structured company research format for 2 - Leads/<Company>.md files
-globs: "2 - Leads/**/*.md"
+description: Structured company research format for leads/<Company>.md files
+globs: "leads/**/*.md"
 alwaysApply: false
 ---
 
 # Lead Format
 
-Use this structure for every `2 - Leads/<Company>.md`. `<Company>.md` is a
+Use this structure for every `leads/<Company>.md`. `<Company>.md` is a
 **living document** — on every re-run for an existing company, refresh the
 sections in place (don't append duplicate copies), except **Open Roles
 History**, which accumulates one dated section per run so trends are visible
@@ -79,7 +79,7 @@ and searching for open roles.
 
 ## Refreshing an existing lead file
 
-Before writing, check whether `2 - Leads/<Company>.md` already exists. If it
+Before writing, check whether `leads/<Company>.md` already exists. If it
 does, this is a refresh, not a fresh write:
 
 1. Update `**Researched:**` at the top to the current date.

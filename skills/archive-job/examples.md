@@ -6,7 +6,7 @@
 
 **Before:**
 ```
-3 - Applications/Files.com/Infrastructure Engineer/
+submissions/Files.com/Infrastructure Engineer/
   assessment.md
   cover-letter-filescom.html
   ...
@@ -19,13 +19,13 @@
 
 **After:**
 ```
-3 - Applications/# - Archive/Files.com/Infrastructure Engineer/
+submissions/# - Archive/Files.com/Infrastructure Engineer/
   notes.md
   assessment.md
   ...
 ```
 
-If `Files.com` had no other active roles, `3 - Applications/Files.com/` is removed.
+If `Files.com` had no other active roles, `submissions/Files.com/` is removed.
 
 ## Example 2: User withdrew
 
@@ -37,4 +37,4 @@ Agent confirms path, runs script with reason "Withdrew — accepted another offe
 
 - **Destination exists:** Script exits with error; do not overwrite
 - **Legacy folder names in archive:** Do not rename (e.g. old `1 - Emails` vs `0 - Email`)
-- **Multiple roles same company:** Only remove company folder when zero roles remain under `3 - Applications/<Company>/`
+- **Multiple roles same company:** Only remove company folder when zero roles remain under `submissions/<Company>/`
