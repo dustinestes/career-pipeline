@@ -62,9 +62,9 @@ Next.js. Strong developer-experience focus and heavy AI-tooling investment
 
 **Input:** "What other companies should I be looking at?"
 
-Agent reads `4 - Reference/candidate-profile.md` stage/risk section directly,
-proposes a short list grounded in target roles and risk profile, and confirms
-before researching each one in depth.
+Agent reads `.career-pipeline.yml` `preferences.company_stage_risk` and
+`search` directly, proposes a short list grounded in target roles and risk
+profile, and confirms before researching each one in depth.
 
 ## Example 3: Refreshing an existing lead
 

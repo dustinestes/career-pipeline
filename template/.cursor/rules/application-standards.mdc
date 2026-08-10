@@ -1,5 +1,5 @@
 ---
-description: Salary, remote, resume, and commit standards — reads criteria from candidate profile
+description: Salary, remote, resume, and commit standards — reads criteria from .career-pipeline.yml
 alwaysApply: true
 ---
 
@@ -7,23 +7,23 @@ alwaysApply: true
 
 ## Candidate criteria
 
-Read `4 - Reference/candidate-profile.md` before assessing any role:
+Read workspace-root `.career-pipeline.yml` before assessing any role:
 
-- Salary floor (base only; equity does not count)
-- Remote/location requirements
-- Target roles and career-direction flags
+- `compensation.salary_floor` (respect `equity_counts_toward_floor`)
+- `preferences.work_mode` and `preferences.location_notes`
+- `search.target_roles` / `also_consider` / `flag`
 
 Flag violations; the user may still choose to proceed. Do not unilaterally skip roles.
 
 ## Resume versioning
 
 - Copy the latest PDF from `design/exports/`
-- Preserve the original filename exactly (read current filename from candidate profile)
+- Resolve the resume basename from `naming.resume` (and `naming.resume_version`); preserve that filename exactly when copying into application folders
 - Never rename the resume when copying into application folders
 
-## Combined PDF naming
+## Artifact naming
 
-Use `<ResumePrefix>_<Company>_<ShortRole>.pdf` — read prefix from candidate profile.
+Resolve basenames from `.career-pipeline.yml` `naming.*` patterns (tokens and filename-safe cleanup: plugin `docs/config.md`). Append the format the workflow already uses (`.pdf`, `.html`, `.md`).
 
 ## Commits
 
@@ -33,4 +33,4 @@ Use `<ResumePrefix>_<Company>_<ShortRole>.pdf` — read prefix from candidate pr
 
 ## Equity
 
-Link to `4 - Reference/equity-compensation-negotiation.md` for standing position; do not restate full reasoning in per-application docs.
+When equity/RSU appears in a posting or offer, quote it verbatim and apply `compensation.equity_counts_toward_floor` plus optional `compensation.notes`. Do not invent a separate equity essay path.

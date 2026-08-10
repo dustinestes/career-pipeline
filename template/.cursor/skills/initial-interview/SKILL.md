@@ -22,12 +22,12 @@ Resolve folder path. If missing, stop and ask the user to run `analyze-job` firs
 If the folder has artifacts at root (no `0 - Email/` yet):
 
 1. Run `.cursor/skills/initial-interview/scripts/create-skeleton.sh "<app-folder>"`
-2. Move to `1 - Application/`:
-   - `assessment.md`
-   - `cover-letter-*.html` / `.pdf`
-   - Resume PDF
-   - Combined PDF
-   - Job posting PDFs
+2. Move to `1 - Application/` (basenames from `.career-pipeline.yml` `naming.*`):
+   - Assessment markdown (`naming.assessment`)
+   - Cover letter HTML/PDF (`naming.cover_letter`)
+   - Resume PDF (resolved `naming.resume`; do not rename)
+   - Combined PDF (`naming.combined_pdf`)
+   - Job posting PDFs (`naming.job_posting_export`)
 3. Place invite `.eml` files in `0 - Email/` (create `Sent/` subfolder for outbound if needed)
 
 **Notes:**
@@ -40,7 +40,7 @@ Parse `0 - Email/` for date, time, timezone, type (phone/video/in-person), tool,
 
 ### Step 4: Build 1st interview prep
 
-1. Re-read `1 - Application/assessment.md`
+1. Re-read `1 - Application/` assessment markdown (basename from `naming.assessment`)
 2. Identify screening priorities: comp, remote/travel, role scope, top 2–3 strengths
 3. Write `2 - 1st Interview/interview-prep.md` per `.cursor/rules/interview-prep-standards.mdc`:
    - Metadata header
@@ -50,7 +50,7 @@ Parse `0 - Email/` for date, time, timezone, type (phone/video/in-person), tool,
    - Prepared strength responses
    - Prepared gap responses (honest, not self-disqualifying)
    - Salary Benchmarking (sources noted; flag when deeper comp research would help)
-   - Equity note if posting mentions RSU/stock — link `4 - Reference/equity-compensation-negotiation.md`
+   - Equity note if posting mentions RSU/stock — apply `.career-pipeline.yml` `compensation.equity_counts_toward_floor` / `notes`
 
 ### Step 5: Commit
 
@@ -64,4 +64,4 @@ See [examples.md](examples.md).
 
 - Skeleton script: [scripts/create-skeleton.sh](scripts/create-skeleton.sh)
 - Interview prep standards: `.cursor/rules/interview-prep-standards.mdc`
-- Candidate profile: `4 - Reference/candidate-profile.md`
+- Workspace config: `.career-pipeline.yml`

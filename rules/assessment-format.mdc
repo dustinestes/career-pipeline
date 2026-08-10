@@ -1,12 +1,13 @@
 ---
-description: Structured fit assessment format for assessment.md files
-globs: "**/assessment.md"
+description: Structured fit assessment format for assessment markdown files
+globs: "**/assessment*.md"
 alwaysApply: false
 ---
 
 # Assessment Format
 
-Use this structure for every `assessment.md`:
+Use this structure for every assessment markdown file (basename from
+`.career-pipeline.yml` `naming.assessment`, default `assessment.md`):
 
 ```markdown
 # Fit Assessment — <Company>
@@ -45,4 +46,4 @@ Use this structure for every `assessment.md`:
 - <bullet points on what to emphasize>
 ```
 
-Read `4 - Reference/candidate-profile.md` for personal background when filling strengths and gaps.
+Read workspace-root `.career-pipeline.yml` (`background`, `search`) for personal context when filling strengths and gaps.

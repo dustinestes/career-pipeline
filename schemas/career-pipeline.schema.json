@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dustinestes/career-pipeline/schemas/career-pipeline.schema.json",
+  "title": "Career Pipeline workspace config",
+  "description": "Personalization and naming config for a career-pipeline job-search workspace (.career-pipeline.yml).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "candidate",
+    "compensation",
+    "preferences",
+    "search",
+    "background",
+    "naming"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 1,
+      "description": "Config schema version."
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["first_name", "last_name", "location"],
+      "properties": {
+        "first_name": { "type": "string", "minLength": 1 },
+        "last_name": { "type": "string", "minLength": 1 },
+        "location": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["city", "region", "country"],
+          "properties": {
+            "city": { "type": "string", "minLength": 1 },
+            "region": { "type": "string", "minLength": 1 },
+            "country": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    },
+    "compensation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["salary_floor", "currency", "equity_counts_toward_floor"],
+      "properties": {
+        "salary_floor": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Minimum acceptable base salary (numeric, in currency units)."
+        },
+        "currency": {
+          "type": "string",
+          "minLength": 1,
+          "description": "ISO-like currency code (e.g. USD)."
+        },
+        "equity_counts_toward_floor": {
+          "type": "boolean",
+          "description": "If false, equity/RSU value does not count toward salary_floor."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional standing notes on equity or total-comp preferences."
+        }
+      }
+    },
+    "preferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["work_mode", "company_stage_risk"],
+      "properties": {
+        "work_mode": {
+          "type": "string",
+          "enum": ["remote", "hybrid", "onsite", "flexible"]
+        },
+        "location_notes": {
+          "type": "string",
+          "description": "How to interpret remote/hybrid claims and location verification."
+        },
+        "company_stage_risk": {
+          "type": "string",
+          "description": "Preferred company stage and risk tolerance for sourcing."
+        }
+      }
+    },
+    "search": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target_roles"],
+      "properties": {
+        "target_roles": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1
+        },
+        "also_consider": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "flag": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Role patterns to flag as stretch or misalignment."
+        },
+        "search_terms": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "background": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary"],
+      "properties": {
+        "summary": { "type": "string", "minLength": 1 },
+        "experience": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["employer", "title"],
+            "properties": {
+              "employer": { "type": "string", "minLength": 1 },
+              "title": { "type": "string", "minLength": 1 },
+              "start": { "type": "string" },
+              "end": { "type": "string" },
+              "highlights": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          }
+        },
+        "education": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["school"],
+            "properties": {
+              "school": { "type": "string", "minLength": 1 },
+              "credential": { "type": "string" },
+              "field": { "type": "string" },
+              "year": { "type": ["string", "integer"] }
+            }
+          }
+        },
+        "certifications": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "skills": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "interests": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "stories": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Cover-letter hooks and concrete anecdotes."
+        },
+        "recurring_gaps": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "naming": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "resume_version",
+        "resume",
+        "cover_letter",
+        "assessment",
+        "job_posting_export",
+        "combined_pdf"
+      ],
+      "properties": {
+        "resume_version": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Fills {version} in naming.resume."
+        },
+        "resume": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Basename pattern for the resume export (no extension)."
+        },
+        "cover_letter": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Basename pattern for cover letter HTML/PDF (no extension)."
+        },
+        "assessment": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Basename pattern for assessment markdown (no extension)."
+        },
+        "job_posting_export": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Basename pattern for job-site screen captures / posting PDFs (no extension)."
+        },
+        "combined_pdf": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Basename pattern for the merged application packet (no extension)."
+        }
+      }
+    }
+  }
+}

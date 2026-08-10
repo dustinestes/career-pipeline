@@ -26,35 +26,43 @@ Run from the application folder unless noted.
 
 ### Cover letter (continuous — preferred)
 
-Single uninterrupted page, no pagination artifacts:
+Single uninterrupted page, no pagination artifacts. Resolve the cover letter
+basename from `.career-pipeline.yml` `naming.cover_letter`:
 
 ```bash
 google-chrome --headless=new --window-size=816,900 \
-  --print-to-pdf="cover-letter-<company>.pdf" \
+  --print-to-pdf="<cover_letter>.pdf" \
   --print-to-pdf-no-header --no-margins \
-  "file://$PWD/cover-letter-<company>.html?continuous"
+  "file://$PWD/<cover_letter>.html?continuous"
 ```
 
 ### Resume (from repo root)
 
+Resolve the resume basename from `naming.resume` / `naming.resume_version`:
+
 ```bash
 google-chrome --headless=new --window-size=816,900 \
-  --print-to-pdf="design/exports/<resume-filename>.pdf" \
+  --print-to-pdf="design/exports/<resume>.pdf" \
   --print-to-pdf-no-header --no-margins \
   "file://$PWD/design/resume.html?continuous"
 ```
 
 ### Combined application PDF
 
+Resolve cover letter, resume, and combined basenames from `naming.*`:
+
 ```bash
-pdfunite cover-letter-<company>.pdf <ResumeFile>.pdf <Prefix>_<Company>_<ShortRole>.pdf
+pdfunite <cover_letter>.pdf <resume>.pdf <combined_pdf>.pdf
 ```
 
-### Company careers page
+### Company careers page / job-site export
+
+Resolve from `naming.job_posting_export` (include `{source}` so LinkedIn,
+Indeed, and careers-page captures do not overwrite each other):
 
 ```bash
 google-chrome --headless=new --disable-gpu \
-  --print-to-pdf="<Company> - <Job Title>.pdf" \
+  --print-to-pdf="<job_posting_export>.pdf" \
   --no-margins --virtual-time-budget=10000 \
   "<careers-url>"
 ```

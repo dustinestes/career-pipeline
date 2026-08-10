@@ -65,3 +65,7 @@ Do not commit API keys. Do not reuse another checkout’s `.env` if that file pi
 ### Publish later
 
 When Clockify is on the Marketplace (or `npx`), drop the local `clockify-dev` link (`npm run dev:unlink` in that repo), install the published plugin, and keep this repo’s `.clockify.yml` + `.env` (or plugin variables). See Clockify `docs/setup.md`.
+
+## Workspace config schema
+
+Personalization for job-search workspaces: [docs/config.md](config.md) (`.career-pipeline.yml` + `schemas/career-pipeline.schema.json`).

@@ -1,5 +1,5 @@
 ---
-description: Interview prep metadata header, company research requirements, and equity links
+description: Interview prep metadata header, company research requirements, and equity stance
 globs: "**/interview-prep.md"
 alwaysApply: false
 ---
@@ -30,8 +30,8 @@ Do not reuse stale research from prior rounds.
 
 ## Equity
 
-If equity/RSU language appears in posting or offer material, quote verbatim. Link to `4 - Reference/equity-compensation-negotiation.md` rather than restating negotiation reasoning.
+If equity/RSU language appears in posting or offer material, quote verbatim. Apply `.career-pipeline.yml` `compensation.equity_counts_toward_floor` and optional `compensation.notes` rather than inventing separate negotiation docs.
 
 ## 1st interview extras
 
-Include salary benchmarking (sources noted, not presented as precise) and prepared strength/gap responses from `1 - Application/assessment.md`.
+Include salary benchmarking (sources noted, not presented as precise) and prepared strength/gap responses from the assessment under `1 - Application/` (basename from `naming.assessment`).

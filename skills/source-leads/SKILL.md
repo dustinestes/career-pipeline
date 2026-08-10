@@ -14,11 +14,12 @@ disable-model-invocation: true
 
 ### Phase 1: Establish criteria
 
-1. Read `4 - Reference/candidate-profile.md` for salary floor, location
-   requirement, target roles, and company stage/risk tolerance.
+1. Read workspace-root `.career-pipeline.yml` for `compensation.salary_floor`,
+   `preferences` (work mode, location notes, `company_stage_risk`), and
+   `search` (target roles and terms).
 2. If the user supplied specific companies, seed criteria, or a reference
    company ("companies like X"), use those as the starting point. Otherwise
-   use the candidate profile's stage/risk preference and target roles directly.
+   use `preferences.company_stage_risk` and `search.target_roles` directly.
 3. Confirm the short list of candidate companies with the user before doing
    deep research on each one, unless the user has already named them explicitly.
 
@@ -40,10 +41,10 @@ For a new company (no existing file):
 4. Assess market sentiment — growth trajectory, funding confidence, competitive
    position, and any red flags (layoffs, leadership churn, negative press).
 5. Find recent news from the last 6 months, with links.
-6. Scan the careers page (or LinkedIn Jobs) for open roles matching the target
-   roles in the candidate profile. Include title, link, location, and posted
-   date where available. If nothing matches, say so explicitly rather than
-   omitting the section.
+6. Scan the careers page (or LinkedIn Jobs) for open roles matching
+   `search.target_roles` in `.career-pipeline.yml`. Include title, link,
+   location, and posted date where available. If nothing matches, say so
+   explicitly rather than omitting the section.
 7. Write `leads/<Company>.md` per `.cursor/rules/lead-format.mdc`, with
    this run's findings as the first (only) entry in Open Roles History.
 
@@ -62,5 +63,5 @@ See [examples.md](examples.md).
 
 ## Additional resources
 
-- Candidate profile: `4 - Reference/candidate-profile.md`
+- Workspace config: `.career-pipeline.yml`
 - Lead file format: `.cursor/rules/lead-format.mdc`
