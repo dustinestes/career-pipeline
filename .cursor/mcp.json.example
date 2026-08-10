@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "clockify-dev": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["/ABS/PATH/TO/clockify-mcp-server/dist/index.js"],
+      "envFile": "${workspaceFolder}/.env",
+      "env": {
+        "CLOCKIFY_CONFIG_ROOT": "${workspaceFolder}"
+      }
+    }
+  }
+}

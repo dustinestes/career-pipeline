@@ -64,6 +64,7 @@ See [docs/consuming-from-private-workspace.md](docs/consuming-from-private-works
 
 | Doc | Audience |
 |-----|----------|
+| [docs/develop.md](docs/develop.md) | Maintainer setup (including Clockify time tracking) |
 | [template/docs/tooling.md](template/docs/tooling.md) | PDF export in a job-search workspace |
 | [docs/consuming-from-private-workspace.md](docs/consuming-from-private-workspace.md) | Using this plugin from a private search repo |
 | [docs/tooling.md](docs/tooling.md) | Pointer to workspace tooling |
