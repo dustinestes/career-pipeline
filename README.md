@@ -6,7 +6,7 @@ This repo is an installable **plugin**. After install, init an empty folder as y
 
 | Layer | What you get |
 |-------|----------------|
-| Skills | `career-pipeline-init`, `source-leads`, `analyze-job`, `initial-interview`, `next-interview`, `archive-job` |
+| Skills | Prefixed `career-pipeline-*` skills (init, leads, analyze, create application/prep, archive/delete) |
 | Rules | Assessment, cover letter, interview prep, lead, and application standards |
 | Template | Folders (`design`, `leads`, `submissions`), example YAML, consumer docs |
 
@@ -31,9 +31,9 @@ Reload Cursor.
 - "Set up a career-pipeline workspace in this folder"
 - `/career-pipeline-init`
 
-4. Copy `.career-pipeline.yml.example` → `.career-pipeline.yml` and edit it. Adapt `design/` samples. Then use `/analyze-job` (or ask in plain language).
+4. Copy `.career-pipeline.yml.example` → `.career-pipeline.yml` and edit it. Adapt `design/` samples. Then use `/career-pipeline-analyze-job` (or ask in plain language).
 
-Job-search skills stop until `.career-pipeline.yml` exists. Walkthrough after init: `docs/getting-started.md` in your workspace.
+Job-search skills stop until `.career-pipeline.yml` exists. Walkthrough after init: `docs/getting-started.md` in your workspace. Full skill tables: [docs/skills.md](docs/skills.md).
 
 ### Alternative: manual scaffold (no init skill)
 
@@ -62,16 +62,26 @@ Field guide: [docs/config.md](docs/config.md).
 
 List on [cursor.directory](https://cursor.directory) after the package is ready for strangers. This project does not target Cursor Marketplace submission.
 
-## Lifecycle
+## Skills
 
-| Stage | You do | Skill | Agent produces |
-|-------|--------|-------|----------------|
-| Setup | Empty folder + init | `career-pipeline-init` | Scaffold + example YAML |
-| Discovery | Describe target profile | `source-leads` | `leads/<Company>.md` |
-| Posting | Paste URL | `analyze-job` | Fit assessment → artifacts on proceed |
-| Interview | Share invite | `initial-interview` | Phase skeleton + prep |
-| Later rounds | Audience/format notes | `next-interview` | Round prep |
-| Closed | Confirm | `archive-job` | Archive move |
+Skill names use a `career-pipeline-` **prefix on purpose**: a discoverability convention so `/` in the AI tool popup clusters this plugin’s commands and reduces collisions with other packs. Not a host requirement. Natural language also works.
+
+Full tables (Invoke / Description / Input / Output), entrypoints, and folder layout: **[docs/skills.md](docs/skills.md)** (mirrored into workspace `docs/skills.md` after init).
+
+### Entrypoints
+
+| Route | How |
+|-------|-----|
+| Lead-sourced | `/career-pipeline-source-leads` (ad-hoc or scheduled) → feed roles into `/career-pipeline-analyze-job` |
+| Direct posting | Paste a job URL into `/career-pipeline-analyze-job` |
+
+### Quick catalog
+
+| Group | Invoke |
+|-------|--------|
+| Setup | `/career-pipeline-init` |
+| Lead Discovery | `/career-pipeline-source-leads`, `/career-pipeline-archive-lead` |
+| Application | `/career-pipeline-analyze-job`, `/career-pipeline-create-application`, `/career-pipeline-create-interview-prep`, `/career-pipeline-archive-submission`, `/career-pipeline-delete-submission` |
 
 ## Personal data
 
@@ -83,6 +93,7 @@ See [docs/consuming-from-private-workspace.md](docs/consuming-from-private-works
 
 | Doc | Audience |
 |-----|----------|
+| [docs/skills.md](docs/skills.md) | Skill catalog (plugin + mirrored in workspace) |
 | [docs/config.md](docs/config.md) | `.career-pipeline.yml` field guide (schema + naming) |
 | [docs/develop.md](docs/develop.md) | Maintainer setup (including Clockify time tracking) |
 | [template/docs/getting-started.md](template/docs/getting-started.md) | Consumer setup after init |

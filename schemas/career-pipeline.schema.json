@@ -124,6 +124,11 @@
         "search_terms": {
           "type": "array",
           "items": { "type": "string", "minLength": 1 }
+        },
+        "ignore_companies": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Companies to skip in source-leads (e.g. after archive-lead)."
         }
       }
     },

@@ -134,7 +134,7 @@ fi
 # Ensure archive placeholder exists
 mkdir -p "$TARGET/submissions/.archive"
 mkdir -p "$TARGET/design/exports"
-mkdir -p "$TARGET/leads"
+mkdir -p "$TARGET/leads/.archive"
 
 # Drop any accidental .cursor vendoring if present in older templates
 rm -rf "$TARGET/.cursor"

@@ -13,7 +13,7 @@ Workspace users: start with [template/docs/getting-started.md](../template/docs/
 | `contact` | Email (required) and optional phone |
 | `compensation` | Salary floor and equity stance |
 | `preferences` | Work mode, location notes, company stage/risk |
-| `search` | Target roles and search terms |
+| `search` | Target roles, search terms, and optional `ignore_companies` |
 | `background` | Experience, education, skills, stories |
 | `naming` | Basename patterns for application artifacts |
 
@@ -32,6 +32,11 @@ contact:
 
 - `salary_floor` is base salary in `currency` units.
 - When `equity_counts_toward_floor` is `false`, equity/RSU does not satisfy the floor. Quote equity language from postings when relevant; apply the YAML stance instead of a separate essay file.
+
+## Search
+
+- `target_roles`, optional `also_consider` / `flag` / `search_terms`
+- `ignore_companies` — list of company names `career-pipeline-source-leads` should skip (filled by `career-pipeline-archive-lead`)
 
 ## Naming patterns
 

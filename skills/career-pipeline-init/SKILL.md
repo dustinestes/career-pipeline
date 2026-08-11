@@ -10,9 +10,18 @@ disable-model-invocation: true
 
 # Career Pipeline Init
 
-## Instructions
+## Input
 
-**Input:** Optional target directory (default: current workspace root). Optional explicit override to init a non-empty folder.
+| Field | Required | Notes |
+|-------|----------|-------|
+| Target directory | No | Default: cwd |
+| Explicit override if non-empty | No | Pass `--force` only after user confirms |
+
+## Output
+
+- Scaffold folders + `.career-pipeline.yml.example` (no live YAML; no skills/rules)
+
+## Instructions
 
 ### Step 0: Confirm target
 
@@ -47,7 +56,7 @@ After a successful init, tell the user:
 
 1. Copy `.career-pipeline.yml.example` → `.career-pipeline.yml` and replace Jordan Hale with their details.
 2. Build working resume/cover HTML from `design/` samples (see `docs/getting-started.md`).
-3. Then run a job skill, for example `/analyze-job` with a posting URL.
+3. Then run a job skill, for example `/career-pipeline-analyze-job` with a posting URL (see `docs/skills.md`).
 
 Job-search skills refuse to run until `.career-pipeline.yml` exists.
 
