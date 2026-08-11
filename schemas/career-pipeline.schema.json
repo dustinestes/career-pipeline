@@ -8,6 +8,7 @@
   "required": [
     "version",
     "candidate",
+    "contact",
     "compensation",
     "preferences",
     "search",
@@ -36,6 +37,24 @@
             "region": { "type": "string", "minLength": 1 },
             "country": { "type": "string", "minLength": 1 }
           }
+        }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["email"],
+      "description": "How employers reach the candidate. Used when building resume and cover letter HTML.",
+      "properties": {
+        "email": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Primary email for applications and resume contact chips."
+        },
+        "phone": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Optional phone. Omit from resume and cover letter HTML when absent."
         }
       }
     },

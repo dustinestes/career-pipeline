@@ -2,7 +2,7 @@
 
 Workspace personalization lives in **`.career-pipeline.yml`** at the job-search workspace root. Schema: [`schemas/career-pipeline.schema.json`](../schemas/career-pipeline.schema.json). Filled example: [`.career-pipeline.yml.example`](../.career-pipeline.yml.example) (Jordan Hale).
 
-Workspace users: start with [template/docs/customization.md](../template/docs/customization.md).
+Workspace users: start with [template/docs/getting-started.md](../template/docs/getting-started.md).
 
 ## Top-level sections
 
@@ -10,11 +10,23 @@ Workspace users: start with [template/docs/customization.md](../template/docs/cu
 |---------|---------|
 | `version` | Config schema version (`1`) |
 | `candidate` | Name and home location |
+| `contact` | Email (required) and optional phone |
 | `compensation` | Salary floor and equity stance |
 | `preferences` | Work mode, location notes, company stage/risk |
 | `search` | Target roles and search terms |
 | `background` | Experience, education, skills, stories |
 | `naming` | Basename patterns for application artifacts |
+
+## Contact
+
+```yaml
+contact:
+  email: jordan.hale@example.com
+  # phone: "+1-512-555-0148"   # optional
+```
+
+- `email` is required. Resume and cover letter HTML should use it for mailto chips.
+- `phone` is optional. When omitted, do not invent a number and do not render a phone chip on the resume or cover letter.
 
 ## Compensation and equity
 

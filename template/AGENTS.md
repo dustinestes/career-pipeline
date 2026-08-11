@@ -4,7 +4,7 @@ Job search workspace powered by **career-pipeline** skills and rules.
 
 ## Personal context
 
-Read workspace-root [`.career-pipeline.yml`](.career-pipeline.yml) for salary floor, target roles, background, and naming patterns. Setup: [docs/customization.md](docs/customization.md).
+Read workspace-root [`.career-pipeline.yml`](.career-pipeline.yml) for salary floor, target roles, background, and naming patterns. Setup: [docs/getting-started.md](docs/getting-started.md).
 
 ## Workflows (invoke explicitly)
 
@@ -23,5 +23,6 @@ Read workspace-root [`.career-pipeline.yml`](.career-pipeline.yml) for salary fl
 ## Human docs
 
 - [README.md](README.md)
+- [docs/getting-started.md](docs/getting-started.md)
 - [docs/customization.md](docs/customization.md)
 - [docs/tooling.md](docs/tooling.md)
