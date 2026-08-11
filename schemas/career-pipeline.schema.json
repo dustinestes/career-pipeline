@@ -58,6 +58,27 @@
         }
       }
     },
+    "links": {
+      "type": "array",
+      "description": "Optional labeled URLs (LinkedIn, portfolio, GitHub, personal site). Render as header icon chips on resume/cover letter (title = label). Omit the section when empty.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "url"],
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Visible link text (e.g. LinkedIn, Portfolio)."
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Absolute https URL."
+          }
+        }
+      }
+    },
     "compensation": {
       "type": "object",
       "additionalProperties": false,

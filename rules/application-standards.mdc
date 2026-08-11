@@ -17,6 +17,14 @@ Read workspace-root `.career-pipeline.yml` before assessing any role:
 
 Flag violations; the user may still choose to proceed. Do not unilaterally skip roles.
 
+## Resume contact and links
+
+When building or updating resume / cover letter HTML from `.career-pipeline.yml`:
+
+- Use `contact.email` (required). Include `contact.phone` only when present; never invent a number.
+- If `links` is present and non-empty, render each `{ label, url }` as a header **icon chip** on the right of the contact row (`contact-icons` / `icon-chip`), matching the design samples. Set `title` from `label`. Choose a simple SVG from label or URL host (LinkedIn, GitHub, globe for site/portfolio). Use the design accent fill color.
+- Omit the icon group entirely when `links` is missing or empty.
+
 ## Folder layout (submissions)
 
 Under `submissions/<Company>/<Role>/`:

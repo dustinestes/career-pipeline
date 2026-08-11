@@ -3,7 +3,7 @@
 <h1>Config</h1>
 <br clear="both">
 
-Workspace personalization lives in **`.career-pipeline.yml`** at the job-search workspace root. Schema: [`schemas/career-pipeline.schema.json`](../schemas/career-pipeline.schema.json). Example to copy: [`.career-pipeline.yml.example`](../.career-pipeline.yml.example) (Jordan Hale). Scaffold ships the example only; job-search skills require the live file.
+Workspace personalization lives in **`.career-pipeline.yml`** at the job-search workspace root. Schema: [`schemas/career-pipeline.schema.json`](../schemas/career-pipeline.schema.json). Example to copy: [`template/.career-pipeline.yml.example`](../template/.career-pipeline.yml.example) (Jordan Hale; also what init copies into a workspace). Scaffold ships the example only; job-search skills require the live file.
 
 Workspace users: start with [template/docs/getting-started.md](../template/docs/getting-started.md) (or `docs/getting-started.md` after init).
 
@@ -14,6 +14,7 @@ Workspace users: start with [template/docs/getting-started.md](../template/docs/
 | `version` | Config schema version (`1`) |
 | `candidate` | Name and home location |
 | `contact` | Email (required) and optional phone |
+| `links` | Optional labeled URLs rendered as header icon chips |
 | `compensation` | Salary floor and equity stance |
 | `preferences` | Work mode, location notes, company stage/risk |
 | `search` | Target roles, search terms, and optional `ignore_companies` |
@@ -30,6 +31,22 @@ contact:
 
 - `email` is required. Resume and cover letter HTML should use it for mailto chips.
 - `phone` is optional. When omitted, do not invent a number and do not render a phone chip on the resume or cover letter.
+
+## Links
+
+Optional list of `{ label, url }` for portfolios and social profiles:
+
+```yaml
+links:
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/example
+  - label: Portfolio
+    url: https://example.com
+```
+
+- Omit the whole `links` key when you have none.
+- Resume and cover letter HTML should render these as **header icon chips** on the right of the contact row (`contact-icons` / `icon-chip`), matching the sample design. Use `title` (and accessible label) from `label`; pick a simple SVG by label or host (LinkedIn, GitHub, globe for site/portfolio). Fill icons with the design accent color.
+- Omit the icon group entirely when `links` is missing or empty.
 
 ## Compensation and equity
 
@@ -105,7 +122,7 @@ import json, yaml, pathlib
 from jsonschema import validate
 root = pathlib.Path(".")
 schema = json.loads((root / "schemas/career-pipeline.schema.json").read_text())
-data = yaml.safe_load((root / ".career-pipeline.yml.example").read_text())
+data = yaml.safe_load((root / "template/.career-pipeline.yml.example").read_text())
 validate(instance=data, schema=schema)
 print("ok")
 PY

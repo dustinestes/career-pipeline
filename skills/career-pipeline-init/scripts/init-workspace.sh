@@ -121,15 +121,11 @@ for item in design leads submissions docs AGENTS.md README.md; do
 done
 
 # Example config only (no live .career-pipeline.yml)
-if [[ -f "$TEMPLATE/.career-pipeline.yml.example" ]]; then
-  cp "$TEMPLATE/.career-pipeline.yml.example" "$TARGET/.career-pipeline.yml.example"
-elif [[ -f "$PLUGIN_ROOT/.career-pipeline.yml.example" ]]; then
-  # Prefer template copy; fall back to plugin root example with workspace schema URL
-  cp "$PLUGIN_ROOT/.career-pipeline.yml.example" "$TARGET/.career-pipeline.yml.example"
-else
-  echo "Error: no .career-pipeline.yml.example found in template or plugin root" >&2
+if [[ ! -f "$TEMPLATE/.career-pipeline.yml.example" ]]; then
+  echo "Error: template/.career-pipeline.yml.example not found" >&2
   exit 1
 fi
+cp "$TEMPLATE/.career-pipeline.yml.example" "$TARGET/.career-pipeline.yml.example"
 
 # Ensure archive placeholder exists
 mkdir -p "$TARGET/submissions/.archive"

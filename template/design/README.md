@@ -21,7 +21,7 @@ More variants may appear later (`*_sample_2`, and so on).
 
 After that, skills and agents must treat those two files as the only layout and style sources. Per-job cover letters copy the working cover letter’s CSS and structure; they do not restyle.
 
-Contact chips come from `.career-pipeline.yml` `contact.email` (required) and `contact.phone` only when present.
+Contact chips come from `.career-pipeline.yml` `contact.email` (required) and `contact.phone` only when present. Optional `links` (label + url) render as header icon chips on the right of the contact row (see the sample `contact-icons`), not as a separate sidebar list.
 
 `exports/` is optional storage for finished PDFs when you choose to export. Export is not required to use the pipeline.
 
