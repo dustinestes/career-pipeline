@@ -33,7 +33,7 @@ Maintainer modes: [docs/develop.md](docs/develop.md). Directory publish: [docs/p
 - "Set up a career-pipeline workspace in this folder"
 - `/career-pipeline-init`
 
-4. Copy `.career-pipeline.yml.example` → `.career-pipeline.yml` and edit it. Adapt `design/` samples. Then use `/career-pipeline-analyze-job` (or ask in plain language).
+4. Copy `.career-pipeline.yml.example` → `.career-pipeline.yml` and edit it. Pick a pair under `design/samples/`, adapt to working HTML. Then use `/career-pipeline-analyze-job` (or ask in plain language).
 
 Job-search skills stop until `.career-pipeline.yml` exists. Walkthrough after init: `docs/getting-started.md` in your workspace. Full skill tables: [docs/skills.md](docs/skills.md).
 

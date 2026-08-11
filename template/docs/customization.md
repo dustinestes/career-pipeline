@@ -14,7 +14,7 @@ Full setup order: [getting-started.md](getting-started.md).
 6. Rewrite `background` (experience, education, certifications, skills, interests, cover-letter `stories`).
 7. Adjust `naming` patterns if you want different artifact basenames.
 8. Keep the file at the workspace root so skills and rules can find it.
-9. Build resume and cover letter HTML from chosen samples under `design/`, then keep only those working files (see [getting-started.md](getting-started.md)).
+9. Browse `design/samples/`, pick a matched resume + cover letter pair, copy them to working files under `design/`, then remove `samples/` (see [getting-started.md](getting-started.md)).
 
 ## Naming patterns
 

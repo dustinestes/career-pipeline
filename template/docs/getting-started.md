@@ -29,9 +29,9 @@ Field checklist: [customization.md](customization.md). Skill catalog: [skills.md
 
 ## 2. Build resume and cover letter HTML
 
-1. Choose samples under `design/`.
-2. Ask the agent to rewrite from `.career-pipeline.yml` into working files (e.g. `resume.html`, `cover-letter.html`).
-3. Delete unused samples so only working files remain (plus optional `exports/`).
+1. Browse matched pairs under `design/samples/` (or open `design/samples/index.html`). Pick any sample number; none is preferred by the tool. Tell the agent which number to use when building your working files.
+2. Copy the chosen files into working names at `design/` (e.g. `resume.html`, `cover-letter.html`) and rewrite from `.career-pipeline.yml`.
+3. Delete `design/samples/` (and any other leftover HTML) so only working files remain (plus optional `exports/`).
 
 ## 3. Two ways to find roles
 
