@@ -11,8 +11,6 @@ Personalization for this job-search workspace is **`.career-pipeline.yml`** at t
 5. Adjust `naming` patterns if you want different artifact basenames.
 6. Keep the file at the workspace root so skills and rules can find it.
 
-Do not add a `candidate-profile.md` or a `4 - Reference/` folder. Agents read only `.career-pipeline.yml`.
-
 ## Naming patterns
 
 Patterns are basenames without extensions. Skills fill tokens such as `{firstName}`, `{companyName}`, `{shortRole}`, and `{source}`, then add `.pdf` / `.html` / `.md` as needed.
