@@ -7,8 +7,6 @@ Career-pipeline skills use a `career-pipeline-` **prefix on purpose**: a discove
 
 Natural language works too (“analyze this posting”, “set up career-pipeline here”). Descriptions in each skill’s frontmatter match the Description column below.
 
-**Future (not shipped):** [`career-pipeline-accept-job`](https://github.com/dustinestes/career-pipeline/issues/27) will promote an accepted offer into `career/<Company>/<Role>/` employment history.
-
 ## Entrypoints
 
 ### Lead-sourced (optional)
