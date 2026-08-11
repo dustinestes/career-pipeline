@@ -9,6 +9,10 @@ disable-model-invocation: true
 
 # Initial Interview
 
+## Prerequisites
+
+If workspace-root `.career-pipeline.yml` is missing, **stop**. Tell the user to copy `.career-pipeline.yml.example` → `.career-pipeline.yml` and edit it (or run `career-pipeline-init` first).
+
 ## Instructions
 
 **Input:** Company + role title, or path to `submissions/<Company>/<Job Title>/`. Optional: invite email (`.eml`).
@@ -21,7 +25,7 @@ Resolve folder path. If missing, stop and ask the user to run `analyze-job` firs
 
 If the folder has artifacts at root (no `0 - Email/` yet):
 
-1. Run `.cursor/skills/initial-interview/scripts/create-skeleton.sh "<app-folder>"`
+1. Run this skill's `scripts/create-skeleton.sh` (from the installed plugin skill path, not `.cursor/skills/...`) with the application folder path
 2. Move to `1 - Application/` (basenames from `.career-pipeline.yml` `naming.*`):
    - Assessment markdown (`naming.assessment`)
    - Cover letter HTML/PDF (`naming.cover_letter`)
@@ -42,7 +46,7 @@ Parse `0 - Email/` for date, time, timezone, type (phone/video/in-person), tool,
 
 1. Re-read `1 - Application/` assessment markdown (basename from `naming.assessment`)
 2. Identify screening priorities: comp, remote/travel, role scope, top 2–3 strengths
-3. Write `2 - 1st Interview/interview-prep.md` per `.cursor/rules/interview-prep-standards.mdc`:
+3. Write `2 - 1st Interview/interview-prep.md` per the career-pipeline `interview-prep-standards` rule:
    - Metadata header
    - Company Research (fresh web search)
    - Context summary from assessment
@@ -63,5 +67,5 @@ See [examples.md](examples.md).
 ## Additional resources
 
 - Skeleton script: [scripts/create-skeleton.sh](scripts/create-skeleton.sh)
-- Interview prep standards: `.cursor/rules/interview-prep-standards.mdc`
+- Interview prep standards: career-pipeline `interview-prep-standards` rule
 - Workspace config: `.career-pipeline.yml`

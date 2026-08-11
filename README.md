@@ -2,43 +2,61 @@
 
 Reusable **Agent Skills** + **Cursor rules** for a structured job search: source leads, qualify roles, build applications, and prep interview rounds.
 
-This repo is an installable **plugin** (multi-skill pack). The [`template/`](template/) directory is a forkable empty workspace for your own content.
+This repo is an installable **plugin**. After install, init an empty folder as your job-search workspace. The [`template/`](template/) directory is the scaffold payload (also usable manually).
 
 | Layer | What you get |
 |-------|----------------|
-| Skills | `source-leads`, `analyze-job`, `initial-interview`, `next-interview`, `archive-job` |
+| Skills | `career-pipeline-init`, `source-leads`, `analyze-job`, `initial-interview`, `next-interview`, `archive-job` |
 | Rules | Assessment, cover letter, interview prep, lead, and application standards |
-| Template | Alpha-sorted folders (`design`, `leads`, `submissions`) for a personal job-search workspace |
+| Template | Folders (`design`, `leads`, `submissions`), example YAML, consumer docs |
 
 Compatible with **Cursor**, **Claude Code** (skills), and any host that loads [Agent Skills](https://agentskills.io) / [Agent Plugins](https://agent-plugins.org).
 
 ## Install
 
-### Cursor plugin (local)
+### Main path (recommended)
+
+1. Install or symlink the plugin:
 
 ```bash
 ln -s /path/to/career-pipeline ~/.cursor/plugins/local/career-pipeline-dev
 ```
 
-Reload Cursor. Copy [`template/`](template/) as your job-search workspace so folder paths in the skills resolve.
+Reload Cursor.
 
-### Project skills (any Agent Skills host)
+2. Create an **empty** folder for your job search (a bare `git init` is fine). Open it in Cursor.
 
-```bash
-cp -R skills/* your-job-search/.cursor/skills/
-cp -R rules/* your-job-search/.cursor/rules/   # Cursor rules
-# Claude Code:
-cp -R skills/* your-job-search/.claude/skills/
-```
+3. Init the workspace (natural language or slash command):
 
-Or start from the template:
+- "Set up a career-pipeline workspace in this folder"
+- `/career-pipeline-init`
+
+4. Copy `.career-pipeline.yml.example` → `.career-pipeline.yml` and edit it. Adapt `design/` samples. Then use `/analyze-job` (or ask in plain language).
+
+Job-search skills stop until `.career-pipeline.yml` exists. Walkthrough after init: `docs/getting-started.md` in your workspace.
+
+### Alternative: manual scaffold (no init skill)
 
 ```bash
 cp -R template my-job-search
 cd my-job-search
+cp .career-pipeline.yml.example .career-pipeline.yml
+# edit .career-pipeline.yml, then open in Cursor with the plugin installed
 ```
 
-Personalization config: copy [`.career-pipeline.yml.example`](.career-pipeline.yml.example) to `.career-pipeline.yml` in your workspace (or start from [`template/`](template/), which already includes a Jordan Hale example). Field guide: [docs/config.md](docs/config.md). Design samples live under [`template/design/`](template/design/); setup walkthrough: [template/docs/getting-started.md](template/docs/getting-started.md).
+### Alternative: vendored skills (no plugin)
+
+Pinned snapshot only. Plugin updates will **not** reach this copy; re-copy or switch to the plugin when you want updates.
+
+```bash
+cp -R template my-job-search
+cp -R skills/* my-job-search/.cursor/skills/
+cp -R rules/* my-job-search/.cursor/rules/
+cd my-job-search
+cp .career-pipeline.yml.example .career-pipeline.yml
+```
+
+Field guide: [docs/config.md](docs/config.md).
 
 ### Discoverability
 
@@ -48,6 +66,7 @@ List on [cursor.directory](https://cursor.directory) after the package is ready 
 
 | Stage | You do | Skill | Agent produces |
 |-------|--------|-------|----------------|
+| Setup | Empty folder + init | `career-pipeline-init` | Scaffold + example YAML |
 | Discovery | Describe target profile | `source-leads` | `leads/<Company>.md` |
 | Posting | Paste URL | `analyze-job` | Fit assessment → artifacts on proceed |
 | Interview | Share invite | `initial-interview` | Phase skeleton + prep |
@@ -56,7 +75,7 @@ List on [cursor.directory](https://cursor.directory) after the package is ready 
 
 ## Personal data
 
-This public package ships **no** live applications, emails, or personal resumes. Keep your private search (for example a private `Resume` repo) separate and treat **career-pipeline** as the upstream plugin/template.
+This public package ships **no** live applications, emails, or personal resumes. Keep your private search separate and treat **career-pipeline** as the upstream plugin.
 
 See [docs/consuming-from-private-workspace.md](docs/consuming-from-private-workspace.md).
 
@@ -66,10 +85,10 @@ See [docs/consuming-from-private-workspace.md](docs/consuming-from-private-works
 |-----|----------|
 | [docs/config.md](docs/config.md) | `.career-pipeline.yml` field guide (schema + naming) |
 | [docs/develop.md](docs/develop.md) | Maintainer setup (including Clockify time tracking) |
-| [template/docs/getting-started.md](template/docs/getting-started.md) | Persona YAML + resume HTML pre-work |
-| [template/docs/customization.md](template/docs/customization.md) | YAML setup checklist for a job-search workspace |
-| [template/docs/tooling.md](template/docs/tooling.md) | Optional PDF export in a job-search workspace |
-| [docs/consuming-from-private-workspace.md](docs/consuming-from-private-workspace.md) | Using this plugin from a private search repo |
+| [template/docs/getting-started.md](template/docs/getting-started.md) | Consumer setup after init |
+| [template/docs/customization.md](template/docs/customization.md) | YAML checklist |
+| [template/docs/tooling.md](template/docs/tooling.md) | Optional PDF export |
+| [docs/consuming-from-private-workspace.md](docs/consuming-from-private-workspace.md) | Private search repo + plugin |
 | [docs/tooling.md](docs/tooling.md) | Pointer to workspace tooling |
 
 ## Packaging
@@ -78,10 +97,10 @@ See [docs/consuming-from-private-workspace.md](docs/consuming-from-private-works
 |------|------|
 | `.cursor-plugin/plugin.json` | Cursor Plugin manifest |
 | `plugin.json` | Agent Plugins portable manifest |
-| `skills/` | Agent Skills |
-| `rules/` | Cursor rules (job-search standards) |
-| `.cursor/rules/` | Maintainer workflow for this repo |
-| `template/` | Empty job-search workspace |
+| `skills/` | Agent Skills (plugin-owned; single source of truth) |
+| `rules/` | Cursor rules (plugin-owned) |
+| `.cursor/rules/` | Maintainer workflow for this repo only |
+| `template/` | Scaffold payload for init / manual copy |
 
 ## License
 

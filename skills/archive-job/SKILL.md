@@ -9,6 +9,10 @@ disable-model-invocation: true
 
 # Archive Job
 
+## Prerequisites
+
+If workspace-root `.career-pipeline.yml` is missing, **stop**. Tell the user to copy `.career-pipeline.yml.example` → `.career-pipeline.yml` and edit it (or run `career-pipeline-init` first).
+
 ## Instructions
 
 **Input:** Company + role title, or path to `submissions/<Company>/<Job Title>/`. Optional: archive reason.
@@ -19,10 +23,10 @@ Verify `submissions/<Company>/<Job Title>/` exists. Confirm with user before mov
 
 ### Step 2: Archive
 
-Run from repo root:
+Run from the **job-search workspace root** (cwd). The script resolves that root from cwd/git (or `CAREER_PIPELINE_ROOT`), not from the skill install path. Locate `scripts/archive-job.sh` on this installed skill (plugin path), then:
 
 ```bash
-.cursor/skills/archive-job/scripts/archive-job.sh "<Company>" "<Job Title>" "[reason]"
+bash "<path-to-this-skill>/scripts/archive-job.sh" "<Company>" "<Job Title>" "[reason]"
 ```
 
 Or perform equivalent steps manually:

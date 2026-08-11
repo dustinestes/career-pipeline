@@ -1,8 +1,8 @@
 # Career pipeline config
 
-Workspace personalization lives in **`.career-pipeline.yml`** at the job-search workspace root. Schema: [`schemas/career-pipeline.schema.json`](../schemas/career-pipeline.schema.json). Filled example: [`.career-pipeline.yml.example`](../.career-pipeline.yml.example) (Jordan Hale).
+Workspace personalization lives in **`.career-pipeline.yml`** at the job-search workspace root. Schema: [`schemas/career-pipeline.schema.json`](../schemas/career-pipeline.schema.json). Example to copy: [`.career-pipeline.yml.example`](../.career-pipeline.yml.example) (Jordan Hale). Scaffold ships the example only; job-search skills require the live file.
 
-Workspace users: start with [template/docs/getting-started.md](../template/docs/getting-started.md).
+Workspace users: start with [template/docs/getting-started.md](../template/docs/getting-started.md) (or `docs/getting-started.md` after init).
 
 ## Top-level sections
 

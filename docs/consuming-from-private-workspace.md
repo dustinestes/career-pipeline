@@ -1,39 +1,50 @@
 # Consuming career-pipeline from a private workspace
 
-Your lived-in job search (applications, emails, real resume) should stay **private**. Publish **career-pipeline** as the scrubbed upstream.
+Your lived-in job search (applications, emails, real resume) should stay **private**. Publish **career-pipeline** as the scrubbed upstream plugin.
 
 ## Recommended layout
 
 | Repo | Visibility | Role |
 |------|------------|------|
-| `career-pipeline` | Public | Plugin + template |
-| `Resume` (or similar) | Private | Your real content + local `.cursor/` copy or plugin install |
+| `career-pipeline` | Public | Plugin + template scaffold |
+| `Resume` (or similar) | Private | Your real content workspace |
 
 ## Options
 
-### A. Install plugin, keep private workspace (preferred)
+### A. Install plugin + init (preferred)
 
-1. Symlink or Marketplace-install `career-pipeline` as a Cursor/Agent plugin
-2. Keep `~/workspaces/Resume` (or a copy of `template/`) as the content workspace
-3. Periodically pull skill/rule updates from `career-pipeline` into the private repo only if you vendor them under `.cursor/`
+1. Install or symlink `career-pipeline` as a Cursor/Agent plugin
+2. Open an empty private folder (or create one) and run `/career-pipeline-init` (or ask to set up career-pipeline)
+3. Copy `.career-pipeline.yml.example` → `.career-pipeline.yml` and personalize
+4. Skills and rules stay on the plugin so updates reach every workspace
 
-### B. Vendor skills into the private repo
+Do not vendor career-pipeline skills into the private repo as the source of truth. You may still add **your own** skills under the workspace `.cursor/skills/`.
+
+### B. Manual template copy (plugin still installed)
 
 ```bash
-rsync -a --delete /path/to/career-pipeline/skills/ ~/workspaces/Resume/.cursor/skills/
-rsync -a --delete /path/to/career-pipeline/rules/ ~/workspaces/Resume/.cursor/rules/
+cp -R /path/to/career-pipeline/template ~/workspaces/Resume
+cd ~/workspaces/Resume
+cp .career-pipeline.yml.example .career-pipeline.yml
 ```
 
-Commit those updates in the private repo when you want a pinned snapshot.
+Same personalization steps as after init.
 
-### C. Submodule / subtree (optional)
+### C. Vendored skills (no plugin) — pinned snapshot
 
-Advanced: add `career-pipeline` as a submodule and point docs at `career-pipeline/skills`. Most people prefer A or B.
+```bash
+cp -R /path/to/career-pipeline/template ~/workspaces/Resume
+mkdir -p ~/workspaces/Resume/.cursor/skills ~/workspaces/Resume/.cursor/rules
+cp -R /path/to/career-pipeline/skills/* ~/workspaces/Resume/.cursor/skills/
+cp -R /path/to/career-pipeline/rules/* ~/workspaces/Resume/.cursor/rules/
+```
+
+Updates require re-copying skills/rules or switching to option A.
 
 ## Do not publish from the private repo
 
 Before any public template push from a personal search repo:
 
 - Remove or anonymize `submissions/`
-- Replace `.career-pipeline.yml` with the public Jordan Hale example (or strip personal fields)
+- Replace `.career-pipeline.yml` with the public example (or strip personal fields)
 - Strip PDFs, `.eml`, and CI secrets

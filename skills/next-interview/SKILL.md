@@ -9,6 +9,10 @@ disable-model-invocation: true
 
 # Next Interview
 
+## Prerequisites
+
+If workspace-root `.career-pipeline.yml` is missing, **stop**. Tell the user to copy `.career-pipeline.yml.example` → `.career-pipeline.yml` and edit it (or run `career-pipeline-init` first).
+
 ## Instructions
 
 **Input:** Company, role, round (2nd/3rd/4th), and any known details: audience, format, topics, interviewer names.
@@ -41,7 +45,7 @@ Ask the user for anything not in the invite or prior prep:
 
 Write `<round-folder>/interview-prep.md`:
 
-1. Metadata header per `.cursor/rules/interview-prep-standards.mdc`
+1. Metadata header per the career-pipeline `interview-prep-standards` rule
 2. **Fresh** Company Research — do not reuse stale content from earlier rounds
 3. Audience-specific sections (e.g. "About [Interviewer]", "Scope note", "Approach for This Call")
 4. Tailored talking points and questions based on format and what the user learned from prior rounds
@@ -58,5 +62,5 @@ See [examples.md](examples.md).
 
 ## Additional resources
 
-- Interview prep standards: `.cursor/rules/interview-prep-standards.mdc`
+- Interview prep standards: career-pipeline `interview-prep-standards` rule
 - Prior round preps in the application folder

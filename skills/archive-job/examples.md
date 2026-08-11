@@ -14,9 +14,9 @@ submissions/Files.com/Infrastructure Engineer/
 
 **Command:**
 ```bash
-.cursor/skills/archive-job/scripts/archive-job.sh "Files.com" "Infrastructure Engineer" "Rejected — no response after 3 weeks"
+bash "<path-to-archive-job-skill>/scripts/archive-job.sh" "Files.com" "Infrastructure Engineer" "Rejected — no response after 3 weeks"
 ```
-
+(cwd = job-search workspace root)
 **After:**
 ```
 submissions/.archive/Files.com/Infrastructure Engineer/

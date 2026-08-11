@@ -10,6 +10,10 @@ disable-model-invocation: true
 
 # Source Leads
 
+## Prerequisites
+
+If workspace-root `.career-pipeline.yml` is missing, **stop**. Tell the user to copy `.career-pipeline.yml.example` → `.career-pipeline.yml` and edit it (or run `career-pipeline-init` first). Do not invent persona data.
+
 ## Instructions
 
 ### Phase 1: Establish criteria
@@ -27,7 +31,7 @@ disable-model-invocation: true
 
 For each company, first check whether `leads/<Company>.md` already
 exists. **If it exists, this is a refresh** — follow the "Refreshing an
-existing lead file" procedure in `.cursor/rules/lead-format.mdc` rather than
+existing lead file" procedure in the career-pipeline `lead-format` rule rather than
 writing a fresh file from scratch. Do not skip re-verifying a section just
 because a prior run already filled it in; company facts, sentiment, and news
 all go stale.
@@ -45,7 +49,7 @@ For a new company (no existing file):
    `search.target_roles` in `.career-pipeline.yml`. Include title, link,
    location, and posted date where available. If nothing matches, say so
    explicitly rather than omitting the section.
-7. Write `leads/<Company>.md` per `.cursor/rules/lead-format.mdc`, with
+7. Write `leads/<Company>.md` per the career-pipeline `lead-format` rule, with
    this run's findings as the first (only) entry in Open Roles History.
 
 ### Phase 3: Present
@@ -64,4 +68,4 @@ See [examples.md](examples.md).
 ## Additional resources
 
 - Workspace config: `.career-pipeline.yml`
-- Lead file format: `.cursor/rules/lead-format.mdc`
+- Lead file format: career-pipeline `lead-format` rule
