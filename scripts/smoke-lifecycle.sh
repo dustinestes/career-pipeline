@@ -65,7 +65,8 @@ if [[ -n "$PLUGIN_LINK" ]]; then
   done
   pass "local plugin exposes ${#EXPECTED_SKILLS[@]} skills"
 else
-  echo "WARN: no ~/.cursor/plugins/local/career-pipeline(-dev); checking repo skills/ only"
+  echo "WARN: no ~/.cursor/plugins/local/career-pipeline-dev; checking repo skills/ only"
+  echo "      Run ./scripts/dev-mode.sh link for a Cursor-local install."
   for s in "${EXPECTED_SKILLS[@]}"; do
     [[ -f "$ROOT/skills/$s/SKILL.md" ]] || fail "repo missing skill $s"
   done

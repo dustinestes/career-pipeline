@@ -1,4 +1,7 @@
-# Career pipeline config
+<br><br>
+<img align="right" src="../assets/logo.svg" height="40" alt="career-pipeline">
+<h1>Config</h1>
+<br clear="both">
 
 Workspace personalization lives in **`.career-pipeline.yml`** at the job-search workspace root. Schema: [`schemas/career-pipeline.schema.json`](../schemas/career-pipeline.schema.json). Example to copy: [`.career-pipeline.yml.example`](../.career-pipeline.yml.example) (Jordan Hale). Scaffold ships the example only; job-search skills require the live file.
 
@@ -107,3 +110,17 @@ validate(instance=data, schema=schema)
 print("ok")
 PY
 ```
+
+<br>
+
+---
+
+<br>
+
+<strong>career-pipeline</strong>
+<div align="right">
+
+[MIT License](../LICENSE)
+
+</div>
+<br clear="both">

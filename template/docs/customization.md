@@ -20,10 +20,3 @@ Full setup order: [getting-started.md](getting-started.md).
 Patterns are basenames without extensions. Skills fill tokens such as `{firstName}`, `{companyName}`, `{shortRole}`, and `{source}`, then add `.pdf` / `.html` / `.md` as needed.
 
 Filename-safe cleanup is documented in the plugin field guide: [docs/config.md](../../docs/config.md) (in a checkout of career-pipeline) or the same page on GitHub.
-
-## Related
-
-- Setup walkthrough: [getting-started.md](getting-started.md)
-- Design samples: [design/README.md](../design/README.md)
-- Optional PDF export: [tooling.md](tooling.md)
-- Plugin field guide: [docs/config.md](../../docs/config.md)

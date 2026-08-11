@@ -1,14 +1,106 @@
-# Develop (maintainers)
+<br><br>
+<img align="right" src="../assets/logo.svg" height="40" alt="career-pipeline">
+<h1>Develop</h1>
+<br clear="both">
+
+How to develop this plugin on a machine that may also install a published listing later. Explicit modes avoid confusing a local symlink with a stranger install.
+
+<br>
+
+## Contents
+
+- [Contents](#contents)
+- [Modes](#modes)
+- [Developer mode](#developer-mode)
+- [Consumer-like mode](#consumer-like-mode)
+- [Smoke test](#smoke-test)
+- [Clockify time tracking](#clockify-time-tracking)
+- [Workspace config schema](#workspace-config-schema)
+
+---
+
+<br>
+
+## Modes
+
+| Mode | Purpose | How |
+|------|---------|-----|
+| **Developer** | Iterate this repo (skills + rules) | `./scripts/dev-mode.sh link` |
+| **Consumer-like** | No local `-dev` symlink (Directory / fresh install checks) | `./scripts/dev-mode.sh unlink` |
+
+```bash
+./scripts/dev-mode.sh status
+```
+
+After link or unlink: **reload Cursor**.
+
+This helper only manages the local plugin symlink. There is no MCP rewrite (this package is skills/rules only).
+
+<br>
+
+---
+
+<br>
+
+## Developer mode
+
+```bash
+./scripts/dev-mode.sh link
+# reload Cursor
+```
+
+1. Symlinks this repo to `~/.cursor/plugins/local/career-pipeline-dev` (not bare `career-pipeline`, so a future listing id does not collide)
+2. Removes a legacy `~/.cursor/plugins/local/career-pipeline` link when it pointed at this checkout
+
+Verify: Local plugins → **Career Pipeline** / `career-pipeline-dev`; skills via `/career-pipeline-…`. This is not Directory proof.
+
+<br>
+
+---
+
+<br>
+
+## Consumer-like mode
+
+```bash
+./scripts/dev-mode.sh unlink
+# reload Cursor
+```
+
+Removes `career-pipeline-dev` (and a legacy `career-pipeline` link to this checkout). Then install from [cursor.directory](https://cursor.directory) or symlink a published clone as a stranger would.
+
+<br>
+
+---
+
+<br>
+
+## Smoke test
+
+From the plugin repo root:
+
+```bash
+./scripts/smoke-lifecycle.sh
+# KEEP=1 WORK_DIR=/tmp/cp-smoke ./scripts/smoke-lifecycle.sh
+```
+
+Checks init, submission folders, Chrome + `pdfunite`, and archive scripts. Prefer a linked `career-pipeline-dev`. Requires `google-chrome` and `pdfunite` (see [template/docs/tooling.md](../template/docs/tooling.md)). Agent prose steps are not automated.
+
+<br>
+
+---
+
+<br>
 
 ## Clockify time tracking
 
-This repo is a consumer of [clockify-mcp-server](https://github.com/dustinestes/clockify-mcp-server). Track work against the `career-pipeline` Clockify project while building the package.
+This repo is a **consumer** of [clockify-mcp-server](https://github.com/dustinestes/clockify-mcp-server). Track work against the `career-pipeline` Clockify project while building the package.
 
-Each consumer repo keeps its own `.env` so API key / workspace can differ per project. This package uses the Clockify workspace **GitHub** (`CLOCKIFY_WORKSPACE_ID` in local `.env`) so public GitHub work stays separate from Personal or client workspaces.
+Each consumer repo keeps its own `.env`. This package uses the Clockify workspace **GitHub** (`CLOCKIFY_WORKSPACE_ID` in local `.env`).
 
 ### One-time local wiring
 
-1. In the Clockify checkout (skills + MCP server binary):
+1. In the Clockify checkout:
 
 ```bash
 cd /path/to/clockify-mcp-server
@@ -16,75 +108,40 @@ npm install && npm run build
 npm run dev:link
 ```
 
-2. In this repo, add credentials:
+2. In this repo:
 
 ```bash
 cp .env.example .env
-# set CLOCKIFY_API_KEY
-# set CLOCKIFY_WORKSPACE_ID for the workspace that should own career-pipeline
-```
-
-3. Wire project MCP (points at the Clockify `dist` + **this** repo’s `.env`):
-
-```bash
+# set CLOCKIFY_API_KEY and CLOCKIFY_WORKSPACE_ID
 cp .cursor/mcp.json.example .cursor/mcp.json
-# edit command/args to absolute paths for node + clockify-mcp-server/dist/index.js
-# keep envFile as ${workspaceFolder}/.env
+# absolute paths for node + clockify-mcp-server/dist/index.js
+# envFile: ${workspaceFolder}/.env
 ```
 
-`.cursor/mcp.json` and `.env` are gitignored. `.clockify.yml` is committed (no secrets).
+3. Reload Cursor; enable MCP **clockify-dev**. Run `/clockify-project-init` once, then `/clockify-coding-time` for start/stop.
 
-4. Reload Cursor (`Developer: Reload Window`), then:
+Do not commit API keys.
 
-- Enable MCP **clockify-dev** under Customize → MCP (project MCP; often starts disabled)
-- Skills are **not** under “Project plugins”. Local plugins live under user/local installs (`~/.cursor/plugins/local/clockify-dev`). Look for **Clockify** / **clockify-dev** in the Installed / Local plugins list, not the project-only filter.
+<br>
 
-If the local plugin still does not appear (common while stress-testing), symlink the skills into this workspace (already gitignored):
+---
 
-```bash
-mkdir -p .cursor/skills
-ln -sfn /path/to/clockify-mcp-server/skills/clockify-coding-time .cursor/skills/
-ln -sfn /path/to/clockify-mcp-server/skills/clockify-project-init .cursor/skills/
-ln -sfn /path/to/clockify-mcp-server/skills/clockify-project-init-automated .cursor/skills/
-```
-
-Then reload again and invoke `/clockify-coding-time` (or the other skill names) from chat.
-
-5. First time in this repo, run `/clockify-project-init` so Clockify has a `career-pipeline` project and GitHub labels as tasks. After that, use `/clockify-coding-time` (or the MCP tools) to start/stop/summarize.
-
-### Day to day
-
-| Moment | Action |
-|--------|--------|
-| Start an issue | `/clockify-coding-time` → start (description from issue number/title) |
-| Ship a PR / finish | stop timer (rounding per `.clockify.yml`) |
-| Check the day | `clockify_today_summary` |
-
-Do not commit API keys. Do not reuse another checkout’s `.env` if that file pins a different workspace.
-
-### Publish later
-
-When Clockify is on the Marketplace (or `npx`), drop the local `clockify-dev` link (`npm run dev:unlink` in that repo), install the published plugin, and keep this repo’s `.clockify.yml` + `.env` (or plugin variables). See Clockify `docs/setup.md`.
+<br>
 
 ## Workspace config schema
 
-Personalization for job-search workspaces: [docs/config.md](config.md) (`.career-pipeline.yml` + `schemas/career-pipeline.schema.json`).
+[config.md](./config.md) (`.career-pipeline.yml` + `schemas/career-pipeline.schema.json`).
 
-## Smoke test (stranger-ready loop)
+<br>
 
-From the plugin repo root:
+---
 
-```bash
-./scripts/smoke-lifecycle.sh
-# KEEP=1 WORK_DIR=/tmp/cp-smoke ./scripts/smoke-lifecycle.sh   # leave workspace for inspection
-```
+<br>
 
-Checks:
+<strong>career-pipeline</strong>
+<div align="right">
 
-1. Local plugin under `~/.cursor/plugins/local/career-pipeline` or `career-pipeline-dev` exposes all `career-pipeline-*` skills (falls back to repo `skills/` with a warning)
-2. Init scaffold (example YAML only; no vendored skills)
-3. Submission shape: assessment → `email/` + `application/` → `interview - 1st/`
-4. Chrome headless PDF + `pdfunite` on design samples
-5. `archive-submission` and `archive-lead` (+ `ignore_companies`)
+[MIT License](../LICENSE)
 
-Requires `google-chrome` and `pdfunite` (see [template/docs/tooling.md](../template/docs/tooling.md)). Skill **agent** steps (web research, cover letter prose) are not automated; scripts cover structure and export.
+</div>
+<br clear="both">
