@@ -19,7 +19,7 @@ Removes manual board hunting when you want it. Not required.
 1. You already have a job URL.
 2. Run `career-pipeline-analyze-job` with that URL.
 
-Same gate either way → optional `create-application` → interview prep / archive / delete.
+Same gate either way → optional `create-application` → interview prep → analyze-offer → accept-job (or archive / delete).
 
 ## Setup
 
@@ -41,6 +41,7 @@ Same gate either way → optional `create-application` → interview prep / arch
 | `/career-pipeline-analyze-job` | Assesses a job posting for fit and writes an assessment under submissions. Use when the user shares a job listing URL, passes roles from a lead file, asks to analyze a role, or wants apply/pass guidance (does not build cover letter or PDFs). | Posting URL(s) and/or lead roles | `submissions/<Company>/<Role>/<assessment>.md` + apply/pass guidance |
 | `/career-pipeline-create-application` | Builds application artifacts for a role (skeleton, cover letter, PDFs). Use after analyze-job proceed, or when the user already decided to apply and wants artifacts without a new assessment. Does not submit to an ATS. | Company + role (assessment preferred) | `email/`, `application/` with cover letter, PDFs, exports |
 | `/career-pipeline-create-interview-prep` | Builds interview prep for any round given company, role, round (1st/2nd/…), and audience. Creates interview - Nth folder on demand. Use for recruiter screens, hiring manager, technical, or later rounds. | Company, role, round, audience | `interview - Nth/interview-prep.md` |
+| `/career-pipeline-analyze-offer` | Reviews an offer packet (compensation, benefits, equity) under a submission's offer/ folder. Use when the user receives an offer, pastes offer materials, or wants accept/decline guidance before career-pipeline-accept-job. | Company + role; offer materials in `offer/` or chat | `offer/offer-review.md` + accept/decline guidance |
 | `/career-pipeline-archive-submission` | Moves a closed application to submissions/.archive and cleans up empty company folders. Use when the user rejects a role, receives a rejection, withdraws, or asks to archive a submission. | Company + role; optional reason | `submissions/.archive/...` |
 | `/career-pipeline-delete-submission` | Permanently deletes a submission folder under submissions/\<Company\>/\<Role\>. Use when the user does not want to archive and confirms hard delete. Requires company and role name. | Company + role + confirm | Folder removed |
 
@@ -52,8 +53,11 @@ submissions/<Company>/<Role>/
   application/           # assessment, cover letter, resume, combined, posting PDFs
   interview - 1st/       # created on demand
   interview - 2nd/
+  offer/                 # created on demand (packet + offer-review.md)
 ```
 
 Lowercase names; related interview rounds share the `interview -` taxonomy prefix. No leading `N -` sort numbers.
+
+**Offer:** drop offer letter, benefits, and equity docs into `offer/`, then run `career-pipeline-analyze-offer`. On proceed → `career-pipeline-accept-job`; on decline → `career-pipeline-archive-submission`.
 
 **Email:** export/print mail into `email/` yourself. Automating every mailbox provider is out of scope; other plugins/MCPs may write into this layout if you want.

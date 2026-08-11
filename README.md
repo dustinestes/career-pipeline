@@ -6,7 +6,7 @@ This repo is an installable **plugin**. After install, init an empty folder as y
 
 | Layer | What you get |
 |-------|----------------|
-| Skills | Prefixed `career-pipeline-*` skills (init, leads, analyze, create application/prep, archive/delete) |
+| Skills | Prefixed `career-pipeline-*` skills (init, leads, analyze, create application/prep/offer, archive/delete) |
 | Rules | Assessment, cover letter, interview prep, lead, and application standards |
 | Template | Folders (`design`, `leads`, `submissions`), example YAML, consumer docs |
 
@@ -83,7 +83,7 @@ Full tables (Invoke / Description / Input / Output), entrypoints, and folder lay
 |-------|--------|
 | Setup | `/career-pipeline-init` |
 | Lead Discovery | `/career-pipeline-source-leads`, `/career-pipeline-archive-lead` |
-| Application | `/career-pipeline-analyze-job`, `/career-pipeline-create-application`, `/career-pipeline-create-interview-prep`, `/career-pipeline-archive-submission`, `/career-pipeline-delete-submission` |
+| Application | `/career-pipeline-analyze-job`, `/career-pipeline-create-application`, `/career-pipeline-create-interview-prep`, `/career-pipeline-analyze-offer`, `/career-pipeline-archive-submission`, `/career-pipeline-delete-submission` |
 
 ## Personal data
 

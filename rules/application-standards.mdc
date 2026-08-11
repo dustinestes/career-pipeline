@@ -32,6 +32,7 @@ Under `submissions/<Company>/<Role>/`:
 - `email/` — user-exported mail only (no in-plugin mailbox sync)
 - `application/` — assessment, cover letter, resume, combined PDF, posting exports
 - `interview - 1st`, `interview - 2nd`, … — created on demand by `career-pipeline-create-interview-prep`
+- `offer/` — created on demand by `career-pipeline-analyze-offer` (user packet + `offer-review.md`)
 
 ## Resume versioning
 

@@ -18,7 +18,7 @@ Walkthrough: [docs/getting-started.md](docs/getting-started.md). Skill catalog: 
 |-------|--------|
 | Setup | `/career-pipeline-init` |
 | Lead Discovery | `/career-pipeline-source-leads`, `/career-pipeline-archive-lead` |
-| Application | `/career-pipeline-analyze-job`, `/career-pipeline-create-application`, `/career-pipeline-create-interview-prep`, `/career-pipeline-archive-submission`, `/career-pipeline-delete-submission` |
+| Application | `/career-pipeline-analyze-job`, `/career-pipeline-create-application`, `/career-pipeline-create-interview-prep`, `/career-pipeline-analyze-offer`, `/career-pipeline-archive-submission`, `/career-pipeline-delete-submission` |
 
 The `career-pipeline-` prefix is intentional for `/` popup discoverability. Details: [docs/skills.md](docs/skills.md).
 

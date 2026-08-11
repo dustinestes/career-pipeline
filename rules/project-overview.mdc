@@ -20,7 +20,7 @@ This workspace runs a structured job search: resume design, exports, and applica
 
 ## Submissions path
 
-Live: `submissions/<Company>/<Job Title>/` with `email/`, `application/`, and on-demand `interview - Nth/`
+Live: `submissions/<Company>/<Job Title>/` with `email/`, `application/`, and on-demand `interview - Nth/` and `offer/`
 
 ## Leads path
 
