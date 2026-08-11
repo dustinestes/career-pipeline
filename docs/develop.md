@@ -69,3 +69,22 @@ When Clockify is on the Marketplace (or `npx`), drop the local `clockify-dev` li
 ## Workspace config schema
 
 Personalization for job-search workspaces: [docs/config.md](config.md) (`.career-pipeline.yml` + `schemas/career-pipeline.schema.json`).
+
+## Smoke test (stranger-ready loop)
+
+From the plugin repo root:
+
+```bash
+./scripts/smoke-lifecycle.sh
+# KEEP=1 WORK_DIR=/tmp/cp-smoke ./scripts/smoke-lifecycle.sh   # leave workspace for inspection
+```
+
+Checks:
+
+1. Local plugin under `~/.cursor/plugins/local/career-pipeline` or `career-pipeline-dev` exposes all `career-pipeline-*` skills (falls back to repo `skills/` with a warning)
+2. Init scaffold (example YAML only; no vendored skills)
+3. Submission shape: assessment → `email/` + `application/` → `interview - 1st/`
+4. Chrome headless PDF + `pdfunite` on design samples
+5. `archive-submission` and `archive-lead` (+ `ignore_companies`)
+
+Requires `google-chrome` and `pdfunite` (see [template/docs/tooling.md](../template/docs/tooling.md)). Skill **agent** steps (web research, cover letter prose) are not automated; scripts cover structure and export.

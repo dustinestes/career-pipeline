@@ -20,9 +20,10 @@ Compatible with **Cursor**, **Claude Code** (skills), and any host that loads [A
 
 ```bash
 ln -s /path/to/career-pipeline ~/.cursor/plugins/local/career-pipeline-dev
+# or: ~/.cursor/plugins/local/career-pipeline
 ```
 
-Reload Cursor.
+Either local folder name works; Cursor loads skills from the linked checkout. Reload Cursor after linking.
 
 2. Create an **empty** folder for your job search (a bare `git init` is fine). Open it in Cursor.
 
@@ -95,7 +96,7 @@ See [docs/consuming-from-private-workspace.md](docs/consuming-from-private-works
 |-----|----------|
 | [docs/skills.md](docs/skills.md) | Skill catalog (plugin + mirrored in workspace) |
 | [docs/config.md](docs/config.md) | `.career-pipeline.yml` field guide (schema + naming) |
-| [docs/develop.md](docs/develop.md) | Maintainer setup (including Clockify time tracking) |
+| [docs/develop.md](docs/develop.md) | Maintainer setup (Clockify) + `scripts/smoke-lifecycle.sh` |
 | [template/docs/getting-started.md](template/docs/getting-started.md) | Consumer setup after init |
 | [template/docs/customization.md](template/docs/customization.md) | YAML checklist |
 | [template/docs/tooling.md](template/docs/tooling.md) | Optional PDF export |
@@ -110,6 +111,7 @@ See [docs/consuming-from-private-workspace.md](docs/consuming-from-private-works
 | `plugin.json` | Agent Plugins portable manifest |
 | `skills/` | Agent Skills (plugin-owned; single source of truth) |
 | `rules/` | Cursor rules (plugin-owned) |
+| `scripts/smoke-lifecycle.sh` | Maintainer dry-run (init, folders, PDF, archive) |
 | `.cursor/rules/` | Maintainer workflow for this repo only |
 | `template/` | Scaffold payload for init / manual copy |
 
