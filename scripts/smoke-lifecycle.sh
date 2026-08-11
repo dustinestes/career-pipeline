@@ -53,6 +53,7 @@ EXPECTED_SKILLS=(
   career-pipeline-analyze-job
   career-pipeline-create-application
   career-pipeline-create-interview-prep
+  career-pipeline-analyze-offer
   career-pipeline-archive-submission
   career-pipeline-delete-submission
 )
@@ -114,6 +115,11 @@ pass "create-application skeleton + assessment promoted"
 mkdir -p "$APP/interview - 1st"
 echo "# Interview prep (smoke)" > "$APP/interview - 1st/interview-prep.md"
 pass "create-interview-prep folder shape"
+
+# Offer folder on demand
+mkdir -p "$APP/offer"
+echo "# Offer review (smoke)" > "$APP/offer/offer-review.md"
+pass "analyze-offer folder shape"
 
 # --- 4. PDF export (Chrome + pdfunite) ---
 command -v google-chrome >/dev/null || fail "google-chrome not on PATH"
