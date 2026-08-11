@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jordan Hale — Cover Letter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@200;300;400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500&display=swap" rel="stylesheet">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@200;300;400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500&display=swap');
+
+  /* ============================================================
+     APPLICATION BRANDING — edit this block for each application
+     ============================================================ */
+  :root {
+    --company-name:        "Riverbend Supply";
+    --company-team:        "Austin Distribution";
+    --hiring-manager:      "Hiring Manager";
+    --role-title:          "Warehouse Operations Supervisor";
+    --company-logo-url:    "";
+  }
+  /* ============================================================
+     END BRANDING BLOCK
+     ============================================================ */
+
+  :root {
+    --font-display:   'Syne', 'Arial Black', sans-serif;
+    --font-mono:      'DM Mono', 'Courier New', monospace;
+
+    --bg-primary:     #111110;
+    --bg-body:        #1a1917;
+    --bg-section:     #f7f6f3;
+    --text-primary:   #f0ede8;
+    --text-body:      #2a2825;
+    --text-secondary: #6b6560;
+    --text-muted:     #555;
+    --accent:         #6e9fc8;
+    --accent-dim:     rgba(110,159,200,0.35);
+    --accent-faint:   rgba(110,159,200,0.08);
+    --rule:           rgba(110,159,200,0.2);
+    --border:         rgba(255,255,255,0.06);
+    --body-bg:        #141412;
+  }
+  [data-theme="light"] {
+    --bg-primary:     #111110;
+    --bg-section:     #ffffff;
+    --text-body:      #1a1917;
+    --text-secondary: #6b6560;
+    --border:         rgba(0,0,0,0.08);
+    --body-bg:        #f0ede8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--body-bg);
+    font-family: var(--font-mono);
+    min-height: 100vh;
+    padding: 32px 20px;
+    transition: background 0.3s ease;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .theme-toggle {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 100;
+    background: var(--bg-primary);
+    border: 0.5px solid var(--accent-dim);
+    border-radius: 20px;
+    padding: 6px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .theme-toggle:hover { border-color: var(--accent); }
+  .theme-toggle svg { width: 13px; height: 13px; fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-linecap: round; }
+
+  .header {
+    background: var(--bg-primary);
+    padding: 32px 36px 26px;
+    border-radius: 6px 6px 0 0;
+    border: 0.5px solid var(--border);
+    border-bottom: none;
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #777;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .name-row {
+    display: flex;
+    align-items: baseline;
+    gap: 13px;
+    margin-bottom: 16px;
+    line-height: 1;
+  }
+  .name-first {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 200;
+    color: #f0ede8;
+    letter-spacing: -1px;
+  }
+  .name-last {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: -1px;
+  }
+  .name-rule {
+    width: 36px;
+    height: 1.5px;
+    background: var(--accent);
+    margin-bottom: 18px;
+  }
+  .contact-chips {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .contact-text { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 0.5px solid var(--accent-dim);
+    padding: 6px 12px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .chip:hover { border-color: var(--accent); background: var(--accent-faint); }
+
+  .body {
+    background: var(--bg-section);
+    border: 0.5px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    padding: 40px 48px 48px;
+  }
+
+  .addressee {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .addressee-label {
+    font-family: var(--font-mono);
+    font-size: 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+  }
+  .addressee-company {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-body);
+    margin-bottom: 2px;
+  }
+  .addressee-team {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .addressee-right {
+    text-align: right;
+  }
+  .company-logo {
+    height: 32px;
+    max-width: 120px;
+    object-fit: contain;
+    opacity: 0.85;
+  }
+  .logo-placeholder {
+    font-family: var(--font-mono);
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    border: 0.5px dashed var(--rule);
+    padding: 6px 12px;
+    border-radius: 2px;
+  }
+
+  .role-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-primary);
+    padding: 5px 12px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
+  .role-dot { width: 3px; height: 3px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+  .role-text {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .salutation {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-body);
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
+  .letter-body p {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height: 1.9;
+    margin-bottom: 18px;
+  }
+
+  .letter-body p strong {
+    color: var(--text-body);
+    font-weight: 400;
+  }
+
+  .pull-quote {
+    border-left: 1.5px solid var(--accent);
+    background: var(--accent-faint);
+    padding: 12px 16px;
+    border-radius: 0 2px 2px 0;
+    margin: 24px 0;
+  }
+  .pull-quote p {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-body);
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  .closing {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 0.5px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .closing-text {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+  }
+  .sig-name-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .sig-first {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 200;
+    color: var(--text-body);
+    letter-spacing: 0.5px;
+    line-height: 1;
+  }
+  .sig-last {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .sig-rule {
+    width: 24px;
+    height: 1.5px;
+    background: var(--accent);
+    margin-top: 8px;
+  }
+  .closing-right {
+    text-align: right;
+  }
+  .date {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+
+  .print-end { display: none; }
+
+  @media print {
+    @page { margin: 8mm 0; }
+    * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    body { padding: 0; background: #ffffff; }
+    .body { background: #ffffff; border-bottom: none; border-radius: 0; }
+    .theme-toggle { display: none; }
+    .page { max-width: 100%; }
+    .print-end {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 0 0;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .print-end-rule {
+      flex: 1;
+      height: 0.5px;
+      background: #6e9fc8;
+      opacity: 0.4;
+    }
+    .print-end-text {
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 8px;
+      letter-spacing: 0.08em;
+      color: #6e9fc8;
+      opacity: 0.7;
+      white-space: nowrap;
+    }
+    [data-theme="dark"] { --bg-primary: #111110; --bg-section: #ffffff; --body-bg: #ffffff; }
+  }
+
+  @media (max-width: 600px) {
+    .body { padding: 28px 24px 32px; }
+    .name-first, .name-last { font-size: 36px; }
+    .addressee { flex-direction: column; gap: 16px; }
+    .closing { flex-direction: column; gap: 20px; }
+    .closing-right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">
+  <svg id="theme-icon" viewBox="0 0 24 24">
+    <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>
+  </svg>
+  <span id="theme-label">Light</span>
+</button>
+
+<div class="page">
+
+  <header class="header">
+    <div class="eyebrow">// Warehouse Ops &nbsp;·&nbsp; Logistics Coordination &nbsp;·&nbsp; Distribution Lead</div>
+    <div class="name-row">
+      <span class="name-first">Jordan</span>
+      <span class="name-last">Hale</span>
+    </div>
+    <div class="name-rule"></div>
+    <div class="contact-chips">
+      <div class="contact-text">
+        <span class="chip">Austin, TX</span>
+        <a href="mailto:jordan.hale@example.com" class="chip">jordan.hale@example.com</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="body">
+
+    <div class="addressee">
+      <div class="addressee-left">
+        <div class="addressee-label">Application for</div>
+        <div class="addressee-company">Riverbend Supply</div>
+        <div class="addressee-team">Austin Distribution</div>
+      </div>
+      <div class="addressee-right">
+        <div class="logo-placeholder" id="logo-slot">Logo</div>
+      </div>
+    </div>
+
+    <div class="role-chip">
+      <div class="role-dot"></div>
+      <div class="role-text">Re: Warehouse Operations Supervisor</div>
+    </div>
+
+    <div class="salutation">Dear Hiring Manager,</div>
+
+    <div class="letter-body">
+
+      <p>
+        I'm writing about the <strong>Warehouse Operations Supervisor</strong> role at
+        <strong>Riverbend Supply</strong>. I moved from retail floor leadership into warehouse
+        and distribution work. The work that stuck with me is the same: clear shift
+        communication, accurate inventory handoffs, and coaching people when volume spikes.
+      </p>
+
+      <div class="pull-quote">
+        <p>
+          Peak season at Northpine: I rebuilt the morning stand-up so pickers knew the top
+          five SKUs before the first cart rolled, which cut early-shift idle time.
+        </p>
+      </div>
+
+      <p>
+        At <strong>Summitlane Distribution</strong> I coordinate inbound appointments and dock
+        flow for a regional DC. I tightened pick-audit handoffs to cut mis-ship investigations,
+        and I work with carriers when the same late-delivery patterns keep showing up. Before
+        that, at <strong>Northpine Logistics</strong>, I led a 12-person pick/pack team through
+        peak season and trained new hires on RF scanners and safety basics.
+      </p>
+
+      <p>
+        I do not have a four-year degree. I do have a logistics certificate from Cedar Ridge
+        Community College, OSHA 10, forklift certification, and years of floor-to-dock work
+        where the scoreboard is SLA and inventory accuracy.
+      </p>
+
+      <p>
+        I'd welcome the opportunity to further illustrate how I can add value to the team at
+        <strong>Riverbend Supply</strong>.
+      </p>
+
+    </div>
+
+    <div class="closing">
+      <div class="closing-left">
+        <div class="closing-text">With appreciation for your time and consideration,</div>
+        <div class="sig-name-row">
+          <span class="sig-first">Jordan</span>
+          <span class="sig-last">Hale</span>
+        </div>
+        <div class="sig-rule"></div>
+      </div>
+      <div class="closing-right">
+        <div class="date" id="letter-date"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="print-end">
+  <span class="print-end-rule"></span>
+  <span class="print-end-text">// EOF</span>
+  <span class="print-end-rule"></span>
+</div>
+
+<script>
+  if (location.search.includes('continuous')) {
+    const heightIn = ((document.documentElement.scrollHeight / 96) + 0.5).toFixed(2);
+    const s = document.createElement('style');
+    s.textContent = `@page { size: 8.5in ${heightIn}in; margin: 8mm 0; }`;
+    document.head.appendChild(s);
+  }
+
+  function cssVar(name) {
+    return getComputedStyle(document.documentElement)
+      .getPropertyValue(name).trim().replace(/^["']|["']$/g, '');
+  }
+
+  const companyName = cssVar('--company-name');
+  const companyTeam = cssVar('--company-team');
+  const hiringManager = cssVar('--hiring-manager');
+  const roleTitle = cssVar('--role-title');
+
+  if (companyName) document.querySelector('.addressee-company').textContent = companyName;
+  if (companyTeam) document.querySelector('.addressee-team').textContent = companyTeam;
+  if (roleTitle) document.querySelector('.role-text').textContent = 'Re: ' + roleTitle;
+  if (hiringManager) document.querySelector('.salutation').textContent = 'Dear ' + hiringManager + ',';
+
+  const logoUrl = cssVar('--company-logo-url');
+  const slot = document.getElementById('logo-slot');
+  if (logoUrl) {
+    const img = document.createElement('img');
+    img.src = logoUrl;
+    img.className = 'company-logo';
+    img.alt = 'Company logo';
+    slot.replaceWith(img);
+  } else {
+    slot.remove();
+  }
+
+  const d = new Date();
+  const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  document.getElementById('letter-date').textContent = months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    const icon = document.getElementById('theme-icon');
+    const label = document.getElementById('theme-label');
+    if (isDark) {
+      icon.innerHTML = '<path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>';
+      label.textContent = 'Dark';
+    } else {
+      icon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+      label.textContent = 'Light';
+    }
+  }
+
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('theme-label').textContent = 'Dark';
+    document.getElementById('theme-icon').innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+  }
+</script>
+</body>
+</html>

@@ -30,14 +30,14 @@ Create `submissions/<Company>/<Job Title>/` and produce files in order. Resolve 
 ```
 Task Progress:
 - [ ] <naming.assessment>.md
-- [ ] <naming.cover_letter>.html (from design/cover-letter.html)
+- [ ] <naming.cover_letter>.html (clone layout/CSS from working `design/` cover letter; follow cover-letter-standards)
 - [ ] <naming.cover_letter>.pdf
 - [ ] Latest resume PDF from design/exports/ (preserve resolved naming.resume filename)
 - [ ] Combined PDF: <naming.combined_pdf>.pdf
 - [ ] Job posting PDF(s): <naming.job_posting_export>.pdf (set {source} per origin)
 ```
 
-**Cover letter:** Edit CSS branding block and body. Follow `.cursor/rules/cover-letter-standards.mdc`.
+**Cover letter:** Copy the working cover letter under `design/` (layout and CSS unchanged). Edit only the branding block and letter body. Follow `.cursor/rules/cover-letter-standards.mdc`.
 
 **PDF export:** See [docs/tooling.md](docs/tooling.md).
 

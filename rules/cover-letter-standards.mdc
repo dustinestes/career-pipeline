@@ -1,21 +1,27 @@
 ---
 description: Cover letter design system, CSS branding, structure, and anti-AI tone rules
-globs: "**/cover-letter*.html"
+globs: "**/cover_letter*.html,**/cover-letter*.html"
 alwaysApply: false
 ---
 
 # Cover Letter Standards
 
-Canonical template: `design/cover-letter.html`
+## Source of truth
+
+After setup, `design/` should contain **one** working resume and **one** working cover letter (for example `resume.html` and `cover-letter.html`). Those files are the only design sources.
+
+Per-application cover letters under `submissions/` must clone **layout, typography, color tokens, and structural CSS** from that working cover letter. Do not invent a new visual system, pull styles from unused samples, or restyle for the company.
 
 ## Non-negotiable design
 
-- Gold theme only — `#c8a96e`; no company accent colors or logos
-- Fonts — Syne (display) + DM Mono (mono)
-- Dark header, light body
-- No images — logo slot removed via JS when `--company-logo-url` is empty
+- Match the working cover letter’s accent, fonts, and light/dark behavior; do not introduce a different palette or type stack
+- No company accent colors or logos (keep the logo slot empty unless the user explicitly asks otherwise)
+- Dark header / letter-body contrast as in the working source
+- No images unless the working source already uses them and the user asks to keep that pattern
 
 ## CSS branding block
+
+Keep the per-application branding variables from the working cover letter (names may match this shape):
 
 ```css
 :root {
@@ -27,9 +33,11 @@ Canonical template: `design/cover-letter.html`
 }
 ```
 
+Edit values for the role; do not change the visual theme tokens when applying.
+
 ## Structure
 
-Header → addressee block → role chip → salutation → body (3–5 paragraphs, one pull quote) → signature. The `?continuous` script must be present for single-page PDF export.
+Header → addressee block → role chip → salutation → body (3–5 paragraphs, one pull quote) → signature. Preserve the same section order and components as the working cover letter. Keep the `?continuous` script if the source has it (needed for single-page PDF export).
 
 ## Tone
 

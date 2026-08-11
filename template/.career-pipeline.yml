@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/dustinestes/career-pipeline/main/schemas/career-pipeline.schema.json
 # Filled Jordan Hale example for this workspace. Edit to match your search.
-# Field guide: docs/customization.md (workspace) and career-pipeline docs/config.md (plugin).
+# Field guide: docs/getting-started.md and docs/customization.md (workspace); career-pipeline docs/config.md (plugin).
 
 version: 1
 
@@ -11,6 +11,10 @@ candidate:
     city: Austin
     region: TX
     country: US
+
+contact:
+  email: jordan.hale@example.com
+  # phone: omit from resume/cover letter when not set
 
 compensation:
   salary_floor: 65000

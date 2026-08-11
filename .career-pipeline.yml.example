@@ -12,6 +12,10 @@ candidate:
     region: TX
     country: US
 
+contact:
+  email: jordan.hale@example.com
+  # phone: omit from resume/cover letter when not set
+
 compensation:
   salary_floor: 65000
   currency: USD

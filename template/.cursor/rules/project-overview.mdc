@@ -11,8 +11,8 @@ This workspace runs a structured job search: resume design, exports, and applica
 
 | Folder | Purpose |
 |--------|---------|
-| `design/` | Editable source files (resume, cover letter template) |
-| `design/exports/` | Finished PDFs ready to submit |
+| `design/` | Sample and working resume / cover letter HTML |
+| `design/exports/` | Optional finished PDFs when you export |
 | `leads/` | Company research profiles produced by `source-leads` |
 | `submissions/` | Per-company, per-role application tracking |
 | `submissions/.archive/` | Closed applications |
@@ -27,7 +27,7 @@ Company research: `leads/<Company>.md`
 
 ## Personal context
 
-Read workspace-root `.career-pipeline.yml` for salary floor, location preferences, target roles, background facts, and naming patterns. Do not hardcode candidate-specific details in rules or skills. Field guide: plugin `docs/config.md` (or `docs/customization.md` in this workspace).
+Read workspace-root `.career-pipeline.yml` for salary floor, location preferences, target roles, background facts, and naming patterns. Do not hardcode candidate-specific details in rules or skills. Setup: `docs/getting-started.md`. Field guide: plugin `docs/config.md` (or `docs/customization.md` in this workspace).
 
 ## Workflows
 

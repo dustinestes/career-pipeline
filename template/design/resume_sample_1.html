@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jordan Hale — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@200;300;400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500&display=swap" rel="stylesheet">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@200;300;400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500&display=swap');
+  :root {
+    --bg-primary: #111110;
+    --bg-body: #1a1917;
+    --bg-section: #1f1e1c;
+    --bg-stat: #111110;
+    --text-primary: #f0ede8;
+    --text-secondary: #a09c94;
+    --text-muted: #555;
+    --accent: #6e9fc8;
+    --accent-dim: rgba(110,159,200,0.35);
+    --accent-faint: rgba(110,159,200,0.08);
+    --rule: rgba(110,159,200,0.2);
+    --border: rgba(255,255,255,0.06);
+    --body-bg: #141412;
+
+    --font-display: 'Syne', 'Arial Black', sans-serif;
+    --font-mono:    'DM Mono', 'Courier New', monospace;
+  }
+  [data-theme="light"] {
+    --bg-primary: #111110;
+    --bg-body: #ffffff;
+    --bg-section: #f7f6f3;
+    --bg-stat: #1a1917;
+    --text-primary: #1a1917;
+    --text-secondary: #6b6560;
+    --text-muted: #999;
+    --accent: #6e9fc8;
+    --accent-dim: rgba(110,159,200,0.5);
+    --accent-faint: rgba(110,159,200,0.08);
+    --rule: rgba(80,120,160,0.25);
+    --border: rgba(0,0,0,0.08);
+    --body-bg: #f0ede8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--body-bg);
+    font-family: var(--font-mono);
+    min-height: 100vh;
+    padding: 32px 20px;
+    transition: background 0.3s ease;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .theme-toggle {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 100;
+    background: var(--bg-primary);
+    border: 0.5px solid var(--accent-dim);
+    border-radius: 20px;
+    padding: 6px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+  }
+  .theme-toggle:hover { border-color: var(--accent); }
+  .theme-toggle svg { width: 13px; height: 13px; fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-linecap: round; }
+
+  .header {
+    background: var(--bg-primary);
+    padding: 32px 36px 26px;
+    border-radius: 6px 6px 0 0;
+    border: 0.5px solid var(--border);
+    border-bottom: none;
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #777;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .name-row {
+    display: flex;
+    align-items: baseline;
+    gap: 13px;
+    margin-bottom: 16px;
+    line-height: 1;
+  }
+  .name-first {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 500;
+    color: #f0ede8;
+    letter-spacing: -1px;
+  }
+  .name-last {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: -1px;
+  }
+  .name-rule {
+    width: 36px;
+    height: 1.5px;
+    background: var(--accent);
+    margin-bottom: 18px;
+  }
+  .contact-chips {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .contact-text { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 0.5px solid var(--accent-dim);
+    padding: 6px 12px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .chip:hover { border-color: var(--accent); background: var(--accent-faint); }
+
+  .body {
+    background: var(--bg-section);
+    border: 0.5px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+  }
+
+  .sidebar {
+    padding: 32px 28px;
+    border-right: 0.5px solid var(--rule);
+  }
+  .sidebar-section { margin-bottom: 28px; }
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .skill-group { margin-bottom: 14px; }
+  .skill-name {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 3px;
+  }
+  .skill-tags {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .cert-item { margin-bottom: 10px; }
+  .cert-name {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-primary);
+    letter-spacing: 0.3px;
+  }
+  .edu-item { margin-bottom: 12px; }
+  .edu-name {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-primary);
+    letter-spacing: 0.3px;
+  }
+  .edu-sub {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+
+  .main {
+    padding: 32px 32px 32px 36px;
+  }
+  .main-section { margin-bottom: 36px; }
+  .main-section:last-child { margin-bottom: 0; }
+
+  .job { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 0.5px solid var(--rule); }
+  .job:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
+  .job-title {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  .job-date {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+  .job-company {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .bullets { list-style: none; padding: 0; margin-bottom: 14px; }
+  .bullets li {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 5px;
+  }
+  .bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 9px;
+  }
+  .stat-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  .stat {
+    background: var(--bg-stat);
+    padding: 8px 14px;
+    border-radius: 2px;
+    min-width: 90px;
+  }
+  .stat-n {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 3px;
+    letter-spacing: -0.5px;
+  }
+  .stat-l {
+    font-family: var(--font-mono);
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .summary {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    padding: 16px 18px;
+    border-left: 1.5px solid var(--accent);
+    background: var(--accent-faint);
+    border-radius: 0 2px 2px 0;
+    margin-bottom: 28px;
+  }
+
+  .print-end { display: none; }
+
+  @media print {
+    @page { margin: 8mm 0; }
+    * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    body { padding: 0; min-height: 0; background: #ffffff; }
+    .body { background: #ffffff; border-bottom: none; border-radius: 0; }
+    .theme-toggle { display: none; }
+    .print-end {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 0 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .print-end-rule {
+      flex: 1;
+      height: 0.5px;
+      background: #6e9fc8;
+      opacity: 0.4;
+    }
+    .print-end-text {
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 8px;
+      letter-spacing: 0.08em;
+      color: #6e9fc8;
+      opacity: 0.7;
+      white-space: nowrap;
+    }
+    .page { max-width: 100%; }
+    [data-theme="dark"] { --bg-primary: #111110; --bg-section: #ffffff; --body-bg: #ffffff; }
+  }
+
+  @media (max-width: 680px) {
+    .body { grid-template-columns: 1fr; }
+    .sidebar { border-right: none; border-bottom: 0.5px solid var(--rule); }
+    .name-first, .name-last { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">
+  <svg id="theme-icon" viewBox="0 0 24 24">
+    <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>
+  </svg>
+  <span id="theme-label">Light</span>
+</button>
+
+<div class="page">
+
+  <header class="header">
+    <div class="eyebrow">// Warehouse Ops &nbsp;·&nbsp; Logistics Coordination &nbsp;·&nbsp; Distribution Lead</div>
+    <div class="name-row">
+      <span class="name-first">Jordan</span>
+      <span class="name-last">Hale</span>
+    </div>
+    <div class="name-rule"></div>
+    <div class="contact-chips">
+      <div class="contact-text">
+        <span class="chip">Austin, TX</span>
+        <a href="mailto:jordan.hale@example.com" class="chip">jordan.hale@example.com</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="body">
+
+    <aside class="sidebar">
+
+      <div class="sidebar-section">
+        <div class="section-label">Core Skills</div>
+        <div class="skill-group">
+          <div class="skill-name">Warehouse Operations</div>
+          <div class="skill-tags">WMS basics · Cycle counts · Pick/pack flow · Dock scheduling</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-name">Team Leadership</div>
+          <div class="skill-tags">Shift planning · Labor allocation · Coaching · Safety basics</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-name">Logistics Coordination</div>
+          <div class="skill-tags">Carrier appointments · Inbound flow · Mis-ship investigations</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-name">Tools</div>
+          <div class="skill-tags">RF scanners · Google Sheets · Excel</div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="section-label">Certifications</div>
+        <div class="cert-item">
+          <div class="cert-name">OSHA 10-Hour General Industry</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-name">Forklift operator (sit-down)</div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="section-label">Education</div>
+        <div class="edu-item">
+          <div class="edu-name">Cedar Ridge Community College</div>
+          <div class="edu-sub">Certificate · Logistics and Supply Chain Fundamentals · 2021</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-name">Cedar Ridge Community College</div>
+          <div class="edu-sub">Coursework · Business Administration · 2018</div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="section-label">Interests</div>
+        <div class="skill-tags" style="line-height:1.9">
+          Youth soccer coaching · Trail running around Austin · Community college mentoring nights
+        </div>
+      </div>
+
+    </aside>
+
+    <main class="main">
+
+      <div class="summary">
+        Operations-minded lead who moved from retail floor leadership into warehouse and distribution coordination. Strong on shift communication, inventory accuracy, and coaching associates under volume pressure.
+      </div>
+
+      <div class="main-section">
+        <div class="section-label">Experience</div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">Logistics Coordinator</div>
+            <div class="job-date">2023 – Present</div>
+          </div>
+          <div class="job-company">Summitlane Distribution &nbsp;·&nbsp; Austin, TX</div>
+          <ul class="bullets">
+            <li>Coordinated inbound appointments and dock flow for a regional DC</li>
+            <li>Cut mis-ship investigations by tightening pick-audit handoffs</li>
+            <li>Partnered with carriers on recurring late-delivery patterns</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">Warehouse Team Lead</div>
+            <div class="job-date">2020 – 2023</div>
+          </div>
+          <div class="job-company">Northpine Logistics &nbsp;·&nbsp; Austin, TX</div>
+          <ul class="bullets">
+            <li>Led a 12-person pick/pack team through peak season volume</li>
+            <li>Introduced a simple stand-up checklist that reduced missed SLAs</li>
+            <li>Trained new hires on RF scanner workflows and safety basics</li>
+          </ul>
+          <div class="stat-row">
+            <div class="stat"><div class="stat-n">12</div><div class="stat-l">Team size</div></div>
+            <div class="stat"><div class="stat-n">Peak</div><div class="stat-l">Season lead</div></div>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">Shift Supervisor</div>
+            <div class="job-date">2016 – 2020</div>
+          </div>
+          <div class="job-company">Bright Harbor Retail &nbsp;·&nbsp; Austin, TX</div>
+          <ul class="bullets">
+            <li>Ran opening/closing shifts and floor coverage for a busy store</li>
+            <li>Owned cash office handoff and shrink awareness on the floor</li>
+            <li>Coached associates on customer recovery after stockouts</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<div class="print-end">
+  <span class="print-end-rule"></span>
+  <span class="print-end-text">// EOF</span>
+  <span class="print-end-rule"></span>
+</div>
+
+<script>
+  if (location.search.includes('continuous')) {
+    const pageEl = document.querySelector('.page');
+    const heightIn = ((pageEl.offsetHeight / 96) + 0.75).toFixed(2);
+    const s = document.createElement('style');
+    s.textContent = `@page { size: 8.5in ${heightIn}in; margin: 8mm 0; }`;
+    document.head.appendChild(s);
+  }
+
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    const icon = document.getElementById('theme-icon');
+    const label = document.getElementById('theme-label');
+    if (isDark) {
+      icon.innerHTML = '<path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>';
+      label.textContent = 'Dark';
+    } else {
+      icon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+      label.textContent = 'Light';
+    }
+  }
+
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('theme-label').textContent = 'Dark';
+    document.getElementById('theme-icon').innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+  }
+</script>
+
+</body>
+</html>
