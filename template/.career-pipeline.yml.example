@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/dustinestes/career-pipeline/main/schemas/career-pipeline.schema.json
-# Filled Jordan Hale example for this workspace. Edit to match your search.
-# Field guide: docs/getting-started.md and docs/customization.md (workspace); career-pipeline docs/config.md (plugin).
+# Example workspace config (Jordan Hale). Copy to `.career-pipeline.yml` and edit.
+# Field guide: docs/getting-started.md and docs/customization.md (workspace); plugin docs/config.md.
 
 version: 1
 

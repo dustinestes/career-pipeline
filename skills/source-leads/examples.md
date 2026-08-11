@@ -71,7 +71,7 @@ profile, and confirms before researching each one in depth.
 **Input:** "Check Vercel again" (three months after the file in Example 1 was created)
 
 **Agent:** Sees `leads/Vercel.md` already exists, treats this as a
-refresh per `.cursor/rules/lead-format.mdc`. Re-verifies Overview, Products/
+refresh per the career-pipeline `lead-format` rule. Re-verifies Overview, Products/
 Services, Market Sentiment, and Fit Notes rather than assuming they still
 hold; replaces Recent News with the new trailing 6 months; prepends a new
 dated section to Open Roles History without touching the 2026-08-06 entry:

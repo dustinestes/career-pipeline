@@ -1,13 +1,14 @@
 # Career pipeline workspace
 
-Forkable job-search workspace used with the **career-pipeline** plugin (skills + rules).
+Job-search workspace used with the **career-pipeline** plugin (skills + rules live on the plugin, not in this folder).
 
 ## Quick start
 
-1. Install or symlink the parent **career-pipeline** plugin (see parent README)
-2. Edit [`.career-pipeline.yml`](.career-pipeline.yml) (ships as a Jordan Hale example; replace with your details)
-3. Build resume and cover letter HTML from a sample under `design/` (work with AI; details in getting started)
-4. In Cursor, invoke `/analyze-job` with a posting URL (or ask in natural language)
+1. Install the **career-pipeline** plugin (see parent README)
+2. Prefer creating this folder via `/career-pipeline-init` (or “set up career-pipeline in this folder”) into an **empty** directory
+3. Copy [`.career-pipeline.yml.example`](.career-pipeline.yml.example) → `.career-pipeline.yml` and replace the Jordan Hale example with your details
+4. Build resume and cover letter HTML from a sample under `design/` (see getting started)
+5. Invoke `/analyze-job` with a posting URL (or ask in natural language)
 
 Walkthrough: [docs/getting-started.md](docs/getting-started.md).
 
@@ -28,4 +29,4 @@ Walkthrough: [docs/getting-started.md](docs/getting-started.md).
 - [docs/tooling.md](docs/tooling.md) — Optional Chrome headless PDF + `pdfunite`
 - [design/README.md](design/README.md) — Sample templates
 
-See the parent [career-pipeline README](../README.md) for plugin install options.
+See the parent [career-pipeline README](../README.md) for plugin install and manual alternatives.
