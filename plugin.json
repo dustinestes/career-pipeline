@@ -1,9 +1,22 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "career-pipeline",
+  "displayName": "Career Pipeline",
   "description": "Agent skills for a structured job search: leads, qualification, applications, and interview rounds",
   "version": "0.1.0",
   "author": {
-    "name": "Dustin Estes"
-  }
+    "name": "Dustin Estes",
+    "email": "GitHub.Projects@dustinestes.com"
+  },
+  "homepage": "https://github.com/dustinestes/career-pipeline",
+  "repository": "https://github.com/dustinestes/career-pipeline",
+  "license": "MIT",
+  "keywords": [
+    "agent-skills",
+    "agent-plugins",
+    "job-search",
+    "career",
+    "cursor-plugin",
+    "interview-prep"
+  ]
 }

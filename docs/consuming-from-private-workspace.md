@@ -1,4 +1,7 @@
-# Consuming career-pipeline from a private workspace
+<br><br>
+<img align="right" src="../assets/logo.svg" height="40" alt="career-pipeline">
+<h1>Consuming from a private workspace</h1>
+<br clear="both">
 
 Your lived-in job search (applications, emails, real resume) should stay **private**. Publish **career-pipeline** as the scrubbed upstream plugin.
 
@@ -48,3 +51,17 @@ Before any public template push from a personal search repo:
 - Remove or anonymize `submissions/`
 - Replace `.career-pipeline.yml` with the public example (or strip personal fields)
 - Strip PDFs, `.eml`, and CI secrets
+
+<br>
+
+---
+
+<br>
+
+<strong>career-pipeline</strong>
+<div align="right">
+
+[MIT License](../LICENSE)
+
+</div>
+<br clear="both">

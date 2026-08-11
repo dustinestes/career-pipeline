@@ -1,4 +1,7 @@
-# GitHub showcase checklist
+<br><br>
+<img align="right" src="../assets/logo.svg" height="40" alt="career-pipeline">
+<h1>GitHub showcase</h1>
+<br clear="both">
 
 GitHub does not nest personal repos into an “AI Tooling” folder. Curate discoverability:
 
@@ -8,8 +11,22 @@ GitHub does not nest personal repos into an “AI Tooling” folder. Curate disc
 2. **Pin** both repos (and your strongest product apps)
 3. **Topics** on each repo:
    - Clockify: `mcp`, `model-context-protocol`, `clockify`, `cursor-plugin`, `agent-skills`
-   - Career pipeline: `agent-skills`, `cursor-plugin`, `job-search`, `agent-plugins`
+   - Career pipeline: `agent-skills`, `cursor-plugin`, `job-search`, `agent-plugins`, `career`, `interview-prep`
 4. Optional hub repo `ai-tooling` — README-only index of related repos
-5. Submit Clockify (and optionally career-pipeline) to [Cursor Marketplace](https://cursor.com/marketplace/publish)
+5. Submit career-pipeline to [cursor.directory](https://cursor.directory) when ready ([publish.md](./publish.md)). Clockify may use Marketplace separately; this package does **not**.
 
 No GitHub Organization required for personal portfolio tooling.
+
+<br>
+
+---
+
+<br>
+
+<strong>career-pipeline</strong>
+<div align="right">
+
+[MIT License](../LICENSE)
+
+</div>
+<br clear="both">

@@ -59,8 +59,3 @@ submissions/<Company>/<Role>/
 Lowercase names; related interview rounds share the `interview -` taxonomy prefix. No leading `N -` sort numbers.
 
 **Email:** export/print mail into `email/` yourself. Automating every mailbox provider is out of scope; other plugins/MCPs may write into this layout if you want.
-
-## Related
-
-- Field guide: [config.md](../../docs/config.md) (plugin checkout) or the same page on GitHub
-- Getting started (workspace): [getting-started.md](getting-started.md)

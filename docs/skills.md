@@ -1,4 +1,7 @@
-# Skills
+<br><br>
+<img align="right" src="../assets/logo.svg" height="40" alt="career-pipeline">
+<h1>Skills</h1>
+<br clear="both">
 
 Career-pipeline skills use a `career-pipeline-` **prefix on purpose**: a discoverability convention so typing `/` in the AI tool popup clusters this plugin’s skills and reduces name collisions with other packs. It is not a host/runtime requirement.
 
@@ -60,7 +63,16 @@ Lowercase names; related interview rounds share the `interview -` taxonomy prefi
 
 **Email:** export/print mail into `email/` yourself. Automating every mailbox provider is out of scope; other plugins/MCPs may write into this layout if you want.
 
-## Related
+<br>
 
-- Field guide: [config.md](config.md)
-- Getting started (workspace): [../template/docs/getting-started.md](../template/docs/getting-started.md)
+---
+
+<br>
+
+<strong>career-pipeline</strong>
+<div align="right">
+
+[MIT License](../LICENSE)
+
+</div>
+<br clear="both">
