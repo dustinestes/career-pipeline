@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>career-pipeline design samples</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Spectral:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #eceae5; color: #171614; font-family: 'Archivo', Helvetica, Arial, sans-serif; }
+  a { color: #c2532f; }
+  a:hover { color: #93401f; }
+  code { font-family: ui-monospace, monospace; font-size: 12.5px; }
+  .wrap { padding: 48px 40px 64px; max-width: 1520px; margin: 0 auto; }
+  .hero {
+    border-bottom: 2px solid #171614;
+    padding-bottom: 16px;
+  }
+  .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #c2532f; }
+  h1 {
+    font-family: 'Spectral', Georgia, serif; font-size: 40px; font-weight: 600;
+    letter-spacing: -0.02em; margin: 10px 0 0;
+  }
+  .intro {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 28px;
+    margin-top: 22px;
+  }
+  .intro-item h2 {
+    margin: 0 0 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #c2532f;
+  }
+  .intro-item p {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #57534c;
+    text-wrap: pretty;
+  }
+  @media (max-width: 720px) {
+    .intro { grid-template-columns: 1fr; }
+  }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(680px, 1fr)); gap: 36px; margin-top: 36px; }
+  .card { background: #fff; border: 1px solid rgba(23,22,20,0.1); }
+  .card-head {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+    padding: 22px 26px 18px; border-bottom: 1px solid rgba(23,22,20,0.08);
+  }
+  .card-kicker { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #c2532f; }
+  .card-summary { font-family: 'Spectral', Georgia, serif; font-size: 23px; font-weight: 600; margin-top: 6px; }
+  .card-details { font-size: 13px; color: #57534c; margin-top: 6px; max-width: 52ch; text-wrap: pretty; }
+  .card-files { font-family: ui-monospace, monospace; font-size: 11px; color: #8a857c; text-align: right; white-space: nowrap; }
+  .previews { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(23,22,20,0.08); }
+  .preview { height: 440px; overflow: hidden; background: #fff; position: relative; }
+  .preview iframe {
+    width: 1000px; height: 1250px; border: 0; transform: scale(0.4); transform-origin: top left;
+  }
+  .foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 2px solid #171614;
+  }
+  .foot-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #171614;
+  }
+  .foot-brand img { height: 28px; width: auto; display: block; }
+  .foot-brand span {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .foot-links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .foot-links a { color: #8a857c; text-decoration: none; }
+  .foot-links a:hover { color: #c2532f; }
+</style>
+</head>
+<body>
+<!--
+  Static gallery (works via file://). Card copy mirrors career-pipeline_* metas on each
+  resume_sample_N.html / cover_letter_sample_N.html. To add sample_5: add the pair files
+  with metas, then copy another .card block below with N=5.
+-->
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">career-pipeline / design</div>
+    <h1>Resume &amp; Cover Letter Templates</h1>
+  </div>
+  <div class="intro">
+    <div class="intro-item">
+      <h2>Design Pairs</h2>
+      <p>The resume and cover letter are presented as a design set for branding and visual alignment with potential employers.</p>
+    </div>
+    <div class="intro-item">
+      <h2>PDF Output</h2>
+      <p>Resumes are set to print at a <code>?continuous</code> single page for ease of submission and modern reading on computers, not physical printouts.</p>
+    </div>
+    <div class="intro-item">
+      <h2>Light/Dark Modes</h2>
+      <p>There are light and dark toggles for publishing your resume to a web host or other service.</p>
+    </div>
+  </div>
+
+  <div class="cards">
+
+    <article class="card" data-career-pipeline-sample="1">
+      <div class="card-head">
+        <div>
+          <div class="card-kicker">Sample 1 · Terminal</div>
+          <div class="card-summary">Dark, technical, two-column</div>
+          <div class="card-details">Syne + DM Mono on near-black. Sidebar skills, arrow bullets, stat blocks.</div>
+        </div>
+        <div class="card-files">resume_sample_1<br>cover_letter_sample_1</div>
+      </div>
+      <div class="previews">
+        <div class="preview"><iframe src="resume_sample_1.html" loading="lazy" title="Resume sample 1"></iframe></div>
+        <div class="preview"><iframe src="cover_letter_sample_1.html" loading="lazy" title="Cover letter sample 1"></iframe></div>
+      </div>
+    </article>
+
+    <article class="card" data-career-pipeline-sample="2">
+      <div class="card-head">
+        <div>
+          <div class="card-kicker">Sample 2 · Broadsheet</div>
+          <div class="card-summary">Classic serif, centered masthead</div>
+          <div class="card-details">Source Serif + Source Sans, oxblood accent, single column.</div>
+        </div>
+        <div class="card-files">resume_sample_2<br>cover_letter_sample_2</div>
+      </div>
+      <div class="previews">
+        <div class="preview"><iframe src="resume_sample_2.html" loading="lazy" title="Resume sample 2"></iframe></div>
+        <div class="preview"><iframe src="cover_letter_sample_2.html" loading="lazy" title="Cover letter sample 2"></iframe></div>
+      </div>
+    </article>
+
+    <article class="card" data-career-pipeline-sample="3">
+      <div class="card-head">
+        <div>
+          <div class="card-kicker">Sample 3 · Grid</div>
+          <div class="card-summary">Swiss, label column, one hot accent</div>
+          <div class="card-details">Archivo, hairline rules, left label rail.</div>
+        </div>
+        <div class="card-files">resume_sample_3<br>cover_letter_sample_3</div>
+      </div>
+      <div class="previews">
+        <div class="preview"><iframe src="resume_sample_3.html" loading="lazy" title="Resume sample 3"></iframe></div>
+        <div class="preview"><iframe src="cover_letter_sample_3.html" loading="lazy" title="Cover letter sample 3"></iframe></div>
+      </div>
+    </article>
+
+    <article class="card" data-career-pipeline-sample="4">
+      <div class="card-head">
+        <div>
+          <div class="card-kicker">Sample 4 · Panel</div>
+          <div class="card-summary">Teal sidebar, warm paper, serif accents</div>
+          <div class="card-details">Spectral + Work Sans. Colour-blocked sidebar for contact and skills.</div>
+        </div>
+        <div class="card-files">resume_sample_4<br>cover_letter_sample_4</div>
+      </div>
+      <div class="previews">
+        <div class="preview"><iframe src="resume_sample_4.html" loading="lazy" title="Resume sample 4"></iframe></div>
+        <div class="preview"><iframe src="cover_letter_sample_4.html" loading="lazy" title="Cover letter sample 4"></iframe></div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="foot">
+    <a class="foot-brand" href="https://github.com/dustinestes/career-pipeline" target="_blank" rel="noopener noreferrer">
+      <img src="https://raw.githubusercontent.com/dustinestes/career-pipeline/main/assets/logo.svg" alt="career-pipeline">
+      <span>career-pipeline</span>
+    </a>
+    <div class="foot-links">
+      <a href="https://github.com/dustinestes/career-pipeline" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://github.com/dustinestes/career-pipeline/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

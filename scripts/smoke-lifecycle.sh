@@ -119,9 +119,43 @@ pass "create-interview-prep folder shape"
 command -v google-chrome >/dev/null || fail "google-chrome not on PATH"
 command -v pdfunite >/dev/null || fail "pdfunite not on PATH (poppler-utils)"
 
-# Working copies of samples (as a user would after choosing samples)
-cp "$WS/design/resume_sample_1.html" "$WS/design/resume.html"
-cp "$WS/design/cover_letter_sample_1.html" "$WS/design/cover-letter.html"
+# Working copies of samples (any pair under samples/; not a style recommendation)
+shopt -s nullglob
+resume_samples=("$WS/design/samples"/resume_sample_*.html)
+cover_samples=("$WS/design/samples"/cover_letter_sample_*.html)
+[[ ${#resume_samples[@]} -gt 0 && ${#cover_samples[@]} -gt 0 ]] \
+  || fail "no resume/cover samples under design/samples/"
+
+# Continuous export for every sample pair (mechanics check; not a style pick)
+mkdir -p "$WS/design/exports/samples-continuous"
+for resume_src in "${resume_samples[@]}"; do
+  base="$(basename "$resume_src")"
+  n="${base#resume_sample_}"
+  n="${n%.html}"
+  cover_src="$WS/design/samples/cover_letter_sample_${n}.html"
+  [[ -f "$cover_src" ]] || fail "missing cover pair for $base"
+  (
+    cd "$WS"
+    google-chrome --headless=new --disable-gpu --window-size=816,900 \
+      --print-to-pdf="$PWD/design/exports/samples-continuous/resume_${n}.pdf" \
+      --print-to-pdf-no-header --no-margins \
+      "file://$PWD/design/samples/resume_sample_${n}.html?continuous" \
+      >/dev/null 2>&1
+    google-chrome --headless=new --disable-gpu --window-size=816,900 \
+      --print-to-pdf="$PWD/design/exports/samples-continuous/cover_${n}.pdf" \
+      --print-to-pdf-no-header --no-margins \
+      "file://$PWD/design/samples/cover_letter_sample_${n}.html?continuous" \
+      >/dev/null 2>&1
+  )
+  [[ -s "$WS/design/exports/samples-continuous/resume_${n}.pdf" ]] \
+    || fail "continuous resume PDF empty for sample $n"
+  [[ -s "$WS/design/exports/samples-continuous/cover_${n}.pdf" ]] \
+    || fail "continuous cover PDF empty for sample $n"
+done
+pass "continuous PDF export for all sample pairs"
+
+cp "${resume_samples[0]}" "$WS/design/resume.html"
+cp "${cover_samples[0]}" "$WS/design/cover-letter.html"
 mkdir -p "$WS/design/exports" "$APP/application"
 
 (
@@ -129,12 +163,12 @@ mkdir -p "$WS/design/exports" "$APP/application"
   google-chrome --headless=new --disable-gpu --window-size=816,900 \
     --print-to-pdf="$PWD/design/exports/resume-smoke.pdf" \
     --print-to-pdf-no-header --no-margins \
-    "file://$PWD/design/resume.html" \
+    "file://$PWD/design/resume.html?continuous" \
     >/dev/null 2>&1
   google-chrome --headless=new --disable-gpu --window-size=816,900 \
     --print-to-pdf="$PWD/application-cover-smoke.pdf" \
     --print-to-pdf-no-header --no-margins \
-    "file://$PWD/design/cover-letter.html" \
+    "file://$PWD/design/cover-letter.html?continuous" \
     >/dev/null 2>&1
 )
 # Move cover into application folder (typical workflow)

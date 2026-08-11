@@ -7,7 +7,7 @@ Job-search workspace used with the **career-pipeline** plugin (skills + rules li
 1. Install the **career-pipeline** plugin (see parent README)
 2. Prefer creating this folder via `/career-pipeline-init` into an **empty** directory
 3. Copy [`.career-pipeline.yml.example`](.career-pipeline.yml.example) → `.career-pipeline.yml` and replace the Jordan Hale example with your details
-4. Build resume and cover letter HTML from a sample under `design/` (see getting started)
+4. Build resume and cover letter HTML from a pair under `design/samples/` (see getting started)
 5. Use `/career-pipeline-analyze-job` with a posting URL, or source leads first
 
 Walkthrough: [docs/getting-started.md](docs/getting-started.md). Skill catalog: [docs/skills.md](docs/skills.md).

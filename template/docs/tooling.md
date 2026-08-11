@@ -47,7 +47,7 @@ google-chrome --headless=new --window-size=816,900 \
   "file://$PWD/design/resume.html?continuous"
 ```
 
-Use your working resume path (often copied from a `resume_sample_*.html`).
+Use your working resume path (often copied from a pair under `design/samples/`).
 
 ### Combined application PDF
 

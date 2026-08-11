@@ -55,7 +55,7 @@ It does **not** copy skills or rules (those stay on the plugin). It does **not**
 After a successful init, tell the user:
 
 1. Copy `.career-pipeline.yml.example` → `.career-pipeline.yml` and replace Jordan Hale with their details (including optional `links` for LinkedIn / portfolio).
-2. Build working resume/cover HTML from `design/` samples (see `docs/getting-started.md`). When `links` is set, add matching header icon chips (see sample `contact-icons`).
+2. Build working resume/cover HTML from a pair under `design/samples/` (see `docs/getting-started.md`). When `links` is set, add matching header icon chips (see sample `contact-icons`).
 3. Then run a job skill, for example `/career-pipeline-analyze-job` with a posting URL (see `docs/skills.md`).
 
 Job-search skills refuse to run until `.career-pipeline.yml` exists.
