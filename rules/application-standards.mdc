@@ -17,10 +17,18 @@ Read workspace-root `.career-pipeline.yml` before assessing any role:
 
 Flag violations; the user may still choose to proceed. Do not unilaterally skip roles.
 
+## Folder layout (submissions)
+
+Under `submissions/<Company>/<Role>/`:
+
+- `email/` — user-exported mail only (no in-plugin mailbox sync)
+- `application/` — assessment, cover letter, resume, combined PDF, posting exports
+- `interview - 1st`, `interview - 2nd`, … — created on demand by `career-pipeline-create-interview-prep`
+
 ## Resume versioning
 
 - Copy the latest PDF from `design/exports/`
-- Resolve the resume basename from `naming.resume` (and `naming.resume_version`); preserve that filename exactly when copying into application folders
+- Resolve the resume basename from `naming.resume` (and `naming.resume_version`); preserve that filename exactly when copying into `application/`
 - Never rename the resume when copying into application folders
 
 ## Artifact naming

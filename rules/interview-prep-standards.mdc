@@ -17,7 +17,7 @@ Every `interview-prep.md` opens with this metadata header:
 **Attendee(s):** <Name — Title (email)>, one per line
 ```
 
-Pull details from invite emails in `0 - Email/` when available; ask the user to fill gaps.
+Pull details from invite emails in `email/` when available (user-exported `.eml` only); ask the user to fill gaps.
 
 ## Company Research (refresh each phase)
 
@@ -32,6 +32,6 @@ Do not reuse stale research from prior rounds.
 
 If equity/RSU language appears in posting or offer material, quote verbatim. Apply `.career-pipeline.yml` `compensation.equity_counts_toward_floor` and optional `compensation.notes` rather than inventing separate negotiation docs.
 
-## 1st interview extras
+## Early-round extras
 
-Include salary benchmarking (sources noted, not presented as precise) and prepared strength/gap responses from the assessment under `1 - Application/` (basename from `naming.assessment`).
+Include salary benchmarking (sources noted, not presented as precise) and prepared strength/gap responses from the assessment under `application/` (basename from `naming.assessment`).

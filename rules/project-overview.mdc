@@ -13,13 +13,14 @@ This workspace runs a structured job search: resume design, exports, and applica
 |--------|---------|
 | `design/` | Sample and working resume / cover letter HTML |
 | `design/exports/` | Optional finished PDFs when you export |
-| `leads/` | Company research profiles produced by `source-leads` |
+| `leads/` | Company research profiles from `career-pipeline-source-leads` |
+| `leads/.archive/` | Archived leads (stop monitoring) |
 | `submissions/` | Per-company, per-role application tracking |
 | `submissions/.archive/` | Closed applications |
 
 ## Submissions path
 
-Live: `submissions/<Company>/<Job Title>/`
+Live: `submissions/<Company>/<Job Title>/` with `email/`, `application/`, and on-demand `interview - Nth/`
 
 ## Leads path
 
@@ -31,4 +32,4 @@ Read workspace-root `.career-pipeline.yml` for salary floor, location preference
 
 ## Workflows
 
-Invoke skills explicitly or via natural language: `career-pipeline-init`, `source-leads`, `analyze-job`, `initial-interview`, `next-interview`, `archive-job`. Require workspace-root `.career-pipeline.yml` (copy from `.career-pipeline.yml.example`). Human workflow guide: root `README.md`.
+Invoke skills via `/career-pipeline-…` or natural language. Require workspace-root `.career-pipeline.yml`. Skill catalog: `docs/skills.md` (or plugin `docs/skills.md`). Human overview: root `README.md`.

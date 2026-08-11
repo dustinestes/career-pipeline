@@ -4,26 +4,29 @@ Job search workspace powered by the **career-pipeline** plugin (skills + rules).
 
 ## Personal context
 
-Require workspace-root [`.career-pipeline.yml`](.career-pipeline.yml). If missing, ask the user to copy [`.career-pipeline.yml.example`](.career-pipeline.yml.example) and edit it (or run `career-pipeline-init` in an empty folder first). Setup: [docs/getting-started.md](docs/getting-started.md).
+Require workspace-root [`.career-pipeline.yml`](.career-pipeline.yml). If missing, ask the user to copy [`.career-pipeline.yml.example`](.career-pipeline.yml.example) and edit it (or run `career-pipeline-init` in an empty folder first). Setup: [docs/getting-started.md](docs/getting-started.md). Skills: [docs/skills.md](docs/skills.md).
 
-## Workflows (invoke explicitly or via natural language)
+## Workflows
 
 | Skill | Use when |
 |-------|----------|
 | `career-pipeline-init` | Empty folder needs scaffold |
-| `source-leads` | Discovering companies to target, not a specific posting |
-| `analyze-job` | New job posting URL |
-| `initial-interview` | First interview invite |
-| `next-interview` | Follow-up interview rounds |
-| `archive-job` | Rejection, withdraw, or close |
+| `career-pipeline-source-leads` | Discover companies / open roles (ad-hoc or scheduled) |
+| `career-pipeline-archive-lead` | Stop monitoring a company |
+| `career-pipeline-analyze-job` | Assess a posting (manual URL or from a lead) |
+| `career-pipeline-create-application` | Build application artifacts |
+| `career-pipeline-create-interview-prep` | Prep any interview round |
+| `career-pipeline-archive-submission` | Close/withdraw with archive |
+| `career-pipeline-delete-submission` | Hard-delete a submission |
 
 ## Standards
 
-Career-pipeline plugin rules — assessment format, cover letter, interview prep, application standards. Do not assume they live under this repo’s `.cursor/rules/` unless the user vendored a pinned snapshot.
+Career-pipeline plugin rules — assessment format, cover letter, interview prep, application standards.
 
 ## Human docs
 
 - [README.md](README.md)
 - [docs/getting-started.md](docs/getting-started.md)
+- [docs/skills.md](docs/skills.md)
 - [docs/customization.md](docs/customization.md)
 - [docs/tooling.md](docs/tooling.md)

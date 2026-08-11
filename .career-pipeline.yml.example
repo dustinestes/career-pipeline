@@ -53,6 +53,7 @@ search:
     - warehouse supervisor Austin
     - logistics coordinator Texas
     - distribution lead hybrid
+  ignore_companies: []
 
 background:
   summary: >-
