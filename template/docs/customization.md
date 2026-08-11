@@ -8,12 +8,13 @@ Full setup order: [getting-started.md](getting-started.md).
 
 1. Copy `.career-pipeline.yml.example` → `.career-pipeline.yml` if you have not already.
 2. Replace name, location, and `contact.email` with yours (add `contact.phone` only if you want it on the resume).
-3. Replace salary floor and preferences with yours.
-4. Update `search.target_roles` (and optional `also_consider` / `flag` / `search_terms`).
-5. Rewrite `background` (experience, education, certifications, skills, interests, cover-letter `stories`).
-6. Adjust `naming` patterns if you want different artifact basenames.
-7. Keep the file at the workspace root so skills and rules can find it.
-8. Build resume and cover letter HTML from chosen samples under `design/`, then keep only those working files (see [getting-started.md](getting-started.md)).
+3. Optional: set `links` (label + url) for LinkedIn, portfolio, GitHub, and similar. These become header icon chips on the resume/cover letter.
+4. Replace salary floor and preferences with yours.
+5. Update `search.target_roles` (and optional `also_consider` / `flag` / `search_terms`).
+6. Rewrite `background` (experience, education, certifications, skills, interests, cover-letter `stories`).
+7. Adjust `naming` patterns if you want different artifact basenames.
+8. Keep the file at the workspace root so skills and rules can find it.
+9. Build resume and cover letter HTML from chosen samples under `design/`, then keep only those working files (see [getting-started.md](getting-started.md)).
 
 ## Naming patterns
 

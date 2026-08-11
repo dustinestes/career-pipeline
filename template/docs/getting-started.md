@@ -21,7 +21,7 @@ Edit `.career-pipeline.yml`. Job-search skills refuse to run until this file exi
 
 Update at least:
 
-- `candidate`, `contact`, `compensation`, `preferences`
+- `candidate`, `contact`, optional `links`, `compensation`, `preferences`
 - `search` (target roles, terms; optional `ignore_companies`)
 - `background`, `naming` as needed
 

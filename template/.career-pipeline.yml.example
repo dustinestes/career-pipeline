@@ -16,6 +16,13 @@ contact:
   email: jordan.hale@example.com
   # phone: omit from resume/cover letter when not set
 
+# Optional. Header icon chips on resume/cover letter (title = label).
+links:
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/jordanhale-example
+  - label: Portfolio
+    url: https://jordanhale.example.com
+
 compensation:
   salary_floor: 65000
   currency: USD
