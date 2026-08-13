@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 28 96 72" role="img" aria-label="Career Pipeline">
+  <g fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M28 84h20l12-40h8l12 40h20"/>
+  </g>
+  <circle cx="40" cy="84" r="5" fill="#C4C4C4"/>
+  <circle cx="64" cy="44" r="5" fill="#C4C4C4"/>
+  <circle cx="88" cy="84" r="5" fill="#C4C4C4"/>
+</svg>

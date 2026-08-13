@@ -1,5 +1,8 @@
 <br><br>
-<img align="right" src="../assets/logo.svg" height="40" alt="career-pipeline">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/mark/mark-paper.svg">
+  <img align="right" src="../assets/mark/mark-ink.svg" height="30" alt="Career Pipeline">
+</picture>
 <h1>Develop</h1>
 <br clear="both">
 
@@ -138,10 +141,9 @@ Do not commit API keys.
 
 <br>
 
-<strong>career-pipeline</strong>
-<div align="right">
-
-[MIT License](../LICENSE)
-
-</div>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/lockups/lockup-horizontal-paper.svg">
+  <img align="left" src="../assets/lockups/lockup-horizontal-ink.svg" height="32" alt="Career Pipeline">
+</picture>
+<div align="right">your personal career agent for every milestone</div>
 <br clear="both">

@@ -1,4 +1,10 @@
-# Skills
+<br><br>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/mark/mark-paper.svg">
+  <img align="right" src="../assets/mark/mark-ink.svg" height="30" alt="Career Pipeline">
+</picture>
+<h1>Skills</h1>
+<br clear="both">
 
 Career-pipeline skills use a `career-pipeline-` **prefix on purpose**: a discoverability convention so typing `/` in the AI tool popup clusters this plugin’s skills and reduces name collisions with other packs. It is not a host/runtime requirement.
 
@@ -61,3 +67,16 @@ Lowercase names; related interview rounds share the `interview -` taxonomy prefi
 **Offer:** drop offer letter, benefits, and equity docs into `offer/`, then run `career-pipeline-analyze-offer`. On proceed → `career-pipeline-accept-job`; on decline → `career-pipeline-archive-submission`.
 
 **Email:** export/print mail into `email/` yourself. Automating every mailbox provider is out of scope; other plugins/MCPs may write into this layout if you want.
+
+<br>
+
+---
+
+<br>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/lockups/lockup-horizontal-paper.svg">
+  <img align="left" src="../assets/lockups/lockup-horizontal-ink.svg" height="32" alt="Career Pipeline">
+</picture>
+<div align="right">your personal career agent for every milestone</div>
+<br clear="both">

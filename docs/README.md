@@ -1,5 +1,8 @@
 <br><br>
-<img align="right" src="../assets/logo.svg" height="40" alt="career-pipeline">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/mark/mark-paper.svg">
+  <img align="right" src="../assets/mark/mark-ink.svg" height="30" alt="Career Pipeline">
+</picture>
 <h1>Docs</h1>
 <br clear="both">
 
@@ -20,6 +23,7 @@ Index of documentation for the career-pipeline Cursor / Agent plugin.
 
 | Doc | Description |
 |-----|-------------|
+| [brand.md](./brand.md) | Logo, lockup, palette, typography |
 | [develop.md](./develop.md) | Local plugin link (`career-pipeline-dev`), Clockify wiring, smoke test |
 | [publish.md](./publish.md) | GitHub topics and [cursor.directory](https://cursor.directory) submit (not Marketplace) |
 | [skills.md](./skills.md) | Skill catalog (Invoke / Description / Input / Output) |
@@ -38,10 +42,9 @@ Root install happy path: [README](../README.md).
 
 <br>
 
-<strong>career-pipeline</strong>
-<div align="right">
-
-[MIT License](../LICENSE)
-
-</div>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/lockups/lockup-horizontal-paper.svg">
+  <img align="left" src="../assets/lockups/lockup-horizontal-ink.svg" height="32" alt="Career Pipeline">
+</picture>
+<div align="right">your personal career agent for every milestone</div>
 <br clear="both">
