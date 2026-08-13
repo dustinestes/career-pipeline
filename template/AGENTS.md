@@ -17,6 +17,7 @@ Require workspace-root [`.career-pipeline.yml`](.career-pipeline.yml). If missin
 | `career-pipeline-create-application` | Build application artifacts |
 | `career-pipeline-create-interview-prep` | Prep any interview round |
 | `career-pipeline-analyze-offer` | Review offer packet before accept/decline |
+| `career-pipeline-accept-job` | Promote accepted role into career history |
 | `career-pipeline-archive-submission` | Close/withdraw with archive |
 | `career-pipeline-delete-submission` | Hard-delete a submission |
 

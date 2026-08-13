@@ -15,7 +15,7 @@ With the career-pipeline plugin installed, in an empty folder say:
 - "Set up a career-pipeline workspace here"
 - or `/career-pipeline-init`
 
-That copies design samples, `leads/`, `submissions/`, docs, and `.career-pipeline.yml.example`. It does **not** create `.career-pipeline.yml`.
+That copies design samples, `leads/`, `submissions/`, `career/`, docs, and `.career-pipeline.yml.example`. It does **not** create `.career-pipeline.yml`.
 
 ## 1. Create and edit your persona file
 
@@ -45,7 +45,7 @@ Field checklist: [customization.md](customization.md). Skill catalog: [skills.md
 
 **Direct:** paste a job URL into `/career-pipeline-analyze-job`.
 
-Then `/career-pipeline-create-application` for artifacts. Prep rounds with `/career-pipeline-create-interview-prep`.
+Then `/career-pipeline-create-application` for artifacts. Prep rounds with `/career-pipeline-create-interview-prep`. After an offer, `/career-pipeline-analyze-offer`; if you accept, `/career-pipeline-accept-job` moves the role into `career/`.
 
 Export mail into `email/` yourself if you want it on file (no mailbox automation in this plugin).
 

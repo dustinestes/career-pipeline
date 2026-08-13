@@ -2,9 +2,9 @@
 name: career-pipeline-init
 description: >-
   Scaffolds an empty job-search workspace from the career-pipeline template
-  (design, leads, submissions, consumer docs, example YAML). Use when the user
-  asks to init, initialize, set up, or scaffold a career-pipeline / job-search
-  workspace, or invokes /career-pipeline-init.
+  (design, leads, submissions, career, assets, consumer docs, example YAML). Use when
+  the user asks to init, initialize, set up, or scaffold a career-pipeline /
+  job-search workspace, or invokes /career-pipeline-init.
 disable-model-invocation: true
 ---
 
@@ -44,8 +44,8 @@ bash "<path-to-this-skill>/scripts/init-workspace.sh" --force
 
 The script copies **consumer payload only** from plugin `template/`:
 
-- `design/`, `leads/`, `submissions/`
-- `docs/`, `AGENTS.md`, `README.md`
+- `design/`, `leads/`, `submissions/`, `career/`
+- `docs/`, `assets/`, `AGENTS.md`, `README.md`
 - `.career-pipeline.yml.example`
 
 It does **not** copy skills or rules (those stay on the plugin). It does **not** create `.career-pipeline.yml`.

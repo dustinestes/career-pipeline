@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "career-pipeline",
   "displayName": "Career Pipeline",
-  "description": "Agent skills for a structured job search: leads, qualification, applications, and interview rounds",
+  "description": "A personal career agent for managing every milestone throughout your career: resume and cover letter templates and generation, ad-hoc and scheduled lead sourcing, personal fit analysis of job postings, per-round interview prep, offer analysis, job acceptance, and career history.",
   "version": "0.1.0",
   "author": {
     "name": "Dustin Estes",

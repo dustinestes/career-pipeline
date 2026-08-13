@@ -2,8 +2,8 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/lockups/lockup-stacked-paper.svg">
-    <img src="assets/lockups/lockup-stacked-ink.svg" alt="Career Pipeline" width="320">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/lockups/lockup-hero-paper.svg">
+    <img src="assets/lockups/lockup-hero-ink.svg" alt="Career Pipeline — your personal career agent for every milestone" width="520">
   </picture>
 </p>
 
@@ -11,7 +11,15 @@
 
 ---
 
-Reusable **Agent Skills** + **Cursor rules** for a structured job search: source leads, qualify roles, build applications, and prep interview rounds.
+A personal career agent for managing every milestone throughout your career:
+
+- Resume and cover letter templates and generation
+- Ad-hoc and scheduled lead sourcing
+- Personal fit analysis of job postings
+- Per-round interview prep
+- Offer analysis
+- Job acceptance
+- Career history
 
 ---
 
@@ -21,9 +29,9 @@ This repo is an installable **plugin**. After install, init an empty folder as y
 
 | Layer | What you get |
 |-------|----------------|
-| Skills | Prefixed `career-pipeline-*` skills (init, leads, analyze, create application/prep/offer, archive/delete) |
+| Skills | Prefixed `career-pipeline-*` skills (init, leads, analyze, create application/prep/offer, accept-job, archive/delete) |
 | Rules | Assessment, cover letter, interview prep, lead, and application standards |
-| Template | Folders (`design`, `leads`, `submissions`), example YAML, consumer docs |
+| Template | Folders (`design`, `leads`, `submissions`, `career`), example YAML, consumer docs |
 
 Compatible with **Cursor**, **Claude Code** (skills), and any host that loads [Agent Skills](https://agentskills.io) / [Agent Plugins](https://agent-plugins.org).
 
@@ -98,7 +106,7 @@ Full tables (Invoke / Description / Input / Output), entrypoints, and folder lay
 |-------|--------|
 | Setup | `/career-pipeline-init` |
 | Lead Discovery | `/career-pipeline-source-leads`, `/career-pipeline-archive-lead` |
-| Application | `/career-pipeline-analyze-job`, `/career-pipeline-create-application`, `/career-pipeline-create-interview-prep`, `/career-pipeline-analyze-offer`, `/career-pipeline-archive-submission`, `/career-pipeline-delete-submission` |
+| Application | `/career-pipeline-analyze-job`, `/career-pipeline-create-application`, `/career-pipeline-create-interview-prep`, `/career-pipeline-analyze-offer`, `/career-pipeline-accept-job`, `/career-pipeline-archive-submission`, `/career-pipeline-delete-submission` |
 
 ## Personal data
 

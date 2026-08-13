@@ -34,6 +34,8 @@ Under `submissions/<Company>/<Role>/`:
 - `interview - 1st`, `interview - 2nd`, … — created on demand by `career-pipeline-create-interview-prep`
 - `offer/` — created on demand by `career-pipeline-analyze-offer` (user packet + `offer-review.md`)
 
+After `career-pipeline-accept-job`, that tree lives under `career/<Company>/<Role>/` with `onboarding/`, `relocation/`, `reviews/`, `issues/`, and `leaving/` added. Do not keep a duplicate under `submissions/`.
+
 ## Resume versioning
 
 - Copy the latest PDF from `design/exports/`

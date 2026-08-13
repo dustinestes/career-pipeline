@@ -2,14 +2,24 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/lockups/lockup-stacked-paper.svg">
-    <img src="assets/lockups/lockup-stacked-ink.svg" alt="Career Pipeline" width="320">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/lockups/lockup-hero-paper.svg">
+    <img src="assets/lockups/lockup-hero-ink.svg" alt="Career Pipeline — your personal career agent for every milestone" width="520">
   </picture>
 </p>
 
 <br>
 
 ---
+
+A personal career agent for managing every milestone throughout your career:
+
+- Resume and cover letter templates and generation
+- Ad-hoc and scheduled lead sourcing
+- Personal fit analysis of job postings
+- Per-round interview prep
+- Offer analysis
+- Job acceptance
+- Career history
 
 Job-search workspace used with the **career-pipeline** plugin (skills + rules live on the plugin, not in this folder).
 
@@ -33,7 +43,7 @@ Walkthrough: [docs/getting-started.md](docs/getting-started.md). Skill catalog: 
 |-------|--------|
 | Setup | `/career-pipeline-init` |
 | Lead Discovery | `/career-pipeline-source-leads`, `/career-pipeline-archive-lead` |
-| Application | `/career-pipeline-analyze-job`, `/career-pipeline-create-application`, `/career-pipeline-create-interview-prep`, `/career-pipeline-analyze-offer`, `/career-pipeline-archive-submission`, `/career-pipeline-delete-submission` |
+| Application | `/career-pipeline-analyze-job`, `/career-pipeline-create-application`, `/career-pipeline-create-interview-prep`, `/career-pipeline-analyze-offer`, `/career-pipeline-accept-job`, `/career-pipeline-archive-submission`, `/career-pipeline-delete-submission` |
 
 The `career-pipeline-` prefix is intentional for `/` popup discoverability. Details: [docs/skills.md](docs/skills.md).
 

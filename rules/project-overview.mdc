@@ -17,10 +17,15 @@ This workspace runs a structured job search: resume design, exports, and applica
 | `leads/.archive/` | Archived leads (stop monitoring) |
 | `submissions/` | Per-company, per-role application tracking |
 | `submissions/.archive/` | Closed applications |
+| `career/` | Accepted roles (employment history) from `career-pipeline-accept-job` |
 
 ## Submissions path
 
 Live: `submissions/<Company>/<Job Title>/` with `email/`, `application/`, and on-demand `interview - Nth/` and `offer/`
+
+## Career path
+
+Accepted: `career/<Company>/<Job Title>/` (moved submission tree plus `onboarding/`, `relocation/`, `reviews/`, `issues/`, `leaving/`)
 
 ## Leads path
 
