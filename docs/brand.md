@@ -70,11 +70,15 @@ Light-mode marks and lockups use a Soft Black stroke with Line Grey milestones o
 
 ## Typography
 
-**Display / wordmark:** Space Grotesk Bold. Lockup SVGs outline the glyphs so GitHub does not need the font installed.
+| Face | Weights | Use |
+|------|---------|-----|
+| Space Grotesk | 600 / 700 | Wordmark and display titles (gallery `h1`, card titles). Lockup SVGs outline Bold so GitHub does not need the font installed. |
+| Archivo | 400 / 500 / 600 | Gallery UI and body copy (`template/design/samples/index.html`) |
+| Host default mono | | Markdown code blocks; gallery `code` and filename labels (`ui-monospace`) |
 
 **Body in markdown:** GitHub defaults. Do not add custom webfonts or CSS to README or `docs/` chrome.
 
-**Code:** GitHub fenced blocks (or the host default mono).
+Resume and cover letter samples pick their own type per design pair. Those faces are not product brand fonts.
 
 <br>
 
