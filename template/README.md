@@ -1,6 +1,21 @@
-# Career pipeline workspace
+<br><br>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/lockups/lockup-stacked-paper.svg">
+    <img src="assets/lockups/lockup-stacked-ink.svg" alt="Career Pipeline" width="320">
+  </picture>
+</p>
+
+<br>
+
+---
 
 Job-search workspace used with the **career-pipeline** plugin (skills + rules live on the plugin, not in this folder).
+
+---
+
+<br>
 
 ## Quick start
 
@@ -31,3 +46,16 @@ The `career-pipeline-` prefix is intentional for `/` popup discoverability. Deta
 - [design/README.md](design/README.md) — Sample templates
 
 See the parent [career-pipeline README](../README.md) for plugin install and manual alternatives.
+
+<br>
+
+---
+
+<br>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/lockups/lockup-horizontal-paper.svg">
+  <img align="left" src="assets/lockups/lockup-horizontal-ink.svg" height="32" alt="Career Pipeline">
+</picture>
+<div align="right">your personal career agent for every milestone</div>
+<br clear="both">

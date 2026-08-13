@@ -1,6 +1,21 @@
-# career-pipeline
+<br><br>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/lockups/lockup-stacked-paper.svg">
+    <img src="assets/lockups/lockup-stacked-ink.svg" alt="Career Pipeline" width="320">
+  </picture>
+</p>
+
+<br>
+
+---
 
 Reusable **Agent Skills** + **Cursor rules** for a structured job search: source leads, qualify roles, build applications, and prep interview rounds.
+
+---
+
+<br>
 
 This repo is an installable **plugin**. After install, init an empty folder as your job-search workspace. The [`template/`](template/) directory is the scaffold payload (also usable manually).
 
@@ -122,3 +137,16 @@ See [docs/consuming-from-private-workspace.md](docs/consuming-from-private-works
 ## License
 
 MIT
+
+<br>
+
+---
+
+<br>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/lockups/lockup-horizontal-paper.svg">
+  <img align="left" src="assets/lockups/lockup-horizontal-ink.svg" height="32" alt="Career Pipeline">
+</picture>
+<div align="right">your personal career agent for every milestone</div>
+<br clear="both">

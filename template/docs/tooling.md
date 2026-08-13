@@ -1,4 +1,10 @@
-# Tooling
+<br><br>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/mark/mark-paper.svg">
+  <img align="right" src="../assets/mark/mark-ink.svg" height="30" alt="Career Pipeline">
+</picture>
+<h1>Tooling</h1>
+<br clear="both">
 
 Prerequisites for PDF export and application assembly.
 
@@ -88,3 +94,16 @@ document.querySelectorAll('*').forEach(el => {
 ## Optional: publish resume site
 
 Wire your own CI (for example GitHub Pages) if you want a public HTML resume. Not required for the pipeline.
+
+<br>
+
+---
+
+<br>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/lockups/lockup-horizontal-paper.svg">
+  <img align="left" src="../assets/lockups/lockup-horizontal-ink.svg" height="32" alt="Career Pipeline">
+</picture>
+<div align="right">your personal career agent for every milestone</div>
+<br clear="both">

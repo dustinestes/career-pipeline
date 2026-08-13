@@ -1,4 +1,10 @@
-# Getting started
+<br><br>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/mark/mark-paper.svg">
+  <img align="right" src="../assets/mark/mark-ink.svg" height="30" alt="Career Pipeline">
+</picture>
+<h1>Getting started</h1>
+<br clear="both">
 
 Resume and persona setup is **pre-work**. Skills need a real config file and HTML you are willing to tailor per application.
 
@@ -44,3 +50,16 @@ Then `/career-pipeline-create-application` for artifacts. Prep rounds with `/car
 Export mail into `email/` yourself if you want it on file (no mailbox automation in this plugin).
 
 Full tables: [skills.md](skills.md). Optional PDF tooling: [tooling.md](tooling.md).
+
+<br>
+
+---
+
+<br>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/lockups/lockup-horizontal-paper.svg">
+  <img align="left" src="../assets/lockups/lockup-horizontal-ink.svg" height="32" alt="Career Pipeline">
+</picture>
+<div align="right">your personal career agent for every milestone</div>
+<br clear="both">

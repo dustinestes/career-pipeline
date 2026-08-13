@@ -1,4 +1,10 @@
-# Customize your workspace
+<br><br>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/mark/mark-paper.svg">
+  <img align="right" src="../assets/mark/mark-ink.svg" height="30" alt="Career Pipeline">
+</picture>
+<h1>Customize your workspace</h1>
+<br clear="both">
 
 Personalization for this job-search workspace is **`.career-pipeline.yml`** at the workspace root.
 
@@ -21,3 +27,16 @@ Full setup order: [getting-started.md](getting-started.md).
 Patterns are basenames without extensions. Skills fill tokens such as `{firstName}`, `{companyName}`, `{shortRole}`, and `{source}`, then add `.pdf` / `.html` / `.md` as needed.
 
 Filename-safe cleanup is documented in the plugin field guide: [docs/config.md](../../docs/config.md) (in a checkout of career-pipeline) or the same page on GitHub.
+
+<br>
+
+---
+
+<br>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/lockups/lockup-horizontal-paper.svg">
+  <img align="left" src="../assets/lockups/lockup-horizontal-ink.svg" height="32" alt="Career Pipeline">
+</picture>
+<div align="right">your personal career agent for every milestone</div>
+<br clear="both">
