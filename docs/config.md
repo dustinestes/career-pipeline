@@ -21,7 +21,7 @@ Workspace users: start with [template/docs/getting-started.md](../template/docs/
 | `compensation` | Salary floor and equity stance |
 | `preferences` | Work mode, location notes, company stage/risk |
 | `search` | Target roles, search terms, and optional `ignore_companies` |
-| `background` | Experience, education, skills, stories |
+| `background` | Experience, education, skills, stories. `career-pipeline-accept-job` prepends the accepted role to `experience` and closes any `end: present` entry |
 | `naming` | Basename patterns for application artifacts |
 
 ## Contact
@@ -60,6 +60,15 @@ links:
 
 - `target_roles`, optional `also_consider` / `flag` / `search_terms`
 - `ignore_companies` — list of company names `career-pipeline-source-leads` should skip (filled by `career-pipeline-archive-lead`)
+
+## Background experience (accept-job)
+
+`career-pipeline-accept-job` edits `background.experience` when you accept a role:
+
+- Prepends `{ employer, title, start, end: present }` (`start` is `YYYY-MM` from the offer letter, else the user, else this month)
+- Rewrites any existing `end: present` to that start month (previous current job)
+
+Folder history lives under `career/<Company>/<Role>/`, not in YAML. If the script cannot patch the file, add the entry by hand.
 
 ## Naming patterns
 

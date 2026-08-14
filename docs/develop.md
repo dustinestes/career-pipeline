@@ -87,7 +87,7 @@ From the plugin repo root:
 # KEEP=1 WORK_DIR=/tmp/cp-smoke ./scripts/smoke-lifecycle.sh
 ```
 
-Checks init, submission folders, Chrome + `pdfunite`, and archive scripts. Prefer a linked `career-pipeline-dev`. Requires `google-chrome` and `pdfunite` (see [template/docs/tooling.md](../template/docs/tooling.md)). Agent prose steps are not automated.
+Checks init, submission folders, Chrome + `pdfunite`, accept-job, and archive scripts. Prefer a linked `career-pipeline-dev`. Requires `google-chrome` and `pdfunite` (see [template/docs/tooling.md](../template/docs/tooling.md)). Agent prose steps are not automated.
 
 <br>
 

@@ -41,7 +41,11 @@ Identity for Career Pipeline: name, tagline, palette, type, and which asset to u
 
 The product is a proactive search agent you keep running over time: find or persist a search, land the next role, and keep a forward look on career milestones. It also works when something sudden happens (a leave, a termination). The point is a forward-looking habit, not a one-shot scramble.
 
-Plain text in README and docs footers. Do not bake the tagline into lockup artwork.
+Hero lockups outline the tagline under the wordmark in **Archivo** Medium (smaller type, centered on the name; mark spans both lines). Footer lockups stay wordmark-only; the tagline sits beside them as HTML.
+
+**Plugin / directory description** (`plugin.json` and `.cursor-plugin/plugin.json`). Galleries take a plain string, so this stays one sentence. README heroes use the same opener plus a bullet list:
+
+> A personal career agent for managing every milestone throughout your career: resume and cover letter templates and generation, ad-hoc and scheduled lead sourcing, personal fit analysis of job postings, per-round interview prep, offer analysis, job acceptance, and career history.
 
 <br>
 
@@ -72,8 +76,8 @@ Light-mode marks and lockups use a Soft Black stroke with Line Grey milestones o
 
 | Face | Weights | Use |
 |------|---------|-----|
-| Space Grotesk | 600 / 700 | Wordmark and display titles (gallery `h1`, card titles). Lockup SVGs outline Bold so GitHub does not need the font installed. |
-| Archivo | 400 / 500 / 600 | Gallery UI and body copy (`template/design/samples/index.html`) |
+| Space Grotesk | 600 / 700 | Wordmark and display titles (gallery `h1`, card titles). Wordmark lockups outline Bold so GitHub does not need the font installed. |
+| Archivo | 400 / 500 / 600 | Gallery UI and body copy; hero tagline under the wordmark (outlined Medium / 500 in `lockup-hero-*.svg`) |
 | Host default mono | | Markdown code blocks; gallery `code` and filename labels (`ui-monospace`) |
 
 **Body in markdown:** GitHub defaults. Do not add custom webfonts or CSS to README or `docs/` chrome.
@@ -93,12 +97,14 @@ Resume and cover letter samples pick their own type per design pair. Those faces
 | [`assets/logo.svg`](../assets/logo.svg) | App / plugin icon (rounded square) |
 | [`assets/mark/mark-ink.svg`](../assets/mark/mark-ink.svg) | Docs header, light |
 | [`assets/mark/mark-paper.svg`](../assets/mark/mark-paper.svg) | Docs header, dark |
-| [`assets/lockups/lockup-stacked-ink.svg`](../assets/lockups/lockup-stacked-ink.svg) | Root README hero, light |
-| [`assets/lockups/lockup-stacked-paper.svg`](../assets/lockups/lockup-stacked-paper.svg) | Root README hero, dark |
+| [`assets/lockups/lockup-stacked-ink.svg`](../assets/lockups/lockup-stacked-ink.svg) | Optional stacked lockup, light |
+| [`assets/lockups/lockup-stacked-paper.svg`](../assets/lockups/lockup-stacked-paper.svg) | Optional stacked lockup, dark |
 | [`assets/lockups/lockup-horizontal-ink.svg`](../assets/lockups/lockup-horizontal-ink.svg) | Footer lockup, light |
 | [`assets/lockups/lockup-horizontal-paper.svg`](../assets/lockups/lockup-horizontal-paper.svg) | Footer lockup, dark |
+| [`assets/lockups/lockup-hero-ink.svg`](../assets/lockups/lockup-hero-ink.svg) | Plugin and consumer README hero, light (Space Grotesk wordmark + Archivo tagline) |
+| [`assets/lockups/lockup-hero-paper.svg`](../assets/lockups/lockup-hero-paper.svg) | Plugin and consumer README hero, dark |
 
-The mark is the pipeline path and three milestone dots with no app square. Lockups pair that mark with the Career Pipeline wordmark. Horizontal lockups are icon plus wordmark only; the tagline sits beside them as HTML.
+The mark is the pipeline path and three milestone dots with no app square. Lockups pair that mark with the Career Pipeline wordmark. Horizontal lockups are icon plus wordmark only. Hero lockups add the outlined tagline; footer tagline is HTML, right-aligned beside the horizontal lockup.
 
 Consumer workspaces get a copy of the logo, marks, and lockups under `template/assets/` so relative paths still work after init. `docs/brand.md` stays in this plugin repo.
 

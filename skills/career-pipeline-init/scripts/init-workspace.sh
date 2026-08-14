@@ -116,7 +116,7 @@ copy_item() {
 }
 
 # Consumer payload only — never skills/rules
-for item in design leads submissions docs AGENTS.md README.md; do
+for item in design leads submissions career docs assets AGENTS.md README.md; do
   copy_item "$item"
 done
 
@@ -127,10 +127,11 @@ if [[ ! -f "$TEMPLATE/.career-pipeline.yml.example" ]]; then
 fi
 cp "$TEMPLATE/.career-pipeline.yml.example" "$TARGET/.career-pipeline.yml.example"
 
-# Ensure archive placeholder exists
+# Ensure archive / empty-tree placeholders exist
 mkdir -p "$TARGET/submissions/.archive"
 mkdir -p "$TARGET/design/exports"
 mkdir -p "$TARGET/leads/.archive"
+mkdir -p "$TARGET/career"
 
 # Drop any accidental .cursor vendoring if present in older templates
 rm -rf "$TARGET/.cursor"

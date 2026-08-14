@@ -51,7 +51,7 @@ Updates require re-copying skills/rules or switching to option A.
 
 Before any public template push from a personal search repo:
 
-- Remove or anonymize `submissions/`
+- Remove or anonymize `submissions/` and `career/`
 - Replace `.career-pipeline.yml` with the public example (or strip personal fields)
 - Strip PDFs, `.eml`, and CI secrets
 

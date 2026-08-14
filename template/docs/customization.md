@@ -17,7 +17,7 @@ Full setup order: [getting-started.md](getting-started.md).
 3. Optional: set `links` (label + url) for LinkedIn, portfolio, GitHub, and similar. These become header icon chips on the resume/cover letter.
 4. Replace salary floor and preferences with yours.
 5. Update `search.target_roles` (and optional `also_consider` / `flag` / `search_terms`).
-6. Rewrite `background` (experience, education, certifications, skills, interests, cover-letter `stories`).
+6. Rewrite `background` (experience, education, certifications, skills, interests, cover-letter `stories`). After you accept a job, `career-pipeline-accept-job` prepends that role here.
 7. Adjust `naming` patterns if you want different artifact basenames.
 8. Keep the file at the workspace root so skills and rules can find it.
 9. Browse `design/samples/`, pick a matched resume + cover letter pair, copy them to working files under `design/`, then remove `samples/` (see [getting-started.md](getting-started.md)).

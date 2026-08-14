@@ -31,7 +31,7 @@ Same gate either way → optional `create-application` → interview prep → an
 
 | Invoke | Description | Input | Output |
 |--------|-------------|-------|--------|
-| `/career-pipeline-init` | Scaffolds an empty job-search workspace from the plugin template (design, leads, submissions, consumer docs, example YAML). Use when the user asks to init, initialize, set up, or scaffold a career-pipeline / job-search workspace. | Empty folder (prefer); `--force` only after explicit override if non-empty | Workspace folders + `.career-pipeline.yml.example` (no live YAML, no vendored skills) |
+| `/career-pipeline-init` | Scaffolds an empty job-search workspace from the career-pipeline template (design, leads, submissions, career, assets, consumer docs, example YAML). Use when the user asks to init, initialize, set up, or scaffold a career-pipeline / job-search workspace, or invokes /career-pipeline-init. | Empty folder (prefer); `--force` only after explicit override if non-empty | Workspace folders + `.career-pipeline.yml.example` (no live YAML, no vendored skills) |
 
 ## Lead Discovery
 
@@ -48,10 +48,20 @@ Same gate either way → optional `create-application` → interview prep → an
 | `/career-pipeline-create-application` | Builds application artifacts for a role (skeleton, cover letter, PDFs). Use after analyze-job proceed, or when the user already decided to apply and wants artifacts without a new assessment. Does not submit to an ATS. | Company + role (assessment preferred) | `email/`, `application/` with cover letter, PDFs, exports |
 | `/career-pipeline-create-interview-prep` | Builds interview prep for any round given company, role, round (1st/2nd/…), and audience. Creates interview - Nth folder on demand. Use for recruiter screens, hiring manager, technical, or later rounds. | Company, role, round, audience | `interview - Nth/interview-prep.md` |
 | `/career-pipeline-analyze-offer` | Reviews an offer packet (compensation, benefits, equity) under a submission's offer/ folder. Use when the user receives an offer, pastes offer materials, or wants accept/decline guidance before career-pipeline-accept-job. | Company + role; offer materials in `offer/` or chat | `offer/offer-review.md` + accept/decline guidance |
+| `/career-pipeline-accept-job` | Promotes an accepted offer from submissions into career/\<Company\>/\<Role\>/ as employment history. Use after career-pipeline-analyze-offer when the user accepts a job, or when they ask to move a role into career history. | Company + role; start from offer letter, else ask, else this month | `career/<Company>/<Role>/` + YAML `background.experience` |
 | `/career-pipeline-archive-submission` | Moves a closed application to submissions/.archive and cleans up empty company folders. Use when the user rejects a role, receives a rejection, withdraws, or asks to archive a submission. | Company + role; optional reason | `submissions/.archive/...` |
 | `/career-pipeline-delete-submission` | Permanently deletes a submission folder under submissions/\<Company\>/\<Role\>. Use when the user does not want to archive and confirms hard delete. Requires company and role name. | Company + role + confirm | Folder removed |
 
-## Submission folders
+## Workspace folders
+
+```text
+design/                  # resume / cover letter HTML
+leads/                   # company research from source-leads
+submissions/             # live applications
+career/                  # accepted roles (employment history)
+```
+
+### Submissions (active search)
 
 ```text
 submissions/<Company>/<Role>/
@@ -67,6 +77,25 @@ Lowercase names; related interview rounds share the `interview -` taxonomy prefi
 **Offer:** drop offer letter, benefits, and equity docs into `offer/`, then run `career-pipeline-analyze-offer`. On proceed → `career-pipeline-accept-job`; on decline → `career-pipeline-archive-submission`.
 
 **Email:** export/print mail into `email/` yourself. Automating every mailbox provider is out of scope; other plugins/MCPs may write into this layout if you want.
+
+### Career history (after accept)
+
+Offer accepted → `career-pipeline-accept-job` moves the submission tree into `career/` and scaffolds employment stages. That folder is the longer-term source of truth for the role.
+
+```text
+career/<Company>/<Role>/
+  application/           # original application artifacts
+  email/                 # mail kept with the role
+  interview - Nth/       # interview prep from the search
+  offer/                 # offer packet and details
+  onboarding/            # new hire paperwork
+  relocation/            # move, housing, visa
+  reviews/               # performance reviews
+  issues/                # workplace issues / HR notes
+  leaving/               # resignation and offboarding
+```
+
+Same lowercase / taxonomy rules as submissions. `accept-job` also prepends the role to `.career-pipeline.yml` `background.experience`.
 
 <br>
 

@@ -54,6 +54,7 @@ EXPECTED_SKILLS=(
   career-pipeline-create-application
   career-pipeline-create-interview-prep
   career-pipeline-analyze-offer
+  career-pipeline-accept-job
   career-pipeline-archive-submission
   career-pipeline-delete-submission
 )
@@ -82,7 +83,7 @@ mkdir -p "$WS"
 bash "$ROOT/skills/career-pipeline-init/scripts/init-workspace.sh" "$WS"
 [[ -f "$WS/.career-pipeline.yml.example" ]] || fail "missing example yaml after init"
 [[ ! -f "$WS/.career-pipeline.yml" ]] || fail "init must not create live yaml"
-[[ -d "$WS/design" && -d "$WS/leads" && -d "$WS/submissions" ]] || fail "missing scaffold folders"
+[[ -d "$WS/design" && -d "$WS/leads" && -d "$WS/submissions" && -d "$WS/career" && -d "$WS/assets" ]] || fail "missing scaffold folders"
 [[ ! -d "$WS/.cursor/skills" ]] || fail "init must not vendor skills"
 [[ -d "$WS/leads/.archive" ]] || fail "missing leads/.archive"
 [[ -f "$WS/docs/skills.md" ]] || fail "missing consumer docs/skills.md"
@@ -191,18 +192,46 @@ cp "$WS/design/exports/resume-smoke.pdf" "$APP/application/resume-smoke.pdf"
 [[ -s "$APP/application/combined-smoke.pdf" ]] || fail "combined PDF missing"
 pass "Chrome headless + pdfunite PDF export"
 
-# --- 5. Archive submission ---
+# --- 5. Accept job (promote into career/ + YAML experience) ---
+(
+  cd "$WS"
+  bash "$ROOT/skills/career-pipeline-accept-job/scripts/accept-job.sh" \
+    "$COMPANY" "$ROLE" "2026-08"
+)
+CAREER_ROLE="$WS/career/$COMPANY/$ROLE"
+[[ -d "$CAREER_ROLE" ]] || fail "career destination missing"
+[[ ! -d "$APP" ]] || fail "live submission should be gone after accept"
+[[ -d "$CAREER_ROLE/offer" && -d "$CAREER_ROLE/onboarding" && -d "$CAREER_ROLE/relocation" ]] \
+  || fail "career skeleton missing offer/onboarding/relocation"
+[[ -d "$CAREER_ROLE/reviews" && -d "$CAREER_ROLE/issues" && -d "$CAREER_ROLE/leaving" ]] \
+  || fail "career skeleton missing reviews/issues/leaving"
+[[ -f "$CAREER_ROLE/offer/offer-review.md" ]] || fail "moved offer-review.md missing"
+[[ -d "$CAREER_ROLE/application" && -d "$CAREER_ROLE/interview - 1st" ]] \
+  || fail "moved application/ or interview folder missing"
+grep -q "employer: SmokeCo" "$WS/.career-pipeline.yml" || fail "YAML experience not prepended"
+grep -A4 "employer: SmokeCo" "$WS/.career-pipeline.yml" | grep -q "end: present" \
+  || fail "accepted role should be end: present"
+grep -A6 "employer: Summitlane Distribution" "$WS/.career-pipeline.yml" | grep -q 'end: "2026-08"' \
+  || fail "prior present job should close at start month"
+pass "accept-job + experience YAML"
+
+# --- 6. Archive submission (separate live role) ---
+ARCHIVE_COMPANY="ArchiveCo"
+ARCHIVE_ROLE="Inventory Lead"
+ARCHIVE_APP="$WS/submissions/$ARCHIVE_COMPANY/$ARCHIVE_ROLE"
+mkdir -p "$ARCHIVE_APP/application"
+echo "# Archive smoke" > "$ARCHIVE_APP/application/assessment.md"
 (
   cd "$WS"
   bash "$ROOT/skills/career-pipeline-archive-submission/scripts/archive-submission.sh" \
-    "$COMPANY" "$ROLE" "smoke test archive"
+    "$ARCHIVE_COMPANY" "$ARCHIVE_ROLE" "smoke test archive"
 )
-[[ -d "$WS/submissions/.archive/$COMPANY/$ROLE" ]] || fail "archive destination missing"
-[[ ! -d "$APP" ]] || fail "live submission should be gone after archive"
-[[ -f "$WS/submissions/.archive/$COMPANY/$ROLE/notes.md" ]] || fail "archive notes.md missing"
+[[ -d "$WS/submissions/.archive/$ARCHIVE_COMPANY/$ARCHIVE_ROLE" ]] || fail "archive destination missing"
+[[ ! -d "$ARCHIVE_APP" ]] || fail "live submission should be gone after archive"
+[[ -f "$WS/submissions/.archive/$ARCHIVE_COMPANY/$ARCHIVE_ROLE/notes.md" ]] || fail "archive notes.md missing"
 pass "archive-submission"
 
-# --- 6. Archive lead (ignore_companies) ---
+# --- 7. Archive lead (ignore_companies) ---
 mkdir -p "$WS/leads"
 echo "# SmokeCo" > "$WS/leads/SmokeCo.md"
 (
