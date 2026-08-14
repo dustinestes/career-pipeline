@@ -25,7 +25,7 @@ Removes manual board hunting when you want it. Not required.
 1. You already have a job URL.
 2. Run `career-pipeline-analyze-job` with that URL.
 
-Same gate either way → optional `create-application` → interview prep → analyze-offer → accept-job (or archive / delete).
+Same gate either way → optional `career-pipeline-create-application` → `career-pipeline-create-interview-prep` → `career-pipeline-analyze-offer` → `career-pipeline-accept-job` (or archive / delete).
 
 ## Setup
 
@@ -38,14 +38,14 @@ Same gate either way → optional `create-application` → interview prep → an
 | Invoke | Description | Input | Output |
 |--------|-------------|-------|--------|
 | `/career-pipeline-source-leads` | Researches companies matching the candidate profile (or user seed criteria) and writes leads/\<Company\>.md with matching open roles. Use for ad-hoc or scheduled lead discovery; feed roles into career-pipeline-analyze-job next. Skips companies listed in search.ignore_companies. | Optional seed companies/criteria; YAML search + preferences | `leads/<Company>.md` |
-| `/career-pipeline-archive-lead` | Archives a company lead file to leads/.archive and adds the company to search.ignore_companies so source-leads skips it. Use when the user wants to stop monitoring a company. | Company name; optional reason | `leads/.archive/<Company>.md` + YAML update |
+| `/career-pipeline-archive-lead` | Archives a company lead file to leads/.archive and adds the company to search.ignore_companies so career-pipeline-source-leads skips it. Use when the user wants to stop monitoring a company. | Company name; optional reason | `leads/.archive/<Company>.md` + YAML update |
 
 ## Application Lifecycle
 
 | Invoke | Description | Input | Output |
 |--------|-------------|-------|--------|
 | `/career-pipeline-analyze-job` | Analyzes a job posting for fit and writes an analysis under submissions. Use when the user shares a job listing URL, passes roles from a lead file, asks to analyze a role, or wants apply/pass guidance (does not build cover letter or PDFs). | Posting URL(s) and/or lead roles | `submissions/<Company>/<Role>/<analysis>` + apply/pass guidance |
-| `/career-pipeline-create-application` | Builds application artifacts for a role (skeleton, cover letter, PDFs). Use after analyze-job proceed, or when the user already decided to apply and wants artifacts without a new analysis. Does not submit to an ATS. | Company + role (analysis preferred) | `email/`, `application/` with cover letter, PDFs, exports |
+| `/career-pipeline-create-application` | Builds application artifacts for a role (skeleton, cover letter, PDFs). Use after career-pipeline-analyze-job proceed, or when the user already decided to apply and wants artifacts without a new analysis. Does not submit to an ATS. | Company + role (analysis preferred) | `email/`, `application/` with cover letter, PDFs, exports |
 | `/career-pipeline-create-interview-prep` | Builds interview prep for any round given company, role, round (1st/2nd/…), and audience. Creates interview - Nth folder on demand. Use for recruiter screens, hiring manager, technical, or later rounds. | Company, role, round, audience | `interview - Nth/<prep>` from `naming.interview.prep` |
 | `/career-pipeline-analyze-offer` | Reviews an offer packet (compensation, benefits, equity) under a submission's offer/ folder. Use when the user receives an offer, pastes offer materials, or wants accept/decline guidance before career-pipeline-accept-job. | Company + role; offer materials in `offer/` or chat | `offer/<analysis>` from `naming.offer.analysis` + accept/decline guidance |
 | `/career-pipeline-accept-job` | Promotes an accepted offer from submissions into career/\<Company\>/\<Role\>/ as employment history. Use after career-pipeline-analyze-offer when the user accepts a job, or when they ask to move a role into career history. | Company + role; start from offer letter, else ask, else this month | `career/<Company>/<Role>/` + YAML `background.experience` |
@@ -56,7 +56,7 @@ Same gate either way → optional `create-application` → interview prep → an
 
 ```text
 design/                  # resume / cover letter HTML
-leads/                   # company research from source-leads
+leads/                   # company research from career-pipeline-source-leads
 submissions/             # live applications
 career/                  # accepted roles (employment history)
 ```
@@ -65,14 +65,15 @@ career/                  # accepted roles (employment history)
 
 ```text
 submissions/<Company>/<Role>/
+  <analysis>             # role root until career-pipeline-create-application moves it
   email/                 # user-exported .eml only (no mailbox automation in this plugin)
-  application/           # analysis, cover letter, resume, full package, job post exports
+  application/           # analysis (after promote), cover letter, resume, full package, job post exports
   interview - 1st/       # created on demand
   interview - 2nd/
   offer/                 # created on demand (packet + offer analysis)
 ```
 
-Lowercase names; related interview rounds share the `interview -` taxonomy prefix. No leading `N -` sort numbers.
+Lowercase names; related interview rounds share the `interview -` taxonomy prefix. No leading `N -` sort numbers. Analysis starts at the role root; `career-pipeline-create-application` moves it into `application/`.
 
 **Offer:** drop offer letter, benefits, and equity docs into `offer/`, then run `career-pipeline-analyze-offer`. On proceed → `career-pipeline-accept-job`; on decline → `career-pipeline-archive-submission`.
 
@@ -95,7 +96,7 @@ career/<Company>/<Role>/
   leaving/               # resignation and offboarding
 ```
 
-Same lowercase / taxonomy rules as submissions. `accept-job` also prepends the role to `.career-pipeline.yml` `background.experience`.
+Same lowercase / taxonomy rules as submissions. `career-pipeline-accept-job` also prepends the role to `.career-pipeline.yml` `background.experience`.
 
 <br>
 

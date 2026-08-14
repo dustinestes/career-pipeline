@@ -11,7 +11,7 @@ disable-model-invocation: true
 
 ## Prerequisites
 
-If workspace-root `.career-pipeline.yml` is missing, **stop** (needed for ignore_companies). Point at example copy or `career-pipeline-init`.
+If workspace-root `.career-pipeline.yml` is missing, **stop**. Tell the user to copy `.career-pipeline.yml.example` → `.career-pipeline.yml` and edit it (or run `career-pipeline-init` first). Needed for `ignore_companies`.
 
 ## Input
 

@@ -46,3 +46,4 @@ See [examples.md](examples.md).
 ## Additional resources
 
 - Script: [scripts/archive-submission.sh](scripts/archive-submission.sh)
+- Related (hard delete): `career-pipeline-delete-submission`
