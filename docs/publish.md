@@ -6,7 +6,7 @@
 <h1>Publish</h1>
 <br clear="both">
 
-How this plugin is meant to be discovered. **cursor.directory only** — this project does not target Cursor Marketplace submission.
+How this plugin is meant to be discovered on [cursor.directory](https://cursor.directory).
 
 <br>
 
@@ -49,9 +49,9 @@ When you cut a release:
 3. Merge to `main`, then tag `vX.Y.Z` and publish a GitHub Release with notes (`gh release create vX.Y.Z`)
 4. Optionally maintain a `CHANGELOG.md` so release notes are drafted from a running log
 
-GitHub Releases are for humans: changelog, support (“which version?”), and a clear ship point. They do **not** push updates into [cursor.directory](https://cursor.directory) or Cursor Marketplace.
+GitHub Releases are for humans: changelog, support (“which version?”), and a clear ship point. They do **not** push updates into [cursor.directory](https://cursor.directory).
 
-This project does not target Marketplace. Directory discovery is a separate, manual step (submit the repo URL once; any later re-crawl is not driven by tags or Actions). Personal installs via `/add-plugin` with a GitHub URL can also pin to an old commit, so keeping `plugin.json` version accurate still matters for support even when Directory is the front door.
+Directory discovery is a separate, manual step (submit the repo URL once; any later re-crawl is not driven by tags or Actions). Personal installs via `/add-plugin` with a GitHub URL can also pin to an old commit, so keeping `plugin.json` version accurate still matters for support.
 
 There is no GitHub Action that syncs Releases to Directory. CI already runs `./scripts/smoke.sh` on pull requests and `main`. Release ritual ([#54](https://github.com/dustinestes/career-pipeline/issues/54)) is a follow-up.
 

@@ -47,17 +47,16 @@ Compatible with **Cursor**, **Claude Code** (skills), and any host that loads [A
 
 ## Install
 
-### Main path (recommended)
+1. Load the plugin in Cursor:
 
-1. Install the plugin locally (developer id `career-pipeline-dev`):
+- From GitHub: `/add-plugin` with this repo URL
+- From a clone:
 
 ```bash
 ./scripts/dev-mode.sh link
 # reload Cursor — Local plugins → Career Pipeline / career-pipeline-dev
 ./scripts/dev-mode.sh status
 ```
-
-Maintainer modes: [docs/develop.md](docs/develop.md). Directory publish: [docs/publish.md](docs/publish.md).
 
 2. Create an **empty** folder for your job search (a bare `git init` is fine). Open it in Cursor.
 
@@ -69,6 +68,8 @@ Maintainer modes: [docs/develop.md](docs/develop.md). Directory publish: [docs/p
 4. Copy `.career-pipeline.yml.example` → `.career-pipeline.yml` and edit it. Pick a pair under `design/samples/`, adapt to working HTML. Then use `/career-pipeline-analyze-job` (or ask in plain language).
 
 Job-search skills stop until `.career-pipeline.yml` exists. Walkthrough after init: `docs/getting-started.md` in your workspace. Full skill tables: [docs/skills.md](docs/skills.md).
+
+Maintainer link/unlink and smoke: [docs/develop.md](docs/develop.md). Directory listing: [docs/publish.md](docs/publish.md).
 
 ### Alternative: manual scaffold (no init skill)
 
@@ -95,7 +96,7 @@ Field guide: [docs/config.md](docs/config.md).
 
 ### Discoverability
 
-List on [cursor.directory](https://cursor.directory) when ready. Steps: [docs/publish.md](docs/publish.md). This project does not target Cursor Marketplace submission.
+List on [cursor.directory](https://cursor.directory) when ready. Steps: [docs/publish.md](docs/publish.md).
 
 ## Flow
 
@@ -185,8 +186,8 @@ See [docs/consuming-from-private-workspace.md](docs/consuming-from-private-works
 | [docs/README.md](docs/README.md) | Maintainer docs index |
 | [docs/skills.md](docs/skills.md) | Skill catalog (plugin + mirrored in workspace) |
 | [docs/config.md](docs/config.md) | `.career-pipeline.yml` field guide (schema + naming) |
-| [docs/develop.md](docs/develop.md) | `dev-mode` link/unlink, Clockify, smoke test / CI |
-| [docs/publish.md](docs/publish.md) | cursor.directory + GitHub topics (not Marketplace) |
+| [docs/develop.md](docs/develop.md) | Local plugin link/unlink, smoke test / CI |
+| [docs/publish.md](docs/publish.md) | cursor.directory + GitHub topics |
 | [template/docs/getting-started.md](template/docs/getting-started.md) | Consumer setup after init |
 | [template/docs/customization.md](template/docs/customization.md) | YAML checklist |
 | [template/docs/tooling.md](template/docs/tooling.md) | Optional PDF export |
@@ -201,7 +202,7 @@ See [docs/consuming-from-private-workspace.md](docs/consuming-from-private-works
 | `plugin.json` | Agent Plugins portable manifest |
 | `skills/` | Agent Skills (plugin-owned; single source of truth) |
 | `rules/` | Cursor rules (plugin-owned) |
-| `scripts/dev-mode.sh` | Link/unlink local `career-pipeline-dev` |
+| `scripts/dev-mode.sh` | Local plugin symlink (`career-pipeline-dev`) |
 | `scripts/smoke.sh` | Maintainer smoke (init, folders, PDF, archive); CI on PR and `main` |
 | `.cursor/rules/` | Maintainer workflow for this repo only |
 | `template/` | Scaffold payload for init / manual copy |

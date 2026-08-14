@@ -14,10 +14,9 @@ How to develop this plugin on a machine that may also install a published listin
 
 - [Contents](#contents)
 - [Modes](#modes)
-- [Developer mode](#developer-mode)
-- [Consumer-like mode](#consumer-like-mode)
+- [Linked](#linked)
+- [Unlinked](#unlinked)
 - [Smoke test](#smoke-test)
-- [Clockify time tracking](#clockify-time-tracking)
 - [Workspace config schema](#workspace-config-schema)
 
 ---
@@ -28,8 +27,8 @@ How to develop this plugin on a machine that may also install a published listin
 
 | Mode | Purpose | How |
 |------|---------|-----|
-| **Developer** | Iterate this repo (skills + rules) | `./scripts/dev-mode.sh link` |
-| **Consumer-like** | No local `-dev` symlink (Directory / fresh install checks) | `./scripts/dev-mode.sh unlink` |
+| **Linked** | Iterate this repo (skills + rules) | `./scripts/dev-mode.sh link` |
+| **Unlinked** | No local `-dev` symlink (Directory / fresh install checks) | `./scripts/dev-mode.sh unlink` |
 
 ```bash
 ./scripts/dev-mode.sh status
@@ -37,7 +36,7 @@ How to develop this plugin on a machine that may also install a published listin
 
 After link or unlink: **reload Cursor**.
 
-This helper only manages the local plugin symlink. There is no MCP rewrite (this package is skills/rules only).
+This helper only manages the local plugin symlink.
 
 <br>
 
@@ -45,7 +44,7 @@ This helper only manages the local plugin symlink. There is no MCP rewrite (this
 
 <br>
 
-## Developer mode
+## Linked
 
 ```bash
 ./scripts/dev-mode.sh link
@@ -63,14 +62,14 @@ Verify: Local plugins → **Career Pipeline** / `career-pipeline-dev`; skills vi
 
 <br>
 
-## Consumer-like mode
+## Unlinked
 
 ```bash
 ./scripts/dev-mode.sh unlink
 # reload Cursor
 ```
 
-Removes `career-pipeline-dev` (and a legacy `career-pipeline` link to this checkout). Then install from [cursor.directory](https://cursor.directory) or symlink a published clone as a stranger would.
+Removes `career-pipeline-dev` (and a legacy `career-pipeline` link to this checkout). Then install from [cursor.directory](https://cursor.directory) or `/add-plugin` as a stranger would.
 
 <br>
 
@@ -90,42 +89,6 @@ From the plugin repo root:
 Checks init, submission folders, Chrome + `pdfunite`, accept-job, and archive scripts. Prefer a linked `career-pipeline-dev`. Requires `google-chrome` and `pdfunite` (see [template/docs/tooling.md](../template/docs/tooling.md)). Set `CHROME_BIN` if the browser binary is not named `google-chrome`.
 
 The same script runs in GitHub Actions on pull requests and `main` (`.github/workflows/ci.yml`). The runner is `ubuntu-latest` (Chrome is preinstalled); the workflow installs `poppler-utils`. Agent prose steps are not automated.
-
-<br>
-
----
-
-<br>
-
-## Clockify time tracking
-
-This repo is a **consumer** of [clockify-mcp-server](https://github.com/dustinestes/clockify-mcp-server). Track work against the `career-pipeline` Clockify project while building the package.
-
-Each consumer repo keeps its own `.env`. This package uses the Clockify workspace **GitHub** (`CLOCKIFY_WORKSPACE_ID` in local `.env`).
-
-### One-time local wiring
-
-1. In the Clockify checkout:
-
-```bash
-cd /path/to/clockify-mcp-server
-npm install && npm run build
-npm run dev:link
-```
-
-2. In this repo:
-
-```bash
-cp .env.example .env
-# set CLOCKIFY_API_KEY and CLOCKIFY_WORKSPACE_ID
-cp .cursor/mcp.json.example .cursor/mcp.json
-# absolute paths for node + clockify-mcp-server/dist/index.js
-# envFile: ${workspaceFolder}/.env
-```
-
-3. Reload Cursor; enable MCP **clockify-dev**. Run `/clockify-project-init` once, then `/clockify-coding-time` for start/stop.
-
-Do not commit API keys.
 
 <br>
 
