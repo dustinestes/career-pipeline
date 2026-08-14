@@ -25,10 +25,9 @@ How this plugin is meant to be discovered. **cursor.directory only** — this pr
 
 ## Before you submit
 
-1. Public GitHub repo green on `main`
-2. `./scripts/smoke-lifecycle.sh` passes
-3. README install path and [skills.md](./skills.md) match shipped skills
-4. `./scripts/dev-mode.sh unlink` if you want a clean machine check (no local `-dev` symlink)
+1. Public GitHub repo with CI green on `main` (`.github/workflows/ci.yml` runs `./scripts/smoke.sh`)
+2. README install path and [skills.md](./skills.md) match shipped skills
+3. `./scripts/dev-mode.sh unlink` if you want a clean machine check (no local `-dev` symlink)
 
 <br>
 
@@ -54,7 +53,7 @@ GitHub Releases are for humans: changelog, support (“which version?”), and a
 
 This project does not target Marketplace. Directory discovery is a separate, manual step (submit the repo URL once; any later re-crawl is not driven by tags or Actions). Personal installs via `/add-plugin` with a GitHub URL can also pin to an old commit, so keeping `plugin.json` version accurate still matters for support even when Directory is the front door.
 
-There is no GitHub Action today that syncs Releases to Directory. CI smoke ([#53](https://github.com/dustinestes/career-pipeline/issues/53)) and release ritual ([#54](https://github.com/dustinestes/career-pipeline/issues/54)) are follow-ups; until then, run `./scripts/smoke-lifecycle.sh` before you tag.
+There is no GitHub Action that syncs Releases to Directory. CI already runs `./scripts/smoke.sh` on pull requests and `main`. Release ritual ([#54](https://github.com/dustinestes/career-pipeline/issues/54)) is a follow-up.
 
 <br>
 

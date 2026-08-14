@@ -24,7 +24,7 @@ Index of documentation for the career-pipeline Cursor / Agent plugin.
 | Doc | Description |
 |-----|-------------|
 | [brand.md](./brand.md) | Logo, lockup, palette, typography |
-| [develop.md](./develop.md) | Local plugin link (`career-pipeline-dev`), Clockify wiring, smoke test |
+| [develop.md](./develop.md) | Local plugin link (`career-pipeline-dev`), Clockify wiring, smoke test (also CI) |
 | [publish.md](./publish.md) | Versioning / Releases, GitHub topics, and [cursor.directory](https://cursor.directory) submit (not Marketplace) |
 | [skills.md](./skills.md) | Skill catalog (Invoke / Description / Input / Output) |
 | [config.md](./config.md) | `.career-pipeline.yml` field guide |

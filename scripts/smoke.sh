@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
-# Maintainer smoke test for career-pipeline (#7).
-# Proves: init scaffold, submission lifecycle scripts, Chrome+pdfunite PDF export,
-# and that local plugin install exposes expected skills.
+# Maintainer smoke for career-pipeline (#7, #53).
+# Checks: skills present, init scaffold, application folders,
+# Chrome+pdfunite PDF export, accept-job, archive scripts.
+# Does not run the agent (no analyze/leads/interview/offer prose).
 #
 # Usage:
-#   ./scripts/smoke-lifecycle.sh           # temp dir, cleaned on success
-#   KEEP=1 ./scripts/smoke-lifecycle.sh    # leave WORK_DIR for inspection
-#   WORK_DIR=/tmp/cp-smoke ./scripts/smoke-lifecycle.sh
+#   ./scripts/smoke.sh                     # temp dir, cleaned on success
+#   KEEP=1 ./scripts/smoke.sh              # leave WORK_DIR for inspection
+#   WORK_DIR=/tmp/cp-smoke ./scripts/smoke.sh
 
 set -euo pipefail
 
@@ -103,7 +104,7 @@ cat > "$APP/job-post-analysis.md" <<'EOF'
 **Recommendation:** Proceed (smoke test)
 
 ## Fit
-Synthetic analysis for career-pipeline smoke-lifecycle.
+Synthetic analysis for career-pipeline smoke.
 EOF
 pass "analyze-style analysis at role root"
 
@@ -123,8 +124,29 @@ echo "# Offer analysis (smoke)" > "$APP/offer/offer-analysis.md"
 pass "analyze-offer folder shape"
 
 # --- 4. PDF export (Chrome + pdfunite) ---
-command -v google-chrome >/dev/null || fail "google-chrome not on PATH"
+CHROME="${CHROME_BIN:-google-chrome}"
+command -v "$CHROME" >/dev/null 2>&1 || [[ -x "$CHROME" ]] \
+  || fail "google-chrome not on PATH (set CHROME_BIN if the binary has another name)"
 command -v pdfunite >/dev/null || fail "pdfunite not on PATH (poppler-utils)"
+
+chrome_pdf() {
+  local out="$1" url="$2"
+  local extra=()
+  if [[ "${CI:-}" == "true" ]]; then
+    extra+=(--no-sandbox --disable-dev-shm-usage)
+  fi
+  if [[ "${CI:-}" == "true" ]]; then
+    "$CHROME" --headless=new --disable-gpu --window-size=816,900 \
+      "${extra[@]}" \
+      --print-to-pdf="$out" --print-to-pdf-no-header --no-margins \
+      "$url"
+  else
+    "$CHROME" --headless=new --disable-gpu --window-size=816,900 \
+      "${extra[@]}" \
+      --print-to-pdf="$out" --print-to-pdf-no-header --no-margins \
+      "$url" >/dev/null 2>&1
+  fi
+}
 
 # Working copies of samples (any pair under samples/; not a style recommendation)
 shopt -s nullglob
@@ -143,16 +165,10 @@ for resume_src in "${resume_samples[@]}"; do
   [[ -f "$cover_src" ]] || fail "missing cover pair for $base"
   (
     cd "$WS"
-    google-chrome --headless=new --disable-gpu --window-size=816,900 \
-      --print-to-pdf="$PWD/design/exports/samples-continuous/resume_${n}.pdf" \
-      --print-to-pdf-no-header --no-margins \
-      "file://$PWD/design/samples/resume_sample_${n}.html?continuous" \
-      >/dev/null 2>&1
-    google-chrome --headless=new --disable-gpu --window-size=816,900 \
-      --print-to-pdf="$PWD/design/exports/samples-continuous/cover_${n}.pdf" \
-      --print-to-pdf-no-header --no-margins \
-      "file://$PWD/design/samples/cover_letter_sample_${n}.html?continuous" \
-      >/dev/null 2>&1
+    chrome_pdf "$PWD/design/exports/samples-continuous/resume_${n}.pdf" \
+      "file://$PWD/design/samples/resume_sample_${n}.html?continuous"
+    chrome_pdf "$PWD/design/exports/samples-continuous/cover_${n}.pdf" \
+      "file://$PWD/design/samples/cover_letter_sample_${n}.html?continuous"
   )
   [[ -s "$WS/design/exports/samples-continuous/resume_${n}.pdf" ]] \
     || fail "continuous resume PDF empty for sample $n"
@@ -167,16 +183,10 @@ mkdir -p "$WS/design/exports" "$APP/application"
 
 (
   cd "$WS"
-  google-chrome --headless=new --disable-gpu --window-size=816,900 \
-    --print-to-pdf="$PWD/design/exports/resume-smoke.pdf" \
-    --print-to-pdf-no-header --no-margins \
-    "file://$PWD/design/resume.html?continuous" \
-    >/dev/null 2>&1
-  google-chrome --headless=new --disable-gpu --window-size=816,900 \
-    --print-to-pdf="$PWD/application-cover-smoke.pdf" \
-    --print-to-pdf-no-header --no-margins \
-    "file://$PWD/design/cover-letter.html?continuous" \
-    >/dev/null 2>&1
+  chrome_pdf "$PWD/design/exports/resume-smoke.pdf" \
+    "file://$PWD/design/resume.html?continuous"
+  chrome_pdf "$PWD/application-cover-smoke.pdf" \
+    "file://$PWD/design/cover-letter.html?continuous"
 )
 # Move cover into application folder (typical workflow)
 mv "$WS/application-cover-smoke.pdf" "$APP/application/cover-letter-smoke.pdf"

@@ -10,6 +10,7 @@
 <br>
 
 <p align="center">
+  <a href="https://github.com/dustinestes/career-pipeline/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/dustinestes/career-pipeline/ci.yml?branch=main&style=flat-square&label=CI&labelColor=C4C4C4" alt="CI"></a>
   <img src="https://img.shields.io/badge/status-pre--release-1A1A1A?style=flat-square&labelColor=C4C4C4" alt="Pre-release">
   <img src="https://img.shields.io/badge/version-0.1.0-1A1A1A?style=flat-square&labelColor=C4C4C4" alt="version 0.1.0">
   <img src="https://img.shields.io/badge/license-MIT-1A1A1A?style=flat-square&labelColor=C4C4C4" alt="MIT">
@@ -184,7 +185,7 @@ See [docs/consuming-from-private-workspace.md](docs/consuming-from-private-works
 | [docs/README.md](docs/README.md) | Maintainer docs index |
 | [docs/skills.md](docs/skills.md) | Skill catalog (plugin + mirrored in workspace) |
 | [docs/config.md](docs/config.md) | `.career-pipeline.yml` field guide (schema + naming) |
-| [docs/develop.md](docs/develop.md) | `dev-mode` link/unlink, Clockify, smoke test |
+| [docs/develop.md](docs/develop.md) | `dev-mode` link/unlink, Clockify, smoke test / CI |
 | [docs/publish.md](docs/publish.md) | cursor.directory + GitHub topics (not Marketplace) |
 | [template/docs/getting-started.md](template/docs/getting-started.md) | Consumer setup after init |
 | [template/docs/customization.md](template/docs/customization.md) | YAML checklist |
@@ -201,7 +202,7 @@ See [docs/consuming-from-private-workspace.md](docs/consuming-from-private-works
 | `skills/` | Agent Skills (plugin-owned; single source of truth) |
 | `rules/` | Cursor rules (plugin-owned) |
 | `scripts/dev-mode.sh` | Link/unlink local `career-pipeline-dev` |
-| `scripts/smoke-lifecycle.sh` | Maintainer dry-run (init, folders, PDF, archive) |
+| `scripts/smoke.sh` | Maintainer smoke (init, folders, PDF, archive); CI on PR and `main` |
 | `.cursor/rules/` | Maintainer workflow for this repo only |
 | `template/` | Scaffold payload for init / manual copy |
 

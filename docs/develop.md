@@ -83,11 +83,13 @@ Removes `career-pipeline-dev` (and a legacy `career-pipeline` link to this check
 From the plugin repo root:
 
 ```bash
-./scripts/smoke-lifecycle.sh
-# KEEP=1 WORK_DIR=/tmp/cp-smoke ./scripts/smoke-lifecycle.sh
+./scripts/smoke.sh
+# KEEP=1 WORK_DIR=/tmp/cp-smoke ./scripts/smoke.sh
 ```
 
-Checks init, submission folders, Chrome + `pdfunite`, accept-job, and archive scripts. Prefer a linked `career-pipeline-dev`. Requires `google-chrome` and `pdfunite` (see [template/docs/tooling.md](../template/docs/tooling.md)). Agent prose steps are not automated.
+Checks init, submission folders, Chrome + `pdfunite`, accept-job, and archive scripts. Prefer a linked `career-pipeline-dev`. Requires `google-chrome` and `pdfunite` (see [template/docs/tooling.md](../template/docs/tooling.md)). Set `CHROME_BIN` if the browser binary is not named `google-chrome`.
+
+The same script runs in GitHub Actions on pull requests and `main` (`.github/workflows/ci.yml`). The runner is `ubuntu-latest` (Chrome is preinstalled); the workflow installs `poppler-utils`. Agent prose steps are not automated.
 
 <br>
 
