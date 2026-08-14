@@ -1,14 +1,13 @@
 ---
-description: Structured offer review format for offer-review.md under a role's offer/ folder
-globs: "**/offer-review.md"
+description: Structured offer analysis format for offer/ folder markdown under a role
+globs: "**/offer/**/*.md,**/offer-analysis*.md"
 alwaysApply: false
 ---
 
 # Offer Review Format
 
-Use this structure for every offer review at
-`submissions/<Company>/<Role>/offer/offer-review.md` (or
-`career/<Company>/<Role>/offer/offer-review.md` after accept):
+Use this structure for every offer analysis under `offer/` (filename from
+`.career-pipeline.yml` `naming.offer.analysis`, default `offer-analysis.md`):
 
 ```markdown
 # Offer Review — <Company>

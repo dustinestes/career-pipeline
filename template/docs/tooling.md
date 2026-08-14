@@ -28,49 +28,48 @@ brew install poppler
 
 ## Chrome headless export
 
-Run from the application folder unless noted.
+Run from the application folder unless noted. Resolve `pattern` and `extension` from `.career-pipeline.yml` `naming.*` (plugin `docs/config.md`).
 
 ### Cover letter (continuous — preferred)
 
-Single uninterrupted page, no pagination artifacts. Resolve the cover letter
-basename from `.career-pipeline.yml` `naming.cover_letter`:
+Single uninterrupted page, no pagination artifacts. Resolve `naming.application.cover_letter` (HTML working copy is always `{basename}.html`; print uses configured `extension`, default `pdf`):
 
 ```bash
 google-chrome --headless=new --window-size=816,900 \
-  --print-to-pdf="<cover_letter>.pdf" \
+  --print-to-pdf="<cover_letter>.<extension>" \
   --print-to-pdf-no-header --no-margins \
   "file://$PWD/<cover_letter>.html?continuous"
 ```
 
 ### Resume (from repo root)
 
-Resolve the resume basename from `naming.resume` / `naming.resume_version`:
+Resolve `naming.application.resume`:
 
 ```bash
 google-chrome --headless=new --window-size=816,900 \
-  --print-to-pdf="design/exports/<resume>.pdf" \
+  --print-to-pdf="design/exports/<resume>.<extension>" \
   --print-to-pdf-no-header --no-margins \
   "file://$PWD/design/resume.html?continuous"
 ```
 
 Use your working resume path (often copied from a pair under `design/samples/`).
 
-### Combined application PDF
+### Full package PDF
 
-Resolve cover letter, resume, and combined basenames from `naming.*`:
+Resolve cover letter, resume, and `naming.application.full_package`:
 
 ```bash
-pdfunite <cover_letter>.pdf <resume>.pdf <combined_pdf>.pdf
+pdfunite <cover_letter>.pdf <resume>.pdf <full_package>.<extension>
 ```
 
 ### Company careers page / job-site export
 
-Resolve from `naming.job_posting_export` (include `{source}` so LinkedIn,
+Resolve from `naming.application.job_post_export` (include `{source}` so LinkedIn,
 Indeed, and careers-page captures do not overwrite each other):
 
 ```bash
 google-chrome --headless=new --disable-gpu \
-  --print-to-pdf="<job_posting_export>.pdf" \
+  --print-to-pdf="<job_post_export>.<extension>" \
   --no-margins --virtual-time-budget=10000 \
   "<careers-url>"
 ```

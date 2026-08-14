@@ -13,7 +13,7 @@ disable-model-invocation: true
 
 If workspace-root `.career-pipeline.yml` is missing, **stop**. Tell the user to copy `.career-pipeline.yml.example` → `.career-pipeline.yml` and edit it (or run `career-pipeline-init` first).
 
-Prefer `career-pipeline-analyze-offer` first (`offer/offer-review.md`). If that review is missing, warn and continue only after the user confirms they already accepted.
+Prefer `career-pipeline-analyze-offer` first (`offer/` + `naming.offer.analysis`). If that review is missing, warn and continue only after the user confirms they already accepted.
 
 ## Input
 
@@ -43,7 +43,7 @@ career/<Company>/<Role>/
 
 1. Resolve `submissions/<Company>/<Role>/`. If it is missing and `career/<Company>/<Role>/` already exists, **stop** and show the career path (already accepted).
 2. Resolve start month (`YYYY-MM`), then confirm the move:
-   1. Read `offer/` (offer letter, packet files, `offer-review.md`) and extract the start / hire / first-day date when present. Convert to `YYYY-MM`.
+   1. Read `offer/` (offer letter, packet files, offer analysis from `naming.offer.analysis`) and extract the start / hire / first-day date when present. Convert to `YYYY-MM`.
    2. If none is found, ask the user for the start month.
    3. If the user does not provide one, use this month.
    If YAML has a current `end: present` job, tell them that entry’s end becomes this start month.

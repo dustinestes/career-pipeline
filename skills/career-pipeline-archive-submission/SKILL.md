@@ -18,23 +18,26 @@ If workspace-root `.career-pipeline.yml` is missing, **stop**. Tell the user to 
 | Field | Required | Notes |
 |-------|----------|-------|
 | Company + role (or submissions path) | Yes | |
-| Archive reason | No | Written to `notes.md` |
+| Archive reason | No | Written to `naming.archive.notes` (pattern + extension) |
 
 ## Output
 
 - `submissions/.archive/<Company>/<Role>/`
-- Optional `notes.md`
+- Optional notes file from `naming.archive.notes` (default `archive-notes.md`)
 
 ## Instructions
 
 1. Confirm source exists; confirm with user before moving.
-2. From job-search workspace root:
+2. Read `naming.archive.notes.pattern` and `.extension` from workspace-root `.career-pipeline.yml` (defaults: `archive-notes`, `md`).
+3. From job-search workspace root:
 
 ```bash
-bash "<path-to-this-skill>/scripts/archive-submission.sh" "<Company>" "<Job Title>" "[reason]"
+bash "<path-to-this-skill>/scripts/archive-submission.sh" "<Company>" "<Job Title>" "[reason]" "[notes-basename]" "[notes-extension]"
 ```
 
-3. Offer commit only when requested: `Archive <Company> — <Job Title>`.
+Pass the YAML pattern as the notes basename and extension as the fifth arg. When reason is empty, omit args 3–5 or pass empty reason.
+
+4. Offer commit only when requested: `Archive <Company> — <Job Title>`.
 
 ## Examples
 

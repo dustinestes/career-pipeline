@@ -18,13 +18,13 @@ Full setup order: [getting-started.md](getting-started.md).
 4. Replace salary floor and preferences with yours.
 5. Update `search.target_roles` (and optional `also_consider` / `flag` / `search_terms`).
 6. Rewrite `background` (experience, education, certifications, skills, interests, cover-letter `stories`). After you accept a job, `career-pipeline-accept-job` prepends that role here.
-7. Adjust `naming` patterns if you want different artifact basenames.
+7. Adjust `naming` patterns and extensions if you want different artifact filenames.
 8. Keep the file at the workspace root so skills and rules can find it.
 9. Browse `design/samples/`, pick a matched resume + cover letter pair, copy them to working files under `design/`, then remove `samples/` (see [getting-started.md](getting-started.md)).
 
 ## Naming patterns
 
-Patterns are basenames without extensions. Skills fill tokens such as `{firstName}`, `{companyName}`, `{shortRole}`, and `{source}`, then add `.pdf` / `.html` / `.md` as needed.
+Each artifact is `{ pattern, extension }` under nested groups (`application`, `interview`, `offer`, `archive`). Skills fill tokens such as `{firstName}`, `{companyName}`, `{roleName}`, and `{source}`, then write `{basename}.{extension}`.
 
 Filename-safe cleanup is documented in the plugin field guide: [docs/config.md](../../docs/config.md) (in a checkout of career-pipeline) or the same page on GitHub.
 

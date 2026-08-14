@@ -22,7 +22,7 @@ Workspace users: start with [template/docs/getting-started.md](../template/docs/
 | `preferences` | Work mode, location notes, company stage/risk |
 | `search` | Target roles, search terms, and optional `ignore_companies` |
 | `background` | Experience, education, skills, stories. `career-pipeline-accept-job` prepends the accepted role to `experience` and closes any `end: present` entry |
-| `naming` | Basename patterns for application artifacts |
+| `naming` | Basename patterns and extensions for tooling-created artifacts |
 
 ## Contact
 
@@ -72,28 +72,56 @@ Folder history lives under `career/<Company>/<Role>/`, not in YAML. If the scrip
 
 ## Naming patterns
 
-Patterns are **basenames only** (no directory, no extension). Skills resolve tokens, then append the format the workflow already uses (`.pdf`, `.html`, `.md`).
+Each artifact under `naming` is an object with required `pattern` (basename, no directory) and `extension` (no leading dot). Skills resolve tokens, then build `{basename}.{extension}`.
 
-| Key | Typical use |
-|-----|-------------|
-| `resume_version` | Fills `{version}` in `resume` |
-| `resume` | Export under `design/exports/` |
-| `cover_letter` | Cover letter HTML/PDF in the application folder |
-| `assessment` | Fit assessment markdown |
-| `job_posting_export` | Job-site screen capture / posting PDF |
-| `combined_pdf` | Merged cover letter + resume packet |
+| Key | Typical use | Default extension |
+|-----|-------------|-------------------|
+| `application.resume` | Export under `design/exports/` and copy into `application/` | `pdf` |
+| `application.cover_letter` | Cover letter print/export in `application/` | `pdf` |
+| `application.full_package` | Merged cover letter + resume packet | `pdf` |
+| `application.analysis` | Job-post fit analysis (`career-pipeline-analyze-job`) | `md` |
+| `application.job_post_export` | Job-site screen capture / posting export | `pdf` |
+| `interview.prep` | Prep under `interview - Nth/` | `md` |
+| `offer.analysis` | Offer packet analysis under `offer/` | `md` |
+| `archive.notes` | Optional reason file from `career-pipeline-archive-submission` | `md` |
 
 Default Jordan Hale patterns:
 
 ```yaml
 naming:
-  resume_version: "v1"
-  resume: "{firstName}{lastName}_Resume_{version}"
-  cover_letter: "{firstName}_{companyName}_CoverLetter"
-  assessment: "assessment"
-  job_posting_export: "{source}_{companyName}_{shortRole}"
-  combined_pdf: "{firstName}_{companyName}_{shortRole}"
+  application:
+    resume:
+      pattern: "{firstName}_{roleName}_Resume"
+      extension: "pdf"
+    cover_letter:
+      pattern: "{firstName}_{roleName}_CoverLetter"
+      extension: "pdf"
+    full_package:
+      pattern: "{firstName}_{roleName}_FullPackage"
+      extension: "pdf"
+    analysis:
+      pattern: "job-post-analysis"
+      extension: "md"
+    job_post_export:
+      pattern: "{source}_{companyName}_{roleName}"
+      extension: "pdf"
+  interview:
+    prep:
+      pattern: "interview-prep"
+      extension: "md"
+  offer:
+    analysis:
+      pattern: "offer-analysis"
+      extension: "md"
+  archive:
+    notes:
+      pattern: "archive-notes"
+      extension: "md"
 ```
+
+**Cover letter:** the editable HTML source is always `{basename}.html`. The configured `extension` (default `pdf`) is the print/export sibling. If `extension` is `html`, only the HTML file is required.
+
+Lead files stay `leads/<Company>.md` (path = company name) and are not under `naming`.
 
 ### Tokens
 
@@ -101,28 +129,23 @@ naming:
 |-------|--------|
 | `{firstName}` | `candidate.first_name` |
 | `{lastName}` | `candidate.last_name` |
-| `{version}` | `naming.resume_version` |
 | `{companyName}` | Active application company (filename-safe) |
-| `{shortRole}` | Shortened job title (filename-safe) |
+| `{roleName}` | Job title (filename-safe) |
 | `{source}` | Posting origin label (`LinkedIn`, `Indeed`, `Summitlane`, …) |
 
 `{source}` keeps multiple exports for the same role from overwriting each other.
 
 ### Filename-safe cleanup
 
-Apply when building `{shortRole}`, `{companyName}`, and `{source}` for filenames. One rule for Win/macOS/Linux (Windows is the strictest):
+Apply when building `{roleName}`, `{companyName}`, and `{source}` for filenames. One rule for Win/macOS/Linux (Windows is the strictest):
 
-1. Shorten the job title into `{shortRole}` first, then sanitize.
+1. Shorten the job title into `{roleName}` first, then sanitize.
 2. Replace `\ / : * ? " < > |` and ASCII control characters with `_`.
 3. Collapse whitespace and `_` runs; trim leading/trailing spaces, dots, and `_`.
 4. If the result is a Windows reserved name (`CON`, `PRN`, `AUX`, `NUL`, `COM1`–`COM9`, `LPT1`–`LPT9`), append `_role`.
 5. Prefer ASCII letters, digits, `_`, and `-` in the final token.
 
 Example: `Sr. Ops Manager (Nights) — Austin/TX` → something like `SrOpsManager_Nights_AustinTX`.
-
-### Future: per-artifact output format
-
-v1 does not nest format/extension under `naming`. Tracked as [#15](https://github.com/dustinestes/career-pipeline/issues/15).
 
 ## Validate an example
 

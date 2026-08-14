@@ -14,7 +14,7 @@ Agent asks the user. If they give a month, use it. If they proceed without one, 
 
 ## No offer review yet
 
-**Input:** User wants to accept Acme / Warehouse Supervisor but `offer/offer-review.md` is missing.
+**Input:** User wants to accept Acme / Warehouse Supervisor but `offer/offer-analysis.md` is missing.
 
 Agent warns, points at `career-pipeline-analyze-offer`, and only runs accept after the user confirms they already accepted without a review.
 

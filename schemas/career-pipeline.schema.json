@@ -217,44 +217,94 @@
     "naming": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "resume_version",
-        "resume",
-        "cover_letter",
-        "assessment",
-        "job_posting_export",
-        "combined_pdf"
-      ],
+      "required": ["application", "interview", "offer", "archive"],
+      "description": "Basename patterns and extensions for tooling-created artifacts.",
       "properties": {
-        "resume_version": {
-          "type": "string",
-          "minLength": 1,
-          "description": "Fills {version} in naming.resume."
+        "application": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "resume",
+            "cover_letter",
+            "full_package",
+            "analysis",
+            "job_post_export"
+          ],
+          "properties": {
+            "resume": {
+              "$ref": "#/$defs/artifactNaming",
+              "description": "Resume export under design/exports/ and application/."
+            },
+            "cover_letter": {
+              "$ref": "#/$defs/artifactNaming",
+              "description": "Cover letter print/export. Editable HTML source is always {basename}.html."
+            },
+            "full_package": {
+              "$ref": "#/$defs/artifactNaming",
+              "description": "Merged cover letter + resume packet."
+            },
+            "analysis": {
+              "$ref": "#/$defs/artifactNaming",
+              "description": "Job-post fit analysis from career-pipeline-analyze-job."
+            },
+            "job_post_export": {
+              "$ref": "#/$defs/artifactNaming",
+              "description": "Job-site screen capture / posting export."
+            }
+          }
         },
-        "resume": {
-          "type": "string",
-          "minLength": 1,
-          "description": "Basename pattern for the resume export (no extension)."
+        "interview": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["prep"],
+          "properties": {
+            "prep": {
+              "$ref": "#/$defs/artifactNaming",
+              "description": "Interview prep under interview - Nth/."
+            }
+          }
         },
-        "cover_letter": {
-          "type": "string",
-          "minLength": 1,
-          "description": "Basename pattern for cover letter HTML/PDF (no extension)."
+        "offer": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["analysis"],
+          "properties": {
+            "analysis": {
+              "$ref": "#/$defs/artifactNaming",
+              "description": "Offer packet analysis under offer/."
+            }
+          }
         },
-        "assessment": {
+        "archive": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["notes"],
+          "properties": {
+            "notes": {
+              "$ref": "#/$defs/artifactNaming",
+              "description": "Optional reason file written by career-pipeline-archive-submission."
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "artifactNaming": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pattern", "extension"],
+      "properties": {
+        "pattern": {
           "type": "string",
           "minLength": 1,
-          "description": "Basename pattern for assessment markdown (no extension)."
+          "description": "Basename pattern (no directory, no extension). May include tokens such as {firstName}, {roleName}."
         },
-        "job_posting_export": {
+        "extension": {
           "type": "string",
           "minLength": 1,
-          "description": "Basename pattern for job-site screen captures / posting PDFs (no extension)."
-        },
-        "combined_pdf": {
-          "type": "string",
-          "minLength": 1,
-          "description": "Basename pattern for the merged application packet (no extension)."
+          "pattern": "^[A-Za-z0-9]+$",
+          "description": "File extension without a leading dot (e.g. pdf, md, html)."
         }
       }
     }

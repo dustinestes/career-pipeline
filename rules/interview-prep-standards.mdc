@@ -1,12 +1,12 @@
 ---
 description: Interview prep metadata header, company research requirements, and equity stance
-globs: "**/interview-prep.md"
+globs: "**/interview*/**/*.md,**/interview-prep*.md"
 alwaysApply: false
 ---
 
 # Interview Prep Standards
 
-Every `interview-prep.md` opens with this metadata header:
+Every interview prep file (filename from `.career-pipeline.yml` `naming.interview.prep`, default `interview-prep.md`) opens with this metadata header:
 
 ```markdown
 **Company:** <Company>
@@ -34,4 +34,4 @@ If equity/RSU language appears in posting or offer material, quote verbatim. App
 
 ## Early-round extras
 
-Include salary benchmarking (sources noted, not presented as precise) and prepared strength/gap responses from the assessment under `application/` (basename from `naming.assessment`).
+Include salary benchmarking (sources noted, not presented as precise) and prepared strength/gap responses from the analysis under `application/` (from `naming.application.analysis`).
