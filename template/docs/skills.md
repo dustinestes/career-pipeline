@@ -12,6 +12,8 @@ Natural language works too (“analyze this posting”, “set up career-pipelin
 
 ## Entrypoints
 
+End-to-end flow diagram (searching yourself vs personal career agent): [README Flow](../README.md#flow).
+
 ### Lead-sourced (optional)
 
 1. Run `career-pipeline-source-leads` ad-hoc or on a schedule (e.g. Claude Desktop scheduled task).

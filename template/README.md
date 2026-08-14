@@ -37,6 +37,67 @@ Job-search workspace used with the **career-pipeline** plugin (skills + rules li
 
 Walkthrough: [docs/getting-started.md](docs/getting-started.md). Skill catalog: [docs/skills.md](docs/skills.md).
 
+## Flow
+
+Two ways into the same pipeline: **searching yourself** (paste a posting into analyze) or a **personal career agent** (`source-leads` ad-hoc or on a host schedule, then feed roles into analyze). Scheduling is a host feature, not a separate skill.
+
+```mermaid
+flowchart TD
+  subgraph setup [Setup]
+    initNode["Init workspace<br/>skill: career-pipeline-init<br/>out: folders + .career-pipeline.yml.example"]
+    configNode["Configure persona<br/>manual: copy/edit .career-pipeline.yml<br/>plus design HTML pre-work"]
+    initNode --> configNode
+  end
+
+  subgraph findRoles [Find roles]
+    selfFind["Searching yourself<br/>you already have a posting URL"]
+    agentFind["Personal career agent<br/>skill: career-pipeline-source-leads<br/>out: leads/Company.md<br/>ad-hoc or host schedule"]
+    archiveLead["Stop watching company<br/>skill: career-pipeline-archive-lead<br/>out: leads/.archive + ignore_companies"]
+    agentFind -.-> archiveLead
+  end
+
+  configNode --> selfFind
+  configNode --> agentFind
+
+  assess["Assess fit<br/>skill: career-pipeline-analyze-job<br/>out: submissions/Company/Role/analysis"]
+  selfFind -->|"paste URL"| assess
+  agentFind -->|"feed roles from lead"| assess
+
+  subgraph lifecycle [Application lifecycle]
+    applyDecide{"Apply or pass?"}
+    buildApp["Build application<br/>skill: career-pipeline-create-application<br/>out: application/ cover letter PDFs"]
+    prepLoop["Interview prep<br/>skill: career-pipeline-create-interview-prep<br/>out: interview - Nth/"]
+    reviewOffer["Review offer<br/>skill: career-pipeline-analyze-offer<br/>out: offer/analysis"]
+    offerDecide{"Accept or decline?"}
+    archiveSub["Close role<br/>skill: career-pipeline-archive-submission<br/>out: submissions/.archive"]
+    deleteSub["Hard delete<br/>skill: career-pipeline-delete-submission<br/>out: folder removed"]
+    emailNote["Email optional<br/>manual export into email/<br/>no mailbox automation"]
+  end
+
+  assess --> applyDecide
+  applyDecide -->|apply| buildApp
+  applyDecide -->|pass| archiveSub
+  buildApp --> prepLoop
+  prepLoop -->|"another round"| prepLoop
+  prepLoop --> reviewOffer
+  buildApp -.-> emailNote
+  reviewOffer --> offerDecide
+  offerDecide -->|decline| archiveSub
+  archiveSub -.->|"instead of archive"| deleteSub
+
+  subgraph careerHist [Career history]
+    acceptJob["Accept role<br/>skill: career-pipeline-accept-job<br/>out: career/Company/Role + YAML experience"]
+  end
+
+  offerDecide -->|accept| acceptJob
+```
+
+| Folder | Role |
+|--------|------|
+| `leads/` | Company research from lead sourcing |
+| `submissions/` | Active applications |
+| `career/` | Accepted roles (employment history) |
+
 ## Skills (summary)
 
 | Group | Invoke |
@@ -50,7 +111,7 @@ The `career-pipeline-` prefix is intentional for `/` popup discoverability. Deta
 ## Docs
 
 - [docs/getting-started.md](docs/getting-started.md) — Persona YAML + resume HTML pre-work
-- [docs/skills.md](docs/skills.md) — Full skill tables and entrypoints
+- [docs/skills.md](docs/skills.md) — Skill tables (Invoke / Description / Input / Output)
 - [docs/customization.md](docs/customization.md) — YAML profile checklist
 - [docs/tooling.md](docs/tooling.md) — Optional Chrome headless PDF + `pdfunite`
 - [design/README.md](design/README.md) — Sample templates

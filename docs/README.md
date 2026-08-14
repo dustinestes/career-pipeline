@@ -34,7 +34,7 @@ Index of documentation for the career-pipeline Cursor / Agent plugin.
 
 Workspace (consumer) docs ship under [`template/docs/`](../template/docs/) and are copied by `career-pipeline-init`.
 
-Root install happy path: [README](../README.md).
+Root install happy path and end-to-end **Flow** diagram: [README](../README.md#flow).
 
 <br>
 

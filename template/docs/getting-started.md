@@ -41,9 +41,11 @@ Field checklist: [customization.md](customization.md). Skill catalog: [skills.md
 
 ## 3. Two ways to find roles
 
-**Lead-sourced:** `/career-pipeline-source-leads` (or a scheduled host task) → pass roles into `/career-pipeline-analyze-job`.
+**Searching yourself:** paste a job URL into `/career-pipeline-analyze-job`.
 
-**Direct:** paste a job URL into `/career-pipeline-analyze-job`.
+**Personal career agent:** `/career-pipeline-source-leads` (or a scheduled host task) → pass roles into `/career-pipeline-analyze-job`.
+
+Full picture: [README Flow](../README.md#flow).
 
 Then `/career-pipeline-create-application` for artifacts. Prep rounds with `/career-pipeline-create-interview-prep`. After an offer, `/career-pipeline-analyze-offer`; if you accept, `/career-pipeline-accept-job` moves the role into `career/`.
 

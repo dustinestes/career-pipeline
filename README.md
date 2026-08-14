@@ -87,18 +87,72 @@ Field guide: [docs/config.md](docs/config.md).
 
 List on [cursor.directory](https://cursor.directory) when ready. Steps: [docs/publish.md](docs/publish.md). This project does not target Cursor Marketplace submission.
 
+## Flow
+
+Two ways into the same pipeline: **searching yourself** (paste a posting into analyze) or a **personal career agent** (`source-leads` ad-hoc or on a host schedule, then feed roles into analyze). Scheduling is a host feature, not a separate skill.
+
+```mermaid
+flowchart TD
+  subgraph setup [Setup]
+    initNode["Init workspace<br/>skill: career-pipeline-init<br/>out: folders + .career-pipeline.yml.example"]
+    configNode["Configure persona<br/>manual: copy/edit .career-pipeline.yml<br/>plus design HTML pre-work"]
+    initNode --> configNode
+  end
+
+  subgraph findRoles [Find roles]
+    selfFind["Searching yourself<br/>you already have a posting URL"]
+    agentFind["Personal career agent<br/>skill: career-pipeline-source-leads<br/>out: leads/Company.md<br/>ad-hoc or host schedule"]
+    archiveLead["Stop watching company<br/>skill: career-pipeline-archive-lead<br/>out: leads/.archive + ignore_companies"]
+    agentFind -.-> archiveLead
+  end
+
+  configNode --> selfFind
+  configNode --> agentFind
+
+  assess["Assess fit<br/>skill: career-pipeline-analyze-job<br/>out: submissions/Company/Role/analysis"]
+  selfFind -->|"paste URL"| assess
+  agentFind -->|"feed roles from lead"| assess
+
+  subgraph lifecycle [Application lifecycle]
+    applyDecide{"Apply or pass?"}
+    buildApp["Build application<br/>skill: career-pipeline-create-application<br/>out: application/ cover letter PDFs"]
+    prepLoop["Interview prep<br/>skill: career-pipeline-create-interview-prep<br/>out: interview - Nth/"]
+    reviewOffer["Review offer<br/>skill: career-pipeline-analyze-offer<br/>out: offer/analysis"]
+    offerDecide{"Accept or decline?"}
+    archiveSub["Close role<br/>skill: career-pipeline-archive-submission<br/>out: submissions/.archive"]
+    deleteSub["Hard delete<br/>skill: career-pipeline-delete-submission<br/>out: folder removed"]
+    emailNote["Email optional<br/>manual export into email/<br/>no mailbox automation"]
+  end
+
+  assess --> applyDecide
+  applyDecide -->|apply| buildApp
+  applyDecide -->|pass| archiveSub
+  buildApp --> prepLoop
+  prepLoop -->|"another round"| prepLoop
+  prepLoop --> reviewOffer
+  buildApp -.-> emailNote
+  reviewOffer --> offerDecide
+  offerDecide -->|decline| archiveSub
+  archiveSub -.->|"instead of archive"| deleteSub
+
+  subgraph careerHist [Career history]
+    acceptJob["Accept role<br/>skill: career-pipeline-accept-job<br/>out: career/Company/Role + YAML experience"]
+  end
+
+  offerDecide -->|accept| acceptJob
+```
+
+| Folder | Role |
+|--------|------|
+| `leads/` | Company research from lead sourcing |
+| `submissions/` | Active applications |
+| `career/` | Accepted roles (employment history) |
+
 ## Skills
 
 Skill names use a `career-pipeline-` **prefix on purpose**: a discoverability convention so `/` in the AI tool popup clusters this plugin’s commands and reduces collisions with other packs. Not a host requirement. Natural language also works.
 
-Full tables (Invoke / Description / Input / Output), entrypoints, and folder layout: **[docs/skills.md](docs/skills.md)** (mirrored into workspace `docs/skills.md` after init).
-
-### Entrypoints
-
-| Route | How |
-|-------|-----|
-| Lead-sourced | `/career-pipeline-source-leads` (ad-hoc or scheduled) → feed roles into `/career-pipeline-analyze-job` |
-| Direct posting | Paste a job URL into `/career-pipeline-analyze-job` |
+Full tables (Invoke / Description / Input / Output) and folder layout: **[docs/skills.md](docs/skills.md)** (mirrored into workspace `docs/skills.md` after init).
 
 ### Quick catalog
 
