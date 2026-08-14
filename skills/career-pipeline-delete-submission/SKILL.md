@@ -11,7 +11,7 @@ disable-model-invocation: true
 
 ## Prerequisites
 
-If workspace-root `.career-pipeline.yml` is missing, **stop**. Point at example / init.
+If workspace-root `.career-pipeline.yml` is missing, **stop**. Tell the user to copy `.career-pipeline.yml.example` → `.career-pipeline.yml` and edit it (or run `career-pipeline-init` first).
 
 ## Input
 

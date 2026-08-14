@@ -11,7 +11,7 @@ disable-model-invocation: true
 
 ## Prerequisites
 
-If workspace-root `.career-pipeline.yml` is missing, **stop**. Point at example / init.
+If workspace-root `.career-pipeline.yml` is missing, **stop**. Tell the user to copy `.career-pipeline.yml.example` → `.career-pipeline.yml` and edit it (or run `career-pipeline-init` first).
 
 Prefer an existing application under `submissions/<Company>/<Role>/` with `application/` artifacts (run `career-pipeline-create-application` first if missing).
 
@@ -32,7 +32,7 @@ Prefer an existing application under `submissions/<Company>/<Role>/` with `appli
 
 ## Instructions
 
-1. Resolve submission path. Ensure `email/` and `application/` exist (create-application); do not invent the old 14-folder skeleton. Read `naming.interview.prep` from YAML.
+1. Resolve submission path. Ensure `email/` and `application/` exist (`career-pipeline-create-application`). Read `naming.interview.prep` from YAML.
 2. Map round → folder name: `interview - 1st`, `interview - 2nd`, … Create **only that** folder if missing.
 3. Read analysis and prior prep under `application/` and earlier `interview - *` folders. Read invites from `email/` when present (user-exported mail only).
 4. Write the prep file (`pattern` + `.` + `extension`) with metadata header (round + audience), company research, strengths/gaps, questions, salary notes per standards.
@@ -42,3 +42,4 @@ Prefer an existing application under `submissions/<Company>/<Role>/` with `appli
 
 - Interview prep standards: career-pipeline `interview-prep-standards` rule
 - Workspace config: `.career-pipeline.yml`
+- Next step (offer): `career-pipeline-analyze-offer`

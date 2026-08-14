@@ -25,7 +25,7 @@ Process **each** selected role separately (batch from a lead file is fine).
 
 ## Output
 
-- `submissions/<Company>/<Role>/<naming.application.analysis>` (at role root until create-application promotes it; filename = `pattern` + `.` + `extension`)
+- `submissions/<Company>/<Role>/<naming.application.analysis>` (at role root until `career-pipeline-create-application` promotes it; filename = `pattern` + `.` + `extension`)
 - Apply / pass guidance in chat; offer handoff to `career-pipeline-create-application` on proceed
 
 ## Instructions

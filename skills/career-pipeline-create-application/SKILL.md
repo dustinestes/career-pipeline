@@ -64,3 +64,4 @@ Task Progress:
 - Skeleton: [scripts/create-skeleton.sh](scripts/create-skeleton.sh)
 - Tooling: workspace `docs/tooling.md`
 - Config: plugin `docs/config.md`
+- Next step: `career-pipeline-create-interview-prep` (later: `career-pipeline-analyze-offer`)
