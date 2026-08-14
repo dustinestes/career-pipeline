@@ -28,14 +28,14 @@ Prefer an existing application under `submissions/<Company>/<Role>/` with `appli
 ## Output
 
 - Folder `submissions/<Company>/<Role>/interview - <Nth>/` created if missing (e.g. `interview - 1st`)
-- `interview-prep.md` in that folder per career-pipeline `interview-prep-standards`
+- `<naming.interview.prep>` in that folder (pattern + extension; default `interview-prep.md`) per career-pipeline `interview-prep-standards`
 
 ## Instructions
 
-1. Resolve submission path. Ensure `email/` and `application/` exist (create-application); do not invent the old 14-folder skeleton.
+1. Resolve submission path. Ensure `email/` and `application/` exist (create-application); do not invent the old 14-folder skeleton. Read `naming.interview.prep` from YAML.
 2. Map round → folder name: `interview - 1st`, `interview - 2nd`, … Create **only that** folder if missing.
-3. Read assessment and prior prep under `application/` and earlier `interview - *` folders. Read invites from `email/` when present (user-exported mail only).
-4. Write `interview-prep.md` with metadata header (round + audience), company research, strengths/gaps, questions, salary notes per standards.
+3. Read analysis and prior prep under `application/` and earlier `interview - *` folders. Read invites from `email/` when present (user-exported mail only).
+4. Write the prep file (`pattern` + `.` + `extension`) with metadata header (round + audience), company research, strengths/gaps, questions, salary notes per standards.
 5. Offer commit only when requested.
 
 ## Additional resources

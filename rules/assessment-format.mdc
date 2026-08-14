@@ -1,13 +1,13 @@
 ---
-description: Structured fit assessment format for assessment markdown files
-globs: "**/assessment*.md"
+description: Structured fit analysis format for job-post analysis markdown files
+globs: "**/job-post-analysis*.md,**/submissions/*/*/*.md,**/application/**/*.md"
 alwaysApply: false
 ---
 
 # Assessment Format
 
-Use this structure for every assessment markdown file (basename from
-`.career-pipeline.yml` `naming.assessment`, default `assessment.md`):
+Use this structure for every job-post analysis markdown file (filename from
+`.career-pipeline.yml` `naming.application.analysis`, default `job-post-analysis.md`):
 
 ```markdown
 # Fit Assessment — <Company>

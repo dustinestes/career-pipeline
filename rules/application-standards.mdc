@@ -30,21 +30,21 @@ When building or updating resume / cover letter HTML from `.career-pipeline.yml`
 Under `submissions/<Company>/<Role>/`:
 
 - `email/` — user-exported mail only (no in-plugin mailbox sync)
-- `application/` — assessment, cover letter, resume, combined PDF, posting exports
+- `application/` — analysis, cover letter, resume, full package, job post exports
 - `interview - 1st`, `interview - 2nd`, … — created on demand by `career-pipeline-create-interview-prep`
-- `offer/` — created on demand by `career-pipeline-analyze-offer` (user packet + `offer-review.md`)
+- `offer/` — created on demand by `career-pipeline-analyze-offer` (user packet + offer analysis)
 
 After `career-pipeline-accept-job`, that tree lives under `career/<Company>/<Role>/` with `onboarding/`, `relocation/`, `reviews/`, `issues/`, and `leaving/` added. Do not keep a duplicate under `submissions/`.
 
 ## Resume versioning
 
-- Copy the latest PDF from `design/exports/`
-- Resolve the resume basename from `naming.resume` (and `naming.resume_version`); preserve that filename exactly when copying into `application/`
+- Copy the latest export from `design/exports/`
+- Resolve the resume filename from `naming.application.resume` (`pattern` + `extension`); preserve that filename exactly when copying into `application/`
 - Never rename the resume when copying into application folders
 
 ## Artifact naming
 
-Resolve basenames from `.career-pipeline.yml` `naming.*` patterns (tokens and filename-safe cleanup: plugin `docs/config.md`). Append the format the workflow already uses (`.pdf`, `.html`, `.md`).
+Resolve each artifact from `.career-pipeline.yml` `naming.*.pattern` and `naming.*.extension` (tokens and filename-safe cleanup: plugin `docs/config.md`). Filename = `{resolved-pattern}.{extension}`. Cover letter editable HTML is always `{basename}.html`; configured `extension` is the print/export sibling.
 
 ## Commits
 

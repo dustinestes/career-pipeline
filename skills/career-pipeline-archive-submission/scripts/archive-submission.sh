@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # Move a closed application to submissions/.archive/.
-# Usage: archive-submission.sh "<company>" "<job title>" [reason]
+# Usage: archive-submission.sh "<company>" "<job title>" [reason] [notes-basename] [notes-extension]
 #
 # Workspace root is the job-search cwd (or its git toplevel), not the skill
 # install path. Optional override: CAREER_PIPELINE_ROOT.
+# Notes filename defaults match naming.archive.notes (archive-notes.md).
 
 set -euo pipefail
 
@@ -23,9 +24,12 @@ REPO_ROOT="$(resolve_workspace_root)"
 SUBMISSIONS="$REPO_ROOT/submissions"
 ARCHIVE="$SUBMISSIONS/.archive"
 
-COMPANY="${1:?Usage: archive-submission.sh <company> <job title> [reason]}"
-JOB_TITLE="${2:?Usage: archive-submission.sh <company> <job title> [reason]}"
+COMPANY="${1:?Usage: archive-submission.sh <company> <job title> [reason] [notes-basename] [notes-extension]}"
+JOB_TITLE="${2:?Usage: archive-submission.sh <company> <job title> [reason] [notes-basename] [notes-extension]}"
 REASON="${3:-}"
+NOTES_BASENAME="${4:-archive-notes}"
+NOTES_EXT="${5:-md}"
+NOTES_EXT="${NOTES_EXT#.}"
 
 SRC="$SUBMISSIONS/$COMPANY/$JOB_TITLE"
 DEST="$ARCHIVE/$COMPANY/$JOB_TITLE"
@@ -66,8 +70,9 @@ if [[ -d "$COMPANY_DIR" ]]; then
 fi
 
 if [[ -n "$REASON" ]]; then
-  printf '%s\n' "# Archive notes" "" "$REASON" > "$DEST/notes.md"
-  echo "Wrote notes.md"
+  NOTES_FILE="$DEST/${NOTES_BASENAME}.${NOTES_EXT}"
+  printf '%s\n' "# Archive notes" "" "$REASON" > "$NOTES_FILE"
+  echo "Wrote $(basename "$NOTES_FILE")"
 fi
 
 echo "Archived: $SRC"

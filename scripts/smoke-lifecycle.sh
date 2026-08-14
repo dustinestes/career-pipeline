@@ -97,20 +97,20 @@ COMPANY="SmokeCo"
 ROLE="Warehouse Supervisor"
 APP="$WS/submissions/$COMPANY/$ROLE"
 mkdir -p "$APP"
-cat > "$APP/assessment.md" <<'EOF'
-# Assessment — SmokeCo / Warehouse Supervisor
+cat > "$APP/job-post-analysis.md" <<'EOF'
+# Analysis — SmokeCo / Warehouse Supervisor
 
 **Recommendation:** Proceed (smoke test)
 
 ## Fit
-Synthetic assessment for career-pipeline smoke-lifecycle.
+Synthetic analysis for career-pipeline smoke-lifecycle.
 EOF
-pass "analyze-style assessment at role root"
+pass "analyze-style analysis at role root"
 
 bash "$ROOT/skills/career-pipeline-create-application/scripts/create-skeleton.sh" "$APP"
 [[ -d "$APP/email" && -d "$APP/application" ]] || fail "skeleton missing email/ or application/"
-mv "$APP/assessment.md" "$APP/application/assessment.md"
-pass "create-application skeleton + assessment promoted"
+mv "$APP/job-post-analysis.md" "$APP/application/job-post-analysis.md"
+pass "create-application skeleton + analysis promoted"
 
 # Interview prep folder on demand
 mkdir -p "$APP/interview - 1st"
@@ -119,7 +119,7 @@ pass "create-interview-prep folder shape"
 
 # Offer folder on demand
 mkdir -p "$APP/offer"
-echo "# Offer review (smoke)" > "$APP/offer/offer-review.md"
+echo "# Offer analysis (smoke)" > "$APP/offer/offer-analysis.md"
 pass "analyze-offer folder shape"
 
 # --- 4. PDF export (Chrome + pdfunite) ---
@@ -205,7 +205,7 @@ CAREER_ROLE="$WS/career/$COMPANY/$ROLE"
   || fail "career skeleton missing offer/onboarding/relocation"
 [[ -d "$CAREER_ROLE/reviews" && -d "$CAREER_ROLE/issues" && -d "$CAREER_ROLE/leaving" ]] \
   || fail "career skeleton missing reviews/issues/leaving"
-[[ -f "$CAREER_ROLE/offer/offer-review.md" ]] || fail "moved offer-review.md missing"
+[[ -f "$CAREER_ROLE/offer/offer-analysis.md" ]] || fail "moved offer-analysis.md missing"
 [[ -d "$CAREER_ROLE/application" && -d "$CAREER_ROLE/interview - 1st" ]] \
   || fail "moved application/ or interview folder missing"
 grep -q "employer: SmokeCo" "$WS/.career-pipeline.yml" || fail "YAML experience not prepended"
@@ -220,7 +220,7 @@ ARCHIVE_COMPANY="ArchiveCo"
 ARCHIVE_ROLE="Inventory Lead"
 ARCHIVE_APP="$WS/submissions/$ARCHIVE_COMPANY/$ARCHIVE_ROLE"
 mkdir -p "$ARCHIVE_APP/application"
-echo "# Archive smoke" > "$ARCHIVE_APP/application/assessment.md"
+echo "# Archive smoke" > "$ARCHIVE_APP/application/job-post-analysis.md"
 (
   cd "$WS"
   bash "$ROOT/skills/career-pipeline-archive-submission/scripts/archive-submission.sh" \
@@ -228,7 +228,7 @@ echo "# Archive smoke" > "$ARCHIVE_APP/application/assessment.md"
 )
 [[ -d "$WS/submissions/.archive/$ARCHIVE_COMPANY/$ARCHIVE_ROLE" ]] || fail "archive destination missing"
 [[ ! -d "$ARCHIVE_APP" ]] || fail "live submission should be gone after archive"
-[[ -f "$WS/submissions/.archive/$ARCHIVE_COMPANY/$ARCHIVE_ROLE/notes.md" ]] || fail "archive notes.md missing"
+[[ -f "$WS/submissions/.archive/$ARCHIVE_COMPANY/$ARCHIVE_ROLE/archive-notes.md" ]] || fail "archive-notes.md missing"
 pass "archive-submission"
 
 # --- 7. Archive lead (ignore_companies) ---

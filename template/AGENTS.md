@@ -23,7 +23,7 @@ Require workspace-root [`.career-pipeline.yml`](.career-pipeline.yml). If missin
 
 ## Standards
 
-Career-pipeline plugin rules — assessment format, offer review, cover letter, interview prep, application standards.
+Career-pipeline plugin rules — analysis format, offer review, cover letter, interview prep, application standards.
 
 ## Human docs
 
