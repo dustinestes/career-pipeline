@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Toggle local Cursor plugin install for this checkout (no MCP rewriting).
+# Toggle local Cursor plugin install for this checkout.
 #
 #   ./scripts/dev-mode.sh status
 #   ./scripts/dev-mode.sh link      # ~/.cursor/plugins/local/career-pipeline-dev
@@ -40,13 +40,13 @@ status() {
   if [[ -e "$PLUGIN_LINK" ]]; then
     echo "Developer link:  $PLUGIN_LINK → $(resolve_link "$PLUGIN_LINK")"
     if points_here "$PLUGIN_LINK"; then
-      echo "Mode:            developer (career-pipeline-dev → this checkout)"
+      echo "Mode:            linked (career-pipeline-dev → this checkout)"
     else
       echo "Mode:            mixed (career-pipeline-dev points elsewhere)"
     fi
   else
     echo "Developer link:  (missing) $PLUGIN_LINK"
-    echo "Mode:            consumer-like (no career-pipeline-dev link)"
+    echo "Mode:            unlinked (no career-pipeline-dev link)"
   fi
   if [[ -e "$LEGACY_LINK" ]]; then
     echo "Legacy link:     $LEGACY_LINK → $(resolve_link "$LEGACY_LINK")"
@@ -79,7 +79,7 @@ unlink() {
     rm -f "$LEGACY_LINK"
     echo "Removed legacy $LEGACY_LINK (pointed at this checkout)"
   fi
-  echo "Reload Cursor for consumer-like / Directory-installed testing."
+  echo "Reload Cursor. Then install from Directory or /add-plugin to test without a local -dev symlink."
 }
 
 case "$cmd" in

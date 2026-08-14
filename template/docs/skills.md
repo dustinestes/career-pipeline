@@ -79,7 +79,7 @@ Lowercase names; related interview rounds share the `interview -` taxonomy prefi
 
 **Offer:** drop offer letter, benefits, and equity docs into `offer/`, then run `career-pipeline-analyze-offer`. On proceed → `career-pipeline-accept-job`; on decline → `career-pipeline-archive-submission`.
 
-**Email:** export/print mail into `email/` yourself. Automating every mailbox provider is out of scope; other plugins/MCPs may write into this layout if you want.
+**Email:** export/print mail into `email/` yourself. Automating every mailbox provider is out of scope; other plugins or tools may write into this layout if you want.
 
 ### Career history (after accept)
 

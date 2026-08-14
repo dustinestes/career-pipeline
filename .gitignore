@@ -4,10 +4,12 @@ node_modules/
 *.log
 .env
 .env.*
-!.env.example
 
-# Local MCP wiring (see .cursor/mcp.json.example)
+# Local personal tooling (not plugin payload)
+.clockify.yml
+.clockify/
 .cursor/mcp.json
-
-# Local Clockify skill symlinks for stress-testing (not part of this plugin)
+.cursor/mcp.json.example
+.cursor/hooks.json
+.cursor/rules/clockify-time.mdc
 .cursor/skills/clockify-*
