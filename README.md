@@ -9,6 +9,15 @@
 
 <br>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/status-pre--release-1A1A1A?style=flat-square&labelColor=C4C4C4" alt="Pre-release">
+  <img src="https://img.shields.io/badge/version-0.1.0-1A1A1A?style=flat-square&labelColor=C4C4C4" alt="version 0.1.0">
+  <img src="https://img.shields.io/badge/license-MIT-1A1A1A?style=flat-square&labelColor=C4C4C4" alt="MIT">
+  <img src="https://img.shields.io/badge/stack-Agent%20Skills%20%2F%20Cursor%20Plugin-1A1A1A?style=flat-square&labelColor=C4C4C4" alt="Agent Skills / Cursor Plugin">
+</p>
+
+<br>
+
 ---
 
 A personal career agent for managing every milestone throughout your career:

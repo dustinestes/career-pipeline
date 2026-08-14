@@ -9,6 +9,14 @@
 
 <br>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/workspace-scaffold-1A1A1A?style=flat-square&labelColor=C4C4C4" alt="Workspace scaffold">
+  <img src="https://img.shields.io/badge/requires-career--pipeline%20plugin-1A1A1A?style=flat-square&labelColor=C4C4C4" alt="Requires career-pipeline plugin">
+  <img src="https://img.shields.io/badge/license-MIT-1A1A1A?style=flat-square&labelColor=C4C4C4" alt="MIT">
+</p>
+
+<br>
+
 ---
 
 A personal career agent for managing every milestone throughout your career:

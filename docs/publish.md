@@ -14,6 +14,7 @@ How this plugin is meant to be discovered. **cursor.directory only** — this pr
 
 - [Contents](#contents)
 - [Before you submit](#before-you-submit)
+- [Versioning and Releases](#versioning-and-releases)
 - [cursor.directory](#cursordirectory)
 - [GitHub topics](#github-topics)
 - [Local vs published id](#local-vs-published-id)
@@ -35,11 +36,39 @@ How this plugin is meant to be discovered. **cursor.directory only** — this pr
 
 <br>
 
+## Versioning and Releases
+
+Plugin version lives in both manifests. Keep them identical:
+
+- [`.cursor-plugin/plugin.json`](../.cursor-plugin/plugin.json) (Cursor Plugin)
+- [`plugin.json`](../plugin.json) (Agent Plugins portable)
+
+When you cut a release:
+
+1. Bump `version` in both files to the same semver (`X.Y.Z`)
+2. Update the static version badge on the root README if it still mirrors the manifest
+3. Merge to `main`, then tag `vX.Y.Z` and publish a GitHub Release with notes (`gh release create vX.Y.Z`)
+4. Optionally maintain a `CHANGELOG.md` so release notes are drafted from a running log
+
+GitHub Releases are for humans: changelog, support (“which version?”), and a clear ship point. They do **not** push updates into [cursor.directory](https://cursor.directory) or Cursor Marketplace.
+
+This project does not target Marketplace. Directory discovery is a separate, manual step (submit the repo URL once; any later re-crawl is not driven by tags or Actions). Personal installs via `/add-plugin` with a GitHub URL can also pin to an old commit, so keeping `plugin.json` version accurate still matters for support even when Directory is the front door.
+
+There is no GitHub Action today that syncs Releases to Directory. CI smoke ([#53](https://github.com/dustinestes/career-pipeline/issues/53)) and release ritual ([#54](https://github.com/dustinestes/career-pipeline/issues/54)) are follow-ups; until then, run `./scripts/smoke-lifecycle.sh` before you tag.
+
+<br>
+
+---
+
+<br>
+
 ## cursor.directory
 
 1. Confirm skills under `skills/*/SKILL.md` and rules under `rules/*.mdc` (plugin manifest points at those paths)
 2. Submit at https://cursor.directory/plugins/new when ready
 3. Update profile / showcase links from in-progress to live ([github-showcase.md](./github-showcase.md))
+
+Cutting a GitHub Release does not update the Directory listing. After the listing is live, treat Directory refreshes as manual if the site offers them; otherwise re-submit or wait for their crawl.
 
 Tracked separately: issue [#9](https://github.com/dustinestes/career-pipeline/issues/9).
 
