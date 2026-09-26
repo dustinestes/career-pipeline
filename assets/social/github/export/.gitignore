@@ -1,0 +1,3 @@
+# Headless capture output (PNG). Keep the directory; ignore the files.
+*
+!.gitignore

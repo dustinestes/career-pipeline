@@ -103,6 +103,9 @@ Resume and cover letter samples pick their own type per design pair. Those faces
 | [`assets/lockups/lockup-horizontal-paper.svg`](../assets/lockups/lockup-horizontal-paper.svg) | Footer lockup, dark |
 | [`assets/lockups/lockup-hero-ink.svg`](../assets/lockups/lockup-hero-ink.svg) | Plugin and consumer README hero, light (Space Grotesk wordmark + Archivo tagline) |
 | [`assets/lockups/lockup-hero-paper.svg`](../assets/lockups/lockup-hero-paper.svg) | Plugin and consumer README hero, dark |
+| [`assets/social/github/career-pipeline-og.html`](../assets/social/github/career-pipeline-og.html) | GitHub Social preview design source (1280×640). Open in a browser to iterate; `bash assets/social/github/export-og.sh both` writes dark and light PNGs |
+| [`assets/social/github/career-pipeline-og.png`](../assets/social/github/career-pipeline-og.png) | Exported Social preview (dark; default for GitHub) |
+| [`assets/social/github/career-pipeline-og-light.png`](../assets/social/github/career-pipeline-og-light.png) | Exported Social preview (light) |
 
 The mark is the pipeline path and three milestone dots with no app square. Lockups pair that mark with the Career Pipeline wordmark. Horizontal lockups are icon plus wordmark only. Hero lockups add the outlined tagline; footer tagline is HTML, right-aligned beside the horizontal lockup.
 
